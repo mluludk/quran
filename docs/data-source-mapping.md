@@ -12,7 +12,7 @@
 | Word-by-word Indonesian (`id`) | Quran.com API v4 / QUL (`https://api.quran.com/api/v4`, `language=id`) | JSON per verse/word with `location` (`surah:ayah:word`), `char_type_name`, `translation.text` (`indonesian`) | **Verified** (data & `location` key align with `words.csv`) |
 | Morphology (Root, Lemma, POS, Segments) | `mustafa0x/quran-morphology` (fork of Quranic Arabic Corpus v0.4) — https://github.com/mustafa0x/quran-morphology | `quran-morphology.txt` TSV with `surah:ayah:word:segment`, Arabic segment, POS, `ROOT:...`, `LEM:...`, grammatical tags | **Verified** (segment key aligns with `location`; **GNU GPL** upstream) |
 | Quran text (reference / fallback) | Tanzil — https://tanzil.net/docs/Text_License | Verified Uthmani/Simple text | **Verified** (CC BY 3.0, verbatim only) |
-| I‘rab (Nahwu) | Classical & contemporary works (e.g. Muhyiddin Darwish, Zakariya Da‘as, or open syntactic treebanks) | Grammatical role, status, sign, amil, and syntactic relations (separate from QAC morphology) | Pending (M4) |
+| I‘rab (Nahwu) | **MASAQ v6** (`10.17632/9yvrzxktmr.6`, Mendeley Data) & **NoorBayan/Quranic** (MIT) | `MASAQ.csv` (`Sura_No,Verse_No,Word_No,Segment_No`, `Invariable_Declinable`, `Syntactic_Role`, `Possessive_Construct`, `Case_Mood`, `Case_Mood_Marker`, `Phrase`, `Phrasal_Function`) — direct 1:1 segment key alignment | **Verified** (MASAQ v6 primary; NoorBayan MIT secondary for treebank) |
 
 ## 2. Audit checklist per source
 

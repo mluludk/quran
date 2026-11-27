@@ -38,6 +38,8 @@ A repository license may not cover every bundled data file, font, translation, o
 | **Quranic Arabic Corpus / `mustafa0x/quran-morphology`** | **GNU GPL** (verbatim copy/attribution required; strong copyleft) | Distributing GPL dataset inside a closed-source app or bundling may trigger GPL obligations | Either open-source the app/dataset integration under GPL-compatible terms, obtain commercial permission, or replace with non-GPL morphology source |
 | **Tanzil Quran Text** (`tanzil.net`) | **CC BY 3.0** (verbatim text only, no alterations) | Allowed for web & mobile with attribution + link to `tanzil.net` | Add mandatory copyright notice & link in app/web footer |
 | **Quran.com API v4 / QUL Indonesian WBW** | Platform-hosted open Islamic data; some individual resources lack explicit license tags | Check specific Indonesian WBW resource attribution on QUL | Confirm upstream Indonesian WBW author/attribution before bundling |
+| **MASAQ v6** (`10.17632/9yvrzxktmr.6`) | Creative Commons (described as CC for ethical use; Mendeley `data_license` field is `None` in public API) | Strong candidate for I‘rab (`Syntactic_Role`, `Case_Mood`, `Case_Mood_Marker`) | Confirm exact CC BY 3.0 / CC BY-NC terms on Mendeley dataset page before commercial release |
+| **NoorBayan/Quranic** (`github.com/NoorBayan/Quranic`) | **MIT License** | Permissive for web & mobile | Retain MIT copyright notice if treebank is used |
 | **Mushaf-Learning/quran-word-by-word** | MIT (empty repo, `.gitkeep` only) | Not usable (no data) | Dropped |
 
 ## 4. Evidence to retain
