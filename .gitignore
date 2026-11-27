@@ -1,0 +1,38 @@
+# OS & Editor
+.DS_Store
+.vscode/
+.idea/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Python / ETL
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+etl/sources/raw/
+etl/reports/*.json
+etl/reports/*.csv
+*.db
+*.sqlite
+*.sqlite3
+
+# Go / API
+api/bin/
+api/tmp/
+
+# Next.js / Web
+web/node_modules/
+web/.next/
+web/out/
+
+# Flutter / App
+app/.dart_tool/
+app/.flutter-plugins
+app/.flutter-plugins-dependencies
+app/build/

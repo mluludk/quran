@@ -1,0 +1,13 @@
+[project]
+name = "digital-mushaf-etl"
+version = "0.1.0"
+description = "M0 audit, ETL, validation, and offline SQLite bundle builder for Digital Mushaf"
+requires-python = ">=3.11"
+dependencies = [
+    "psycopg[binary]>=3.2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+]
