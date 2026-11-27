@@ -8,6 +8,12 @@ export interface SurahSummary {
   name_translation: string;
   revelation_type: string;
   ayah_count: number;
+  first_page?: number;
+}
+
+export interface JuzSummary {
+  juz_number: number;
+  first_page: number;
 }
 
 export interface PageLineItem {
@@ -134,7 +140,12 @@ async function apiFetch<T>(path: string, init?: RequestInit): Promise<T> {
 }
 
 export async function fetchSurahs(): Promise<SurahSummary[]> {
-  const res = await apiFetch<{ data: SurahSummary[] }>("/surahs");
+  const res = await apiFetch<{ data: SurahSummary[] }>("/surahs?v=2");
+  return res.data ?? [];
+}
+
+export async function fetchJuzList(): Promise<JuzSummary[]> {
+  const res = await apiFetch<{ data: JuzSummary[] }>("/juz");
   return res.data ?? [];
 }
 

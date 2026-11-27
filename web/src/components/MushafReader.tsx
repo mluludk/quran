@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import {
   createBookmark,
   createVocabItem,
+  fetchJuzList,
   fetchPage,
   fetchSurahs,
   fetchWordDetail,
@@ -11,6 +12,7 @@ import {
   listBookmarks,
   putReadingProgress,
   type BookmarkItem,
+  type JuzSummary,
   type MushafPageResponse,
   type SurahSummary,
   type WordDetailResponse,
@@ -37,6 +39,7 @@ export default function MushafReader({
   const [pageInput, setPageInput] = useState(String(initialPage));
   const [pageData, setPageData] = useState<MushafPageResponse | null>(null);
   const [surahs, setSurahs] = useState<SurahSummary[]>([]);
+  const [juzList, setJuzList] = useState<JuzSummary[]>([]);
   const [pageLoading, setPageLoading] = useState(true);
   const [pageError, setPageError] = useState<string | null>(null);
 
@@ -58,6 +61,7 @@ export default function MushafReader({
 
   useEffect(() => {
     fetchSurahs().then(setSurahs).catch(() => {});
+    fetchJuzList().then(setJuzList).catch(() => {});
     refreshBookmarks();
   }, [refreshBookmarks]);
 
@@ -222,6 +226,44 @@ export default function MushafReader({
           >
             Next →
           </button>
+
+          {surahs.length > 0 && (
+            <select
+              aria-label="Pilih Surah"
+              value={pageData?.surahs_on_page?.[0]?.id ?? ""}
+              onChange={(e) => {
+                const sid = Number(e.target.value);
+                const s = surahs.find((item) => item.id === sid);
+                if (s?.first_page) setPageNumber(s.first_page);
+              }}
+              style={{ padding: "0.4rem 0.55rem", borderRadius: 8, border: "1px solid #d6cfc2", background: "#fff", fontSize: "0.84rem", maxWidth: 170 }}
+            >
+              {surahs.map((s) => (
+                <option key={s.id} value={s.id}>
+                  {s.id}. {s.name_transliteration}
+                </option>
+              ))}
+            </select>
+          )}
+
+          {juzList.length > 0 && (
+            <select
+              aria-label="Pilih Juz"
+              value={pageData?.juz_number ?? ""}
+              onChange={(e) => {
+                const jid = Number(e.target.value);
+                const j = juzList.find((item) => item.juz_number === jid);
+                if (j?.first_page) setPageNumber(j.first_page);
+              }}
+              style={{ padding: "0.4rem 0.55rem", borderRadius: 8, border: "1px solid #d6cfc2", background: "#fff", fontSize: "0.84rem" }}
+            >
+              {juzList.map((j) => (
+                <option key={j.juz_number} value={j.juz_number}>
+                  Juz {j.juz_number} (Hal. {j.first_page})
+                </option>
+              ))}
+            </select>
+          )}
 
           <button
             type="button"

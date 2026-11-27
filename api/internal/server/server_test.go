@@ -174,4 +174,11 @@ func TestCoreAndIrabEndpoints(t *testing.T) {
 	if rec.Code != 200 {
 		t.Fatalf("/vocab/progress status = %d", rec.Code)
 	}
+
+	// 10. /api/v1/juz -> 30
+	rec = httptest.NewRecorder()
+	h.ServeHTTP(rec, httptest.NewRequest("GET", "/api/v1/juz", nil))
+	if rec.Code != 200 {
+		t.Fatalf("/juz status = %d", rec.Code)
+	}
 }

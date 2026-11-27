@@ -52,6 +52,7 @@ func NewApp(pool *pgxpool.Pool, manifestPath string, corsOrigins string) *fiber.
 
 	// Quran & Mushaf
 	v1.Get("/surahs", qh.ListSurahs)
+	v1.Get("/juz", qh.ListJuz)
 	v1.Get("/surahs/:id", qh.GetSurah)
 	v1.Get("/surahs/:id/ayahs", qh.ListSurahAyahs)
 	v1.Get("/ayahs/:surah/:ayah", qh.GetAyah)

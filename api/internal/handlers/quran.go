@@ -16,10 +16,18 @@ type QuranHandler struct {
 func (h *QuranHandler) ListSurahs(c *fiber.Ctx) error {
 	setImmutableCache(c)
 	rows, err := h.Pool.Query(c.Context(), `
-		SELECT id, name_arabic, COALESCE(name_transliteration,''), COALESCE(name_translation,''),
-		       COALESCE(revelation_type,''), ayah_count
-		FROM surahs
-		ORDER BY id
+		SELECT s.id, s.name_arabic, COALESCE(s.name_transliteration,''), COALESCE(s.name_translation,''),
+		       COALESCE(s.revelation_type,''), s.ayah_count,
+		       COALESCE((
+		         SELECT MIN(mp.page_number)
+		         FROM ayahs a
+		         JOIN mushaf_line_items li ON li.ayah_id = a.id
+		         JOIN mushaf_lines ml ON ml.id = li.line_id
+		         JOIN mushaf_pages mp ON mp.id = ml.page_id
+		         WHERE a.surah_id = s.id
+		       ), 1) AS first_page
+		FROM surahs s
+		ORDER BY s.id
 	`)
 	if err != nil {
 		return err
@@ -28,9 +36,9 @@ func (h *QuranHandler) ListSurahs(c *fiber.Ctx) error {
 
 	var out []fiber.Map
 	for rows.Next() {
-		var id, ayahCount int16
+		var id, ayahCount, firstPage int16
 		var ar, tr, trans, rev string
-		if err := rows.Scan(&id, &ar, &tr, &trans, &rev, &ayahCount); err != nil {
+		if err := rows.Scan(&id, &ar, &tr, &trans, &rev, &ayahCount, &firstPage); err != nil {
 			return err
 		}
 		out = append(out, fiber.Map{
@@ -40,6 +48,35 @@ func (h *QuranHandler) ListSurahs(c *fiber.Ctx) error {
 			"name_translation":     trans,
 			"revelation_type":      rev,
 			"ayah_count":           ayahCount,
+			"first_page":           firstPage,
+		})
+	}
+	return c.JSON(fiber.Map{"data": out})
+}
+
+func (h *QuranHandler) ListJuz(c *fiber.Ctx) error {
+	setImmutableCache(c)
+	rows, err := h.Pool.Query(c.Context(), `
+		SELECT mp.juz_number, MIN(mp.page_number) AS first_page
+		FROM mushaf_pages mp
+		WHERE mp.juz_number IS NOT NULL
+		GROUP BY mp.juz_number
+		ORDER BY mp.juz_number
+	`)
+	if err != nil {
+		return err
+	}
+	defer rows.Close()
+
+	var out []fiber.Map
+	for rows.Next() {
+		var juz, firstPage int16
+		if err := rows.Scan(&juz, &firstPage); err != nil {
+			return err
+		}
+		out = append(out, fiber.Map{
+			"juz_number": juz,
+			"first_page": firstPage,
 		})
 	}
 	return c.JSON(fiber.Map{"data": out})
