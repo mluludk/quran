@@ -17,6 +17,7 @@ import {
 import WordExplorerPanel from "./WordExplorerPanel";
 import RootExplorerModal from "./RootExplorerModal";
 import SearchAndBookmarksModal from "./SearchAndBookmarksModal";
+import AyahIrabDiagramModal from "./AyahIrabDiagramModal";
 
 function codesToString(codes: number[] | null): string {
   if (!codes || codes.length === 0) return "";
@@ -37,6 +38,7 @@ export default function MushafReader({ initialPage = 1 }: { initialPage?: number
   const [wordError, setWordError] = useState<string | null>(null);
 
   const [rootModal, setRootModal] = useState<{ id: number; text: string } | null>(null);
+  const [diagramModal, setDiagramModal] = useState<{ surah: number; ayah: number; surahName: string } | null>(null);
   const [searchOpen, setSearchOpen] = useState(false);
   const [bookmarks, setBookmarks] = useState<BookmarkItem[]>([]);
 
@@ -274,6 +276,7 @@ export default function MushafReader({ initialPage = 1 }: { initialPage?: number
           error={wordError}
           word={wordDetail}
           onSelectRoot={(id, text) => setRootModal({ id, text })}
+          onOpenAyahDiagram={(surah, ayah, surahName) => setDiagramModal({ surah, ayah, surahName })}
         />
       </div>
 
@@ -282,6 +285,11 @@ export default function MushafReader({ initialPage = 1 }: { initialPage?: number
           Daftar 114 Surah termuat ({surahs[0]?.name_transliteration} – {surahs[surahs.length - 1]?.name_transliteration}).
         </div>
       )}
+
+      <AyahIrabDiagramModal
+        target={diagramModal}
+        onClose={() => setDiagramModal(null)}
+      />
 
       <RootExplorerModal
         rootId={rootModal?.id ?? null}

@@ -139,8 +139,57 @@ export async function fetchPage(page: number): Promise<MushafPageResponse> {
   return apiFetch<MushafPageResponse>(`/pages/${page}`);
 }
 
+export interface AyahIrabNode {
+  node_id: number;
+  word_id: number;
+  word_number: number;
+  arabic_text: string;
+  segment_number: number;
+  sequence_order: number;
+  role_arabic: string;
+  role_latin: string;
+  irab_status: string;
+  irab_sign: string;
+  amil: string;
+  explanation: string;
+}
+
+export interface AyahIrabRelation {
+  id: number;
+  source_node_id: number;
+  target_node_id: number;
+  source_word_id: number;
+  target_word_id: number;
+  relation_type: string;
+  description: string;
+}
+
+export interface AyahIrabResponse {
+  ayah_id: number;
+  surah_id: number;
+  ayah_number: number;
+  words: {
+    word_id: number;
+    word_number: number;
+    arabic_text: string;
+    translation_id: string;
+  }[];
+  analyses: {
+    analysis_id: number;
+    opinion_label: string;
+    summary: string;
+    source: { name: string; author: string };
+    nodes: AyahIrabNode[];
+    relations: AyahIrabRelation[] | null;
+  }[];
+}
+
 export async function fetchWordDetail(wordId: number): Promise<WordDetailResponse> {
   return apiFetch<WordDetailResponse>(`/words/${wordId}`);
+}
+
+export async function fetchAyahIrab(surah: number, ayah: number): Promise<AyahIrabResponse> {
+  return apiFetch<AyahIrabResponse>(`/ayahs/${surah}/${ayah}/irab`);
 }
 
 export async function fetchRootOccurrences(rootId: number, limit = 20, offset = 0) {

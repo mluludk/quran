@@ -66,7 +66,58 @@ ROLE_INFO_MAP: dict[str, tuple[str, str, str]] = {
     "PART_PREV": ("كافة", "Kaffah", "Partikel pencegah amal huruf sebelumnya."),
     "REL": ("اسم موصول", "Ism Maushul", "Kata sambung (yang)."),
     "DEM": ("اسم إشارة", "Ism Isyarah", "Kata tunjuk."),
+    "IMPERF_PREF": ("سابقة المضارعة", "Huruf Mudhara'ah", "Huruf awalan fi'il mudhari' (أ، ن، ي، ت)."),
+    "NSUFF_FEM_SG": ("تاء التأنيث المربوطة", "Akhiran Muannats", "Penanda isim muannats (perempuan) tunggal."),
+    "NSUFF_FEM_PL": ("علامة جمع المؤنث السالم", "Akhiran Jamak Muannats", "Penanda jamak muannats salim (ات)."),
+    "PV_PASS": ("فعل ماض مبني للمجهول", "Fi'il Madhi Majhul", "Kata kerja lampau bentuk pasif."),
+    "UNINFLECTED_VERB": ("فعل جامد", "Fi'il Jamid", "Kata kerja yang tidak berubah bentuk (jamid)."),
+    "NEG_MAA": ("ما النافية", "Ma Nafiyah", "Partikel negasi (tidak)."),
+    "NEG_PART": ("حرف نفي", "Harf Nafi", "Partikel negasi / penyangkalan."),
+    "NEG": ("حرف نفي", "Harf Nafi", "Partikel negasi / penyangkalan."),
+    "INTENCIF": ("لام التوكيد", "Lam Taukid", "Huruf lam penegas makna."),
+    "RELATIVE_YA": ("ياء النسب", "Ya' Nisbah", "Huruf ya' penanda nisbah / keterkaitan."),
+    "PURP": ("لام التعليل", "Lam Ta'lil", "Huruf lam yang menyatakan tujuan/sebab."),
+    "POSS_PRON": ("ضمير متصل (مضاف إليه)", "Dhamir Mudhaf Ilaih", "Kata ganti kepemilikan yang disandarkan pada isim."),
+    "EMPHATIC_NUN": ("نون التوكيد", "Nun Taukid", "Huruf nun penegas pada kata kerja."),
+    "SUBJ_PRON": ("ضمير متصل (فاعل)", "Dhamir Fa'il", "Kata ganti bersambung sebagai pelaku."),
+    "OBJ_PRON": ("ضمير متصل (مفعول به)", "Dhamir Maf'ul Bih", "Kata ganti bersambung sebagai objek."),
+    "SUFF_FEM_TA": ("تاء التأنيث الساكنة", "Ta' Ta'nits", "Huruf ta' penanda subjek muannats pada fi'il madhi."),
+    "GERUND": ("مصدر", "Mashdar", "Kata benda bentukan dari kata kerja (verbal noun)."),
+    "REL_PRON": ("اسم موصول", "Ism Maushul", "Kata sambung (yang)."),
+    "CV_COP": ("فعل أمر ناقص", "Fi'il Amr Naqish", "Kata kerja perintah dari kelompok kana."),
+    "ACRON": ("حروف مقطعة", "Huruf Muqaththa'ah", "Huruf pembuka surah."),
+    "PROTECT_NUN": ("نون الوقاية", "Nun Wiqayah", "Huruf nun pelindung sebelum ya' mutakallim."),
+    "SUBS_COG_ACC": ("نائب عن المفعول المطلق", "Na'ib 'anil Maf'ul Muthlaq", "Pengganti maf'ul muthlaq."),
+    "COMIT": ("واو المعية", "Waw Ma'iyyah", "Huruf waw yang bermakna kebersamaan."),
+    "INTERJ_CV": ("اسم فعل أمر", "Ism Fi'il Amr", "Isim yang bermakna kata kerja perintah."),
+    "INTERJ_PV": ("اسم فعل ماض", "Ism Fi'il Madhi", "Isim yang bermakna kata kerja lampau."),
+    "INTERROG_PART": ("حرف استفهام", "Harf Istifham", "Kata/huruf tanya."),
+    "PRON": ("ضمير", "Dhamir", "Kata ganti."),
+    "None": ("جزء صرفي", "Unsur Morfem", "Bagian/imbuhan kata dalam struktur bahasa Arab."),
+    "OTHER": ("جزء صرفي", "Unsur Morfem", "Bagian/imbuhan kata dalam struktur bahasa Arab."),
+    "PART": ("حرف", "Harf", "Partikel / huruf."),
+    "SUFF": ("لاحقة صرفية", "Akhiran Kata", "Akhiran morfem pada kata."),
 }
+
+
+def resolve_role_info(role_key: str) -> tuple[str, str, str]:
+    if role_key in ROLE_INFO_MAP:
+        return ROLE_INFO_MAP[role_key]
+    if role_key.startswith("NSUFF_MASC_PL"):
+        return ("علامة جمع المذكر السالم", "Akhiran Jamak Mudzakkar", "Penanda jamak mudzakkar salim (ون / ين).")
+    if role_key.startswith(("NSUFF_MASC_DU", "NSUFF_FEM_DU")):
+        return ("علامة المثنى", "Akhiran Mutsanna", "Penanda bentuk ganda / dual (ان / ين).")
+    if role_key.startswith("CASE_"):
+        return ("علامة إعراب / تنوين", "Tanda I‘rab / Tanwin", "Akhiran penanda harakat kasus atau tanwin pada isim.")
+    if role_key.startswith("PVSUFF_SUBJ"):
+        return ("ضمير متصل (فاعل)", "Dhamir Fa'il", "Kata ganti bersambung sebagai pelaku pada fi'il madhi.")
+    if role_key.startswith("IV") and len(role_key) <= 6:
+        return ("سابقة المضارعة", "Huruf Mudhara'ah", "Awalan penanda subjek pada fi'il mudhari'.")
+    if role_key.startswith("NOUN"):
+        return ("اسم", "Isim", "Kata benda (isim).")
+    if role_key.startswith("ADJ"):
+        return ("نعت / صفة", "Na'at / Shifah", "Kata sifat.")
+    return ("عنصر نحوي", role_key, "")
 
 CASE_STATUS_MAP = {
     "NOMINATIVE": "marfu'",
@@ -185,10 +236,7 @@ def run_masaq_etl(csv_path: Path, database_url: str) -> dict[str, int]:
                     morph_tag = (row.get("Morph_Tag") or "").strip()
                     role_key = syn_role or morph_tag or "TOKEN"
 
-                    if role_key in ROLE_INFO_MAP:
-                        role_arabic, role_latin, base_expl = ROLE_INFO_MAP[role_key]
-                    else:
-                        role_arabic, role_latin, base_expl = role_key, role_key, ""
+                    role_arabic, role_latin, base_expl = resolve_role_info(role_key)
 
                     case_mood = (row.get("Case_Mood") or "").strip()
                     case_marker = (row.get("Case_Mood_Marker") or "").strip()

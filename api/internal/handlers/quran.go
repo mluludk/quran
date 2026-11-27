@@ -215,6 +215,34 @@ func (h *QuranHandler) GetAyahIrab(c *fiber.Ctx) error {
 		return err
 	}
 
+	wRows, err := h.Pool.Query(c.Context(), `
+		SELECT w.id, w.word_number, w.arabic_text, COALESCE(wt.translation, '')
+		FROM quran_words w
+		LEFT JOIN word_translations wt ON wt.word_id = w.id AND wt.language_code = 'id'
+		WHERE w.ayah_id = $1
+		ORDER BY w.word_number
+	`, ayahID)
+	if err != nil {
+		return err
+	}
+	var words []fiber.Map
+	for wRows.Next() {
+		var wid int64
+		var wnum int16
+		var ar, tr string
+		if err := wRows.Scan(&wid, &wnum, &ar, &tr); err != nil {
+			wRows.Close()
+			return err
+		}
+		words = append(words, fiber.Map{
+			"word_id":        wid,
+			"word_number":    wnum,
+			"arabic_text":    ar,
+			"translation_id": tr,
+		})
+	}
+	wRows.Close()
+
 	rows, err := h.Pool.Query(c.Context(), `
 		SELECT ia.id, ia.opinion_label, COALESCE(ia.summary,''), s.name, COALESCE(s.author,'')
 		FROM irab_analyses ia
@@ -273,12 +301,45 @@ func (h *QuranHandler) GetAyahIrab(c *fiber.Ctx) error {
 		}
 		nRows.Close()
 
+		rRows, err := h.Pool.Query(c.Context(), `
+			SELECT r.id, r.source_node_id, r.target_node_id, sn.word_id, tn.word_id,
+			       r.relation_type, COALESCE(r.description,'')
+			FROM irab_relations r
+			JOIN irab_word_nodes sn ON sn.id = r.source_node_id
+			JOIN irab_word_nodes tn ON tn.id = r.target_node_id
+			WHERE r.analysis_id = $1
+			ORDER BY r.id
+		`, aid)
+		if err != nil {
+			return err
+		}
+		var relations []fiber.Map
+		for rRows.Next() {
+			var rid, srcNid, tgtNid, srcWid, tgtWid int64
+			var relType, desc string
+			if err := rRows.Scan(&rid, &srcNid, &tgtNid, &srcWid, &tgtWid, &relType, &desc); err != nil {
+				rRows.Close()
+				return err
+			}
+			relations = append(relations, fiber.Map{
+				"id":             rid,
+				"source_node_id": srcNid,
+				"target_node_id": tgtNid,
+				"source_word_id": srcWid,
+				"target_word_id": tgtWid,
+				"relation_type":  relType,
+				"description":    desc,
+			})
+		}
+		rRows.Close()
+
 		analyses = append(analyses, fiber.Map{
 			"analysis_id":   aid,
 			"opinion_label": label,
 			"summary":       summary,
 			"source":        fiber.Map{"name": srcName, "author": author},
 			"nodes":         nodes,
+			"relations":     relations,
 		})
 	}
 
@@ -286,6 +347,7 @@ func (h *QuranHandler) GetAyahIrab(c *fiber.Ctx) error {
 		"ayah_id":     ayahID,
 		"surah_id":    surahID,
 		"ayah_number": ayahNum,
+		"words":       words,
 		"analyses":    analyses,
 	})
 }

@@ -125,4 +125,24 @@ func TestCoreAndIrabEndpoints(t *testing.T) {
 	if rec.Code != 200 {
 		t.Fatalf("/bundles/latest status = %d", rec.Code)
 	}
+
+	// 7. /api/v1/ayahs/1/2/irab -> words + relations
+	rec = httptest.NewRecorder()
+	h.ServeHTTP(rec, httptest.NewRequest("GET", "/api/v1/ayahs/1/2/irab", nil))
+	if rec.Code != 200 {
+		t.Fatalf("/ayahs/1/2/irab status = %d", rec.Code)
+	}
+	var irabResp struct {
+		Words    []map[string]any `json:"words"`
+		Analyses []struct {
+			Relations []map[string]any `json:"relations"`
+		} `json:"analyses"`
+	}
+	if err := json.Unmarshal(rec.Body.Bytes(), &irabResp); err != nil {
+		t.Fatal(err)
+	}
+	if len(irabResp.Words) == 0 || len(irabResp.Analyses) == 0 || len(irabResp.Analyses[0].Relations) == 0 {
+		t.Fatalf("expected words and relations for 1:2, got words=%d analyses=%d",
+			len(irabResp.Words), len(irabResp.Analyses))
+	}
 }

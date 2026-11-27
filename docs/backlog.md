@@ -80,6 +80,10 @@ Backlog ini diturunkan dari [PRD.md](../PRD.md) dan [development-roadmap.md](./d
     - Impor relasi sintaksis antarkata (dari `NoorBayan/Quranic` / sumber treebank) ke `irab_relations` dan ekspos di `GET /words/{id}` serta `GET /ayahs/{surah}/{ayah}/irab`.
 26. **[M3-Web] Redesign Word & I‘rab Explorer UI sesuai mockup** (`area:web`, `P1`) — *Dep: #24, #25*
     - Tampilkan 3 badge ringkas (`Kedudukan`, `Jenis Kata`, `Status I‘rab`), format root berspasi (`ح م د`), penjelasan nahwu, dan diagram panah Hubungan Nahwu.
+27. **[M4] Ekspos `words` & `irab_relations` di `GET /ayahs/{surah}/{ayah}/irab`** (`area:api`, `P1`) — *Dep: #25*
+    - Sertakan daftar kata ayat beserta graf `nodes` dan `relations` pada endpoint i‘rab per-ayat untuk kebutuhan visualisasi diagram sintaksis.
+28. **[M3-Web] Komponen SVG Dependency Arc Diagram I‘rab per-ayat** (`area:web`, `P1`) — *Dep: #27*
+    - Render diagram lengkungan sintaksis RTL berbasis SVG (urutan kata kanan-ke-kiri, label peran, dan kurva Bezier relasi nahwu) yang dapat dibuka dari Word Explorer.
 
 ### M5: QA & Release
 20. **[M5] Visual QA, offline QA, dan verifikasi atribusi lisensi final** (`area:data`, `area:legal`, `P0`) — *Dep: #15, #18*

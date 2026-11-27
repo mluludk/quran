@@ -7,6 +7,7 @@ interface Props {
   error: string | null;
   word: WordDetailResponse | null;
   onSelectRoot: (rootId: number, rootText: string) => void;
+  onOpenAyahDiagram: (surah: number, ayah: number, surahName: string) => void;
 }
 
 const POS_ARABIC_MAP: Record<string, string> = {
@@ -41,7 +42,7 @@ function formatSpacedRoot(root: string): string {
   return root.split("").join(" ");
 }
 
-export default function WordExplorerPanel({ loading, error, word, onSelectRoot }: Props) {
+export default function WordExplorerPanel({ loading, error, word, onSelectRoot, onOpenAyahDiagram }: Props) {
   const stemSeg =
     word?.morphology?.find((s) => s.root) ?? word?.morphology?.[word.morphology.length - 1];
   const primaryIrab =
@@ -98,6 +99,23 @@ export default function WordExplorerPanel({ loading, error, word, onSelectRoot }
                   {statusBadge}
                 </span>
               )}
+              <button
+                type="button"
+                onClick={() => onOpenAyahDiagram(word.surah_id, word.ayah_number, word.surah_name)}
+                style={{
+                  marginLeft: "auto",
+                  padding: "0.2rem 0.6rem",
+                  borderRadius: 999,
+                  border: "1px solid #9a7b4f",
+                  background: "#fffdf7",
+                  color: "#7c5c32",
+                  fontSize: "0.76rem",
+                  fontWeight: 600,
+                  cursor: "pointer",
+                }}
+              >
+                Diagram I‘rab Ayat ↗
+              </button>
             </div>
           </div>
 
