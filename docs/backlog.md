@@ -1,0 +1,74 @@
+# Product & Engineering Backlog
+
+Backlog ini diturunkan dari [PRD.md](../PRD.md) dan [development-roadmap.md](./development-roadmap.md).
+
+## Milestones
+
+| Milestone | Fokus | Gate / Target |
+|---|---|---|
+| **M0: Source Audit & Proof** | Audit sumber data, lisensi web & mobile, dan proof renderer 3 halaman | Sumber & lisensi tervalidasi |
+| **M1: Database & ETL** | Finalisasi schema PostgreSQL, ETL core/layout/linguistik, validator, SQLite bundle | Data 604 halaman & crosswalk terverifikasi |
+| **M2: Go/Fiber API** | Endpoint `/api/v1`, caching, OpenAPI, integration tests | API siap dikonsumsi web & mobile |
+| **M3-Web: Next.js Reader** | Fixed 604-page renderer, word hit-testing, Word Explorer, Search | End-to-end UX & data tervalidasi di web |
+| **M3-Mobile: Flutter Offline** | Dual SQLite, fixed renderer, hit-testing, offline Word Explorer & bookmarks | Aplikasi offline-first berjalan di perangkat |
+| **M4: Sync & Parity** | Sinkronisasi user state & paritas visual web ↔ mobile | Konsistensi lintas platform |
+| **M5: QA & Release** | Visual QA, offline QA, audit atribusi lisensi final | Siap rilis pilot |
+
+---
+
+## Backlog Items
+
+### M0: Source Audit & Proof
+1. **[M0] Audit kandidat sumber data & segmentasi kata** (`area:data`, `P0`)
+   - Verifikasi QPC V4, QUL 15-line layout, Quranic Arabic Corpus, Tanzil, dan dataset WBW bahasa Indonesia (`id`).
+   - Dokumentasikan versi/commit, checksum, jumlah surah/ayat/kata, dan konflik segmentasi di `docs/data-source-mapping.md`.
+2. **[M0] Audit lisensi & redistribusi aset (web & mobile)** (`area:legal`, `P0`)
+   - Cek izin komersial, redistribusi bundle mobile, `@font-face` web hosting, dan redistribusi API JSON publik di `docs/license-compliance.md`.
+3. **[M0] Technical proof 3 halaman di Next.js & cek paritas renderer Flutter** (`area:web`, `area:mobile`, `P0`)
+   - Render 3 halaman representatif (pembuka, padat/kompleks, kasus khusus), buktikan fixed layout tanpa reflow dan word hit-testing.
+
+### M1: Database & ETL
+4. **[M1] Finalisasi schema PostgreSQL & migrasi lanjutan** (`area:data`, `P0`) — *Dep: #1*
+   - Sesuaikan `migrations/001_initial_schema.sql` dengan temuan M0 (kolom font, item non-kata, crosswalk).
+5. **[M1] Implementasi ETL ingestion & source crosswalk (Core & Layout)** (`area:etl`, `P0`) — *Dep: #4*
+   - Impor idempotent untuk `surahs`, `ayahs`, `quran_words`, `mushaf_pages`, `mushaf_lines`, `mushaf_line_items`, `source_crosswalks`.
+6. **[M1] Implementasi ETL linguistik & terjemahan Indonesia** (`area:etl`, `P0`) — *Dep: #5*
+   - Impor `roots`, `lemmas`, `word_morphology` (per segmen), dan `word_translations` (`id`) dengan provenance.
+7. **[M1] Implementasi validator integritas data & laporan cakupan ETL** (`area:etl`, `P0`) — *Dep: #6*
+   - Cek 114 surah, 604 halaman, tidak ada layout item yatim, laporan cakupan root/lemma/POS/terjemahan.
+8. **[M1] Implementasi builder offline SQLite bundle** (`area:etl`, `P1`) — *Dep: #7*
+   - Bangun `mushaf_bundle.db` (read-only + FTS5) dan manifest JSON ber-checksum.
+
+### M2: Go/Fiber API
+9. **[M2] Endpoint Quran Core & Mushaf Page** (`area:api`, `P0`) — *Dep: #5*
+   - Implementasi `/surahs`, `/surahs/{id}/ayahs`, `/ayahs/{surah}/{ayah}`, `/editions`, `/pages/{page}`.
+10. **[M2] Endpoint Word Explorer & Search** (`area:api`, `P0`) — *Dep: #6*
+    - Implementasi `/words/{id}`, `/words/{id}/translation`, `/words/{id}/morphology`, `/roots/{id}/*`, `/search/*` dengan pagination.
+11. **[M2] Endpoint Offline Bundle & User State** (`area:api`, `P1`) — *Dep: #8*
+    - Implementasi `/bundles/latest`, `/bundles/{version}/manifest`, `/bookmarks`, `/reading-progress`.
+12. **[M2] HTTP Caching, OpenAPI spec, dan integration tests** (`area:api`, `P1`) — *Dep: #9, #10*
+    - Tambah `ETag`/`Cache-Control` pada endpoint imutabel, dokumen OpenAPI, dan integration test.
+
+### M3-Web: Next.js Reader
+13. **[M3-Web] Fixed 604-page Mushaf renderer & navigasi** (`area:web`, `P0`) — *Dep: #3, #9*
+    - Render halaman 1–604 tanpa reflow, header halaman (juz/hizb/surah), navigasi page/surah/ayah, shareable URL.
+14. **[M3-Web] Word hit-testing, highlight overlay, dan Word Detail panel** (`area:web`, `P0`) — *Dep: #10, #13*
+    - Klik kata tanpa menggeser layout, tampilkan terjemahan Indonesia, root, lemma, POS, dan morfologi per segmen.
+15. **[M3-Web] Root Explorer & Arabic/Root/Lemma Search** (`area:web`, `P0`) — *Dep: #10, #14*
+    - Halaman/panel daftar kemunculan akar kata dengan lompat balik ke halaman Mushaf, serta pencarian teks Arab ternormalisasi.
+
+### M3-Mobile: Flutter Offline
+16. **[M3-Mobile] Inisialisasi Flutter & dual SQLite** (`area:mobile`, `P0`) — *Dep: #8*
+    - Setup project di `app/`, integrasi `mushaf_bundle.db` (read-only) dan `user_state.db` (read-write).
+17. **[M3-Mobile] Fixed page renderer, hit-testing, & Word Explorer offline** (`area:mobile`, `P0`) — *Dep: #3, #16*
+    - Render 604 halaman offline, seleksi kata dengan highlight overlay, detail kata, root explorer, dan search lokal.
+18. **[M3-Mobile] Atomic bundle update, bookmarks, & reading progress** (`area:mobile`, `P1`) — *Dep: #11, #17*
+    - Mekanisme atomic swap/rollback `mushaf_bundle.db` dan persistensi bookmark/progress di `user_state.db`.
+
+### M4: Sync & Parity
+19. **[M4] Sinkronisasi user state & paritas visual web ↔ mobile** (`area:api`, `area:web`, `area:mobile`, `P2`) — *Dep: #11, #15, #18*
+    - Kebijakan resolusi konflik sync bookmark/progress dan uji paritas visual halaman representatif.
+
+### M5: QA & Release
+20. **[M5] Visual QA, offline QA, dan verifikasi atribusi lisensi final** (`area:data`, `area:legal`, `P0`) — *Dep: #15, #18*
+    - Jalankan seluruh checklist di `docs/validation-plan.md` dan `docs/license-compliance.md` sebelum rilis pilot.
