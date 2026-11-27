@@ -489,13 +489,19 @@ func (h *QuranHandler) GetPage(c *fiber.Ctx) error {
 		       COALESCE(li.display_text,''), COALESCE(li.source_glyph_code,''),
 		       a.ayah_number, COALESCE(wt.translation,''),
 		       CASE
-		         WHEN li.word_id IS NULL THEN false
-		         ELSE NOT EXISTS (
-		           SELECT 1 FROM quran_words pw
+		         WHEN li.word_id IS NULL THEN NULL
+		         ELSE (
+		           SELECT mp.page_number
+		           FROM quran_words pw
+		           JOIN mushaf_line_items pli ON pli.word_id = pw.id
+		           JOIN mushaf_lines pml ON pml.id = pli.line_id
+		           JOIN mushaf_pages mp ON mp.id = pml.page_id
 		           WHERE pw.normalized_search_text = w.normalized_search_text
 		             AND pw.id < w.id
+		           ORDER BY pw.id ASC
+		           LIMIT 1
 		         )
-		       END AS is_first_occurrence
+		       END AS first_occurrence_page
 		FROM mushaf_lines l
 		JOIN mushaf_line_items li ON li.line_id = l.id
 		LEFT JOIN quran_words w ON w.id = li.word_id
@@ -521,10 +527,10 @@ func (h *QuranHandler) GetPage(c *fiber.Ctx) error {
 	for iRows.Next() {
 		var lineNum, pos int16
 		var lineType, itemType, dispTxt, glyphRaw, transID string
-		var isCentered, isFirstOcc bool
+		var isCentered bool
 		var wordID, ayahID *int64
-		var surahID, ayahNum *int16
-		if err := iRows.Scan(&lineNum, &lineType, &isCentered, &itemType, &wordID, &surahID, &ayahID, &pos, &dispTxt, &glyphRaw, &ayahNum, &transID, &isFirstOcc); err != nil {
+		var surahID, ayahNum, firstOccPage *int16
+		if err := iRows.Scan(&lineNum, &lineType, &isCentered, &itemType, &wordID, &surahID, &ayahID, &pos, &dispTxt, &glyphRaw, &ayahNum, &transID, &firstOccPage); err != nil {
 			return err
 		}
 		la, ok := lineMap[lineNum]
@@ -533,18 +539,20 @@ func (h *QuranHandler) GetPage(c *fiber.Ctx) error {
 			lineMap[lineNum] = la
 			lines = append(lines, la)
 		}
+		isFirstOcc := wordID != nil && firstOccPage == nil
 		la.Items = append(la.Items, fiber.Map{
-			"item_type":           itemType,
-			"word_id":             wordID,
-			"surah_id":            surahID,
-			"ayah_id":             ayahID,
-			"ayah_number":         ayahNum,
-			"position":            pos,
-			"display_text":        dispTxt,
-			"source_glyph_code":   glyphRaw,
-			"glyph_codes":         parseGlyphCodes(glyphRaw),
-			"translation_id":      transID,
-			"is_first_occurrence": isFirstOcc,
+			"item_type":             itemType,
+			"word_id":               wordID,
+			"surah_id":              surahID,
+			"ayah_id":               ayahID,
+			"ayah_number":           ayahNum,
+			"position":              pos,
+			"display_text":          dispTxt,
+			"source_glyph_code":     glyphRaw,
+			"glyph_codes":           parseGlyphCodes(glyphRaw),
+			"translation_id":        transID,
+			"is_first_occurrence":   isFirstOcc,
+			"first_occurrence_page": firstOccPage,
 		})
 	}
 

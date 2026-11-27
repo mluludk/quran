@@ -350,14 +350,18 @@ export default function MushafReader({
                                 fontFamily: "system-ui, sans-serif",
                                 fontSize: "0.76rem",
                                 fontWeight: 500,
-                                color: showTr ? "#1e3a5f" : "#d6d3d1",
+                                color: showTr ? "#1e3a5f" : "#94a3b8",
                                 lineHeight: 1.25,
                                 direction: "ltr",
                                 textAlign: "center",
                                 maxWidth: 130,
                               }}
                             >
-                              {showTr ? item.translation_id || "—" : "·"}
+                              {showTr
+                                ? item.translation_id || "—"
+                                : item.first_occurrence_page
+                                  ? `(hal ${item.first_occurrence_page})`
+                                  : "·"}
                             </span>
                           </button>
                         );

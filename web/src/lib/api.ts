@@ -22,6 +22,7 @@ export interface PageLineItem {
   glyph_codes: number[] | null;
   translation_id?: string;
   is_first_occurrence?: boolean;
+  first_occurrence_page?: number | null;
 }
 
 export interface PageLine {
@@ -138,7 +139,7 @@ export async function fetchSurahs(): Promise<SurahSummary[]> {
 }
 
 export async function fetchPage(page: number): Promise<MushafPageResponse> {
-  return apiFetch<MushafPageResponse>(`/pages/${page}?v=3`);
+  return apiFetch<MushafPageResponse>(`/pages/${page}?v=4`);
 }
 
 export interface AyahIrabNode {
