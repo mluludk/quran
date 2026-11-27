@@ -49,6 +49,7 @@ func NewApp(pool *pgxpool.Pool, manifestPath string, corsOrigins string) *fiber.
 	vh := &handlers.VocabHandler{Pool: pool}
 	lh := &handlers.LearnHandler{Pool: pool}
 	fh := &handlers.FrequencyHandler{Pool: pool}
+	ch := &handlers.ContextHandler{Pool: pool}
 
 	v1 := app.Group("/api/v1")
 
@@ -97,8 +98,9 @@ func NewApp(pool *pgxpool.Pool, manifestPath string, corsOrigins string) *fiber.
 	v1.Get("/learn/deck", lh.GetDeck)
 	v1.Post("/learn/answer", lh.SubmitAnswer)
 
-	// Vocabulary Frequency
+	// Vocabulary Frequency & Context Explorer
 	v1.Get("/words/:id/frequency", fh.GetWordFrequency)
+	v1.Get("/words/:id/context", ch.GetWordContext)
 	v1.Get("/frequency/top", fh.GetTopFrequency)
 
 	return app

@@ -118,6 +118,12 @@ Backlog ini diturunkan dari [PRD.md](../PRD.md) dan [development-roadmap.md](./d
     - Bangun halaman `/frequency` dengan leaderboard kata/root terbanyak, statistik variasi bentuk, dan perbandingan penggunaan dalam konteks ayat.
 45. **[M3-Web] Integrasi tombol Frekuensi & Konteks di WordExplorerPanel** (`area:web`, `P1`) — *Dep: #44*
     - Tambah tombol **Frekuensi & Konteks ↗** pada panel Word & I‘rab Explorer menuju `/frequency?wordId=...`.
+46. **[M2] API Context & Collocation Explorer (`/words/{id}/context`)** (`area:api`, `P1`) — *Dep: #10*
+    - Hitung akar kata yang sering berpasangan (*co-occurrence*), variasi nuansa terjemahan kontekstual, dan filter ayat berdasarkan pasangan kata/makna.
+47. **[M3-Web] Halaman `/context` (Semantic & Context Explorer)** (`area:web`, `P1`) — *Dep: #46*
+    - Bangun antarmuka `/context` dengan preset (`تقوى`, `إيمان`, `صبر`, `رحمة`, `هدى`), filter pasangan kata, dan perbandingan ayat.
+48. **[M4] Schema & Kurasi Editorial Semantic Concepts (Tahap 2)** (`area:data`, `area:legal`, `P2`) — *Dep: #47*
+    - Rancang tabel konsep tematik terkurasi beserta `source_id` dan review editorial ahli tafsir/bahasa Arab.
 
 ### M5: QA & Release
 20. **[M5] Visual QA, offline QA, dan verifikasi atribusi lisensi final** (`area:data`, `area:legal`, `P0`) — *Dep: #15, #18*

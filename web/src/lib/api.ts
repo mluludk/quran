@@ -491,3 +491,44 @@ export async function fetchTopFrequency(kind: "words" | "roots" = "words", limit
   const res = await apiFetch<{ data: TopFrequencyItem[] | null }>(`/frequency/top?kind=${kind}&limit=${limit}`);
   return res.data ?? [];
 }
+
+export interface WordContextResponse {
+  word_id: number;
+  arabic_text: string;
+  normalized_word: string;
+  translation_id: string;
+  root: { id: number | null; arabic_text: string };
+  meaning_groups: { translation: string; count: number }[] | null;
+  collocations: {
+    root_id: number;
+    root_text: string;
+    ayah_count: number;
+    sample_arabic: string;
+    sample_translation: string;
+  }[] | null;
+  ayahs: {
+    ayah_id: number;
+    surah_id: number;
+    surah_name: string;
+    ayah_number: number;
+    word_id: number;
+    word_arabic: string;
+    translation_id: string;
+    ayah_text: string;
+    page_number: number | null;
+  }[] | null;
+  pagination: { total: number; limit: number; offset: number };
+}
+
+export async function fetchWordContext(
+  wordId: number,
+  opts?: { pairRootId?: number; meaning?: string; limit?: number; offset?: number }
+): Promise<WordContextResponse> {
+  const sp = new URLSearchParams({
+    pair_root_id: String(opts?.pairRootId ?? 0),
+    meaning: opts?.meaning ?? "",
+    limit: String(opts?.limit ?? 15),
+    offset: String(opts?.offset ?? 0),
+  });
+  return apiFetch<WordContextResponse>(`/words/${wordId}/context?${sp.toString()}`);
+}

@@ -97,6 +97,9 @@ Build an offline-first digital Mushaf for Mushaf Madinah, riwayah Hafs, with a 6
 ### Quran Vocabulary Frequency (`/frequency`)
 - Displays exact word occurrence counts, root occurrence counts, surface form variations, Makkiyah vs Madaniyah distribution, top surahs, and full ayah context comparisons, plus Top Frequent Words & Roots leaderboards.
 
+### Semantic & Context Explorer (`/context`)
+- Objective data-driven exploration of co-occurring roots/words (*collocations*), contextual Indonesian translation nuances, and filtered ayah comparisons (with quick presets such as `تقوى`, `إيمان`, `صبر`, `رحمة`, `هدى`). Curated editorial semantic concepts remain a separate, source-attributed phase.
+
 ## 8. Data and architecture principles
 
 - Preserve original source records and identifiers.

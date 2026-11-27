@@ -352,6 +352,22 @@ export default function MushafReader({
             Frekuensi
           </a>
 
+          <a
+            href="/context"
+            style={{
+              padding: "0.4rem 0.8rem",
+              borderRadius: 8,
+              border: "1px solid #d6cfc2",
+              background: "#fff",
+              color: "#292524",
+              textDecoration: "none",
+              fontSize: "0.85rem",
+              fontWeight: 600,
+            }}
+          >
+            Konteks
+          </a>
+
           <button
             type="button"
             onClick={() => setSearchOpen(true)}

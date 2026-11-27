@@ -205,4 +205,11 @@ func TestCoreAndIrabEndpoints(t *testing.T) {
 	if rec.Code != 200 {
 		t.Fatalf("/frequency/top status = %d", rec.Code)
 	}
+
+	// 13. /api/v1/words/44/context (هدى)
+	rec = httptest.NewRecorder()
+	h.ServeHTTP(rec, httptest.NewRequest("GET", "/api/v1/words/44/context", nil))
+	if rec.Code != 200 {
+		t.Fatalf("/words/44/context status = %d: %s", rec.Code, rec.Body.String())
+	}
 }
