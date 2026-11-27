@@ -28,6 +28,16 @@ function codesToString(codes: number[] | null): string {
   return codes.map((c) => String.fromCodePoint(c)).join("");
 }
 
+const GRAMMAR_FILTERS = [
+  { key: "mubtada", label: "Mubtada'", bg: "#dcfce7", border: "#16a34a", fg: "#166534" },
+  { key: "khabar", label: "Khabar", bg: "#dbeafe", border: "#2563eb", fg: "#1e40af" },
+  { key: "fail", label: "Fa'il", bg: "#fef3c7", border: "#d97706", fg: "#92400e" },
+  { key: "maful", label: "Maf'ul Bih", bg: "#fce7f3", border: "#db2777", fg: "#9d174d" },
+  { key: "harf_jar", label: "Huruf Jar", bg: "#fee2e2", border: "#dc2626", fg: "#991b1b" },
+  { key: "ism_majrur", label: "Ism Majrur", bg: "#ede9fe", border: "#7c3aed", fg: "#5b21b6" },
+  { key: "amil", label: "Amil (Fi'il/Nasikh)", bg: "#ffedd5", border: "#ea580c", fg: "#9a3412" },
+] as const;
+
 export default function MushafReader({
   initialPage = 1,
   mode = "mushaf",
@@ -53,6 +63,10 @@ export default function MushafReader({
   const [vocabOpen, setVocabOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [hideSeenTranslations, setHideSeenTranslations] = useState(true);
+  const [grammarMode, setGrammarMode] = useState(false);
+  const [activeGrammarKeys, setActiveGrammarKeys] = useState<string[]>(
+    GRAMMAR_FILTERS.map((g) => g.key)
+  );
   const [bookmarks, setBookmarks] = useState<BookmarkItem[]>([]);
 
   const refreshBookmarks = useCallback(() => {
@@ -283,6 +297,23 @@ export default function MushafReader({
 
           <button
             type="button"
+            onClick={() => setGrammarMode((g) => !g)}
+            style={{
+              padding: "0.4rem 0.75rem",
+              borderRadius: 8,
+              border: grammarMode ? "1.5px solid #2563eb" : "1px solid #d6cfc2",
+              background: grammarMode ? "#eff6ff" : "#fff",
+              color: grammarMode ? "#1d4ed8" : "#292524",
+              cursor: "pointer",
+              fontSize: "0.85rem",
+              fontWeight: 600,
+            }}
+          >
+            {grammarMode ? "Nahwu Mode: ON" : "Mode Belajar Nahwu"}
+          </button>
+
+          <button
+            type="button"
             onClick={() => setVocabOpen(true)}
             style={{ padding: "0.4rem 0.8rem", borderRadius: 8, border: "1px solid #9a7b4f", background: "#fffdf7", color: "#7c5c32", cursor: "pointer", fontWeight: 600 }}
           >
@@ -317,6 +348,36 @@ export default function MushafReader({
 
       <div className="mushaf-shell">
         <section className="mushaf-page-frame" aria-label={`Mushaf page ${pageNumber}`}>
+          {grammarMode && (
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "0.35rem", marginBottom: "0.9rem", paddingBottom: "0.65rem", borderBottom: "1px solid #ede9e0" }}>
+              {GRAMMAR_FILTERS.map((gf) => {
+                const active = activeGrammarKeys.includes(gf.key);
+                return (
+                  <button
+                    key={gf.key}
+                    type="button"
+                    onClick={() =>
+                      setActiveGrammarKeys((prev) =>
+                        prev.includes(gf.key) ? prev.filter((k) => k !== gf.key) : [...prev, gf.key]
+                      )
+                    }
+                    style={{
+                      padding: "0.2rem 0.55rem",
+                      borderRadius: 999,
+                      border: `1.5px solid ${active ? gf.border : "#d6d3d1"}`,
+                      background: active ? gf.bg : "#fafaf9",
+                      color: active ? gf.fg : "#78716c",
+                      fontSize: "0.76rem",
+                      fontWeight: 600,
+                      cursor: "pointer",
+                    }}
+                  >
+                    {gf.label}
+                  </button>
+                );
+              })}
+            </div>
+          )}
           {pageLoading && <p style={{ textAlign: "center", color: "#57534e" }}>Memuat halaman {pageNumber}...</p>}
           {pageError && (
             <p style={{ textAlign: "center", color: "#b91c1c" }}>
@@ -383,6 +444,20 @@ export default function MushafReader({
                       }
 
                       const isSelected = selectedWordId === item.word_id;
+                      const matchedFilter = grammarMode
+                        ? GRAMMAR_FILTERS.find(
+                            (gf) =>
+                              activeGrammarKeys.includes(gf.key) &&
+                              (item.grammar_roles ?? []).includes(gf.key)
+                          )
+                        : undefined;
+                      const grammarStyle = matchedFilter
+                        ? {
+                            backgroundColor: matchedFilter.bg,
+                            borderBottom: `2.5px solid ${matchedFilter.border}`,
+                          }
+                        : undefined;
+
                       if (mode === "tarjim") {
                         const showTr = !hideSeenTranslations || item.is_first_occurrence !== false;
                         return (
@@ -398,6 +473,7 @@ export default function MushafReader({
                               alignItems: "center",
                               gap: "0.2rem",
                               padding: "0.25rem 0.4rem",
+                              ...grammarStyle,
                             }}
                           >
                             <span style={{ ...style, fontSize: "1.65rem", lineHeight: 1.4 }}>
@@ -430,7 +506,7 @@ export default function MushafReader({
                           key={item.word_id}
                           type="button"
                           className={`mushaf-word ${isSelected ? "is-selected" : ""}`}
-                          style={style}
+                          style={{ ...style, ...grammarStyle }}
                           onClick={() => handleSelectWord(item.word_id!)}
                           title={item.display_text}
                         >

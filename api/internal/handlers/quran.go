@@ -538,7 +538,23 @@ func (h *QuranHandler) GetPage(c *fiber.Ctx) error {
 		           ORDER BY pw.id ASC
 		           LIMIT 1
 		         )
-		       END AS first_occurrence_page
+		       END AS first_occurrence_page,
+		       COALESCE((
+		         SELECT string_agg(DISTINCT
+		           CASE
+		             WHEN n.role_latin = 'Mubtada''' THEN 'mubtada'
+		             WHEN n.role_latin LIKE '%Khabar%' THEN 'khabar'
+		             WHEN n.role_latin LIKE '%Fa''il%' THEN 'fail'
+		             WHEN n.role_latin LIKE '%Maf''ul%' THEN 'maful'
+		             WHEN n.role_latin = 'Harf Jar' THEN 'harf_jar'
+		             WHEN n.role_latin = 'Ism Majrur' THEN 'ism_majrur'
+		             WHEN n.role_latin IN ('Harf Nasikh','Fi''il Madhi','Fi''il Mudhari''','Fi''il Amr','Fi''il Naqish','Fi''il Madhi Majhul','Fi''il Mudhari'' Majhul') THEN 'amil'
+		             ELSE ''
+		           END, ','
+		         )
+		         FROM irab_word_nodes n
+		         WHERE n.word_id = li.word_id
+		       ), '') AS grammar_roles_raw
 		FROM mushaf_lines l
 		JOIN mushaf_line_items li ON li.line_id = l.id
 		LEFT JOIN quran_words w ON w.id = li.word_id
@@ -563,11 +579,11 @@ func (h *QuranHandler) GetPage(c *fiber.Ctx) error {
 
 	for iRows.Next() {
 		var lineNum, pos int16
-		var lineType, itemType, dispTxt, glyphRaw, transID string
+		var lineType, itemType, dispTxt, glyphRaw, transID, grammarRaw string
 		var isCentered bool
 		var wordID, ayahID *int64
 		var surahID, ayahNum, firstOccPage *int16
-		if err := iRows.Scan(&lineNum, &lineType, &isCentered, &itemType, &wordID, &surahID, &ayahID, &pos, &dispTxt, &glyphRaw, &ayahNum, &transID, &firstOccPage); err != nil {
+		if err := iRows.Scan(&lineNum, &lineType, &isCentered, &itemType, &wordID, &surahID, &ayahID, &pos, &dispTxt, &glyphRaw, &ayahNum, &transID, &firstOccPage, &grammarRaw); err != nil {
 			return err
 		}
 		la, ok := lineMap[lineNum]
@@ -575,6 +591,12 @@ func (h *QuranHandler) GetPage(c *fiber.Ctx) error {
 			la = &lineAcc{LineNumber: lineNum, LineType: lineType, IsCentered: isCentered}
 			lineMap[lineNum] = la
 			lines = append(lines, la)
+		}
+		var grammarRoles []string
+		for _, g := range strings.Split(grammarRaw, ",") {
+			if g != "" {
+				grammarRoles = append(grammarRoles, g)
+			}
 		}
 		isFirstOcc := wordID != nil && firstOccPage == nil
 		la.Items = append(la.Items, fiber.Map{
@@ -590,6 +612,7 @@ func (h *QuranHandler) GetPage(c *fiber.Ctx) error {
 			"translation_id":        transID,
 			"is_first_occurrence":   isFirstOcc,
 			"first_occurrence_page": firstOccPage,
+			"grammar_roles":         grammarRoles,
 		})
 	}
 

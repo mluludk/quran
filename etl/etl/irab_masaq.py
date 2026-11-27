@@ -215,6 +215,10 @@ def run_masaq_etl(csv_path: Path, database_url: str) -> dict[str, int]:
             nodes: list[tuple] = []
             node_meta_by_analysis: dict[int, list[dict]] = {}
             seq_by_analysis: dict[int, int] = {}
+            last_verb_by_analysis: dict[int, str] = {}
+            last_prep_by_analysis: dict[int, str] = {}
+            last_construct_by_analysis: dict[int, str] = {}
+            last_nasikh_by_analysis: dict[int, str] = {}
             skipped = 0
 
             with csv_path.open("r", encoding="utf-8-sig") as fh:
@@ -235,15 +239,61 @@ def run_masaq_etl(csv_path: Path, database_url: str) -> dict[str, int]:
                     syn_role = (row.get("Syntactic_Role") or "").strip()
                     morph_tag = (row.get("Morph_Tag") or "").strip()
                     role_key = syn_role or morph_tag or "TOKEN"
+                    word_surface = (row.get("Word") or row.get("Segmented_Word") or "").strip()
 
-                    role_arabic, role_latin, base_expl = resolve_role_info(role_key)
+                    # Split SUBJ/SBJ into Mubtada' vs Fa'il based on preceding verb in clause
+                    if role_key in ("SUBJ", "SBJ"):
+                        if analysis_id in last_verb_by_analysis:
+                            role_arabic, role_latin, base_expl = (
+                                "فاعل",
+                                "Fa'il",
+                                "Pelaku (fa'il) yang melakukan perbuatan dari fi'il sebelumnya.",
+                            )
+                        else:
+                            role_arabic, role_latin, base_expl = (
+                                "مبتدأ",
+                                "Mubtada'",
+                                "Isim di awal kalimat nominal yang menjadi pokok pembicaraan (mubtada').",
+                            )
+                    else:
+                        role_arabic, role_latin, base_expl = resolve_role_info(role_key)
 
                     case_mood = (row.get("Case_Mood") or "").strip()
                     case_marker = (row.get("Case_Mood_Marker") or "").strip()
                     irab_status = CASE_STATUS_MAP.get(case_mood, case_mood.lower() if case_mood else None)
                     irab_sign = SIGN_ARABIC_MAP.get(case_marker, case_marker or None)
 
+                    # Derive Amil & track clause context
+                    amil_txt: str | None = None
+                    if role_key == "PREP":
+                        last_prep_by_analysis[analysis_id] = word_surface
+                    elif role_key in ("PV", "PV_PASS", "IV", "IV_PASS", "CV", "IV_COP", "CV_COP", "UNINFLECTED_VERB"):
+                        last_verb_by_analysis[analysis_id] = word_surface
+                        if role_key in ("IV_COP", "CV_COP"):
+                            last_nasikh_by_analysis[analysis_id] = word_surface
+                    elif role_key == "ANNUL_PART":
+                        last_nasikh_by_analysis[analysis_id] = word_surface
+                    elif role_key in ("CONJ", "SUBOR_CONJ", "PART_CONDITION"):
+                        last_verb_by_analysis.pop(analysis_id, None)
+
+                    if role_key == "PREP_OBJ" and analysis_id in last_prep_by_analysis:
+                        amil_txt = f"حرف الجر ({last_prep_by_analysis[analysis_id]})"
+                    elif role_key in ("OBJ", "AGNT", "PASS_SUBJ") or role_latin == "Fa'il":
+                        if analysis_id in last_verb_by_analysis:
+                            amil_txt = f"الفعل ({last_verb_by_analysis[analysis_id]})"
+                    elif role_latin == "Mubtada'":
+                        amil_txt = "الابتداء (عامل معنوي)"
+                    elif role_key == "GEN_CONS" and analysis_id in last_construct_by_analysis:
+                        amil_txt = f"المضاف ({last_construct_by_analysis[analysis_id]})"
+                    elif role_key in ("SUBJ_COP_PART", "PART_COP_PRED", "SUBJ_COP_V", "V_COP_PRED") and analysis_id in last_nasikh_by_analysis:
+                        amil_txt = f"الناسخ ({last_nasikh_by_analysis[analysis_id]})"
+
+                    if row.get("Possessive_Construct") == "CONSTRUCT":
+                        last_construct_by_analysis[analysis_id] = word_surface
+
                     notes = [base_expl] if base_expl else []
+                    if amil_txt and irab_status:
+                        notes.append(f"Berstatus {irab_status} karena dipengaruhi amil {amil_txt}.")
                     if row.get("Possessive_Construct") == "CONSTRUCT":
                         notes.append("Berposisi sebagai mudhaf (disandarkan pada kata berikutnya).")
                     if row.get("Phrasal_Function") == "PRED":
@@ -261,7 +311,7 @@ def run_masaq_etl(csv_path: Path, database_url: str) -> dict[str, int]:
                             role_latin,
                             irab_status,
                             irab_sign,
-                            None,
+                            amil_txt,
                             " ".join(notes) if notes else None,
                         )
                     )
@@ -287,6 +337,7 @@ def run_masaq_etl(csv_path: Path, database_url: str) -> dict[str, int]:
                       role_latin = EXCLUDED.role_latin,
                       irab_status = EXCLUDED.irab_status,
                       irab_sign = EXCLUDED.irab_sign,
+                      amil = EXCLUDED.amil,
                       explanation = EXCLUDED.explanation
                 """,
                 nodes,

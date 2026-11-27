@@ -90,6 +90,10 @@ Build an offline-first digital Mushaf for Mushaf Madinah, riwayah Hafs, with a 6
 - Interactive **Multiple-Choice Quiz (4 options)** and **Flashcard** modes.
 - Mastery tracking per normalized Arabic word (`learning_word_progress`) so mastered words carry across all Juz, plus 1-click save to **Vocabulary Notebook**.
 
+### Quran Grammar Learning Mode
+- Optional toggle on `/mushaf` and `/tarjim` (preserves standard Mushaf reading when OFF) to highlight words by grammatical function: *Mubtada'*, *Khabar*, *Fa'il*, *Maf'ul Bih*, *Huruf Jar*, *Ism Majrur*, and *Amil*.
+- Selecting a highlighted word displays its **Amil** and Indonesian grammatical reasoning in the Word & I‘rab Explorer.
+
 ## 8. Data and architecture principles
 
 - Preserve original source records and identifiers.

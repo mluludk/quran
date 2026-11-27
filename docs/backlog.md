@@ -106,6 +106,12 @@ Backlog ini diturunkan dari [PRD.md](../PRD.md) dan [development-roadmap.md](./d
     - Sajikan dek latihan berdasarkan frekuensi, Juz (1–30), atau halaman Mushaf beserta 4 opsi pilihan ganda.
 39. **[M3-Web] Halaman `/learn` (Kuis Pilihan Ganda, Flashcard & Progress Per Juz)** (`area:web`, `P1`) — *Dep: #38*
     - Bangun antarmuka `/learn` dengan dashboard progress Juz 1–30, kuis interaktif, flashcard, dan integrasi simpan ke Vocabulary Notebook.
+40. **[M4] ETL Pemisahan Mubtada'/Fa'il, Amil & Alasan Kedudukan Nahwu** (`area:etl`, `P1`) — *Dep: #24*
+    - Perbarui `irab_masaq.py` untuk membedakan `Mubtada'` vs `Fa'il`, mengisi kolom `amil`, dan memperkaya kalimat alasan kedudukan.
+41. **[M2] Ekspos `grammar_roles` pada `GET /pages/{page}`** (`area:api`, `P1`) — *Dep: #40*
+    - Sertakan `grammar_roles` per kata pada endpoint halaman agar UI dapat mewarnai fungsi nahwu tanpa request tambahan.
+42. **[M3-Web] Quran Grammar Learning Mode UI di `/mushaf` & `/tarjim`** (`area:web`, `P1`) — *Dep: #41*
+    - Tambah toggle Mode Belajar Nahwu, *color legend* filter (`Mubtada'`, `Khabar`, `Fa'il`, `Maf'ul`, `Huruf Jar`, `Ism Majrur`, `Amil`), dan tampilan `Amil` di Word Explorer.
 
 ### M5: QA & Release
 20. **[M5] Visual QA, offline QA, dan verifikasi atribusi lisensi final** (`area:data`, `area:legal`, `P0`) — *Dep: #15, #18*

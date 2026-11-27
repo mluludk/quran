@@ -269,7 +269,15 @@ export default function WordExplorerPanel({ loading, error, word, onSelectRoot, 
                           </span>
                         </li>
                       )}
-                      {node.explanation && <li>Penjelasan: {node.explanation}</li>}
+                      {node.amil && (
+                        <li>
+                          Amil:{" "}
+                          <span className="arabic-ui" style={{ fontSize: "1.08rem", color: "#9a3412", fontWeight: 600 }}>
+                            {node.amil}
+                          </span>
+                        </li>
+                      )}
+                      {node.explanation && <li>Alasan / Penjelasan: {node.explanation}</li>}
                     </ul>
                     <div style={{ color: "#94a3b8", fontSize: "0.72rem", marginTop: "0.25rem" }}>
                       Sumber: {node.source}

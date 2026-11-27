@@ -29,6 +29,7 @@ export interface PageLineItem {
   translation_id?: string;
   is_first_occurrence?: boolean;
   first_occurrence_page?: number | null;
+  grammar_roles?: string[] | null;
 }
 
 export interface PageLine {
@@ -150,7 +151,7 @@ export async function fetchJuzList(): Promise<JuzSummary[]> {
 }
 
 export async function fetchPage(page: number): Promise<MushafPageResponse> {
-  return apiFetch<MushafPageResponse>(`/pages/${page}?v=4`);
+  return apiFetch<MushafPageResponse>(`/pages/${page}?v=5`);
 }
 
 export interface AyahIrabNode {
