@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import {
   createBookmark,
+  createVocabItem,
   fetchPage,
   fetchSurahs,
   fetchWordDetail,
@@ -18,6 +19,7 @@ import WordExplorerPanel from "./WordExplorerPanel";
 import RootExplorerModal from "./RootExplorerModal";
 import SearchAndBookmarksModal from "./SearchAndBookmarksModal";
 import AyahIrabDiagramModal from "./AyahIrabDiagramModal";
+import VocabNotebookModal from "./VocabNotebookModal";
 
 function codesToString(codes: number[] | null): string {
   if (!codes || codes.length === 0) return "";
@@ -39,6 +41,7 @@ export default function MushafReader({ initialPage = 1 }: { initialPage?: number
 
   const [rootModal, setRootModal] = useState<{ id: number; text: string } | null>(null);
   const [diagramModal, setDiagramModal] = useState<{ surah: number; ayah: number; surahName: string } | null>(null);
+  const [vocabOpen, setVocabOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [bookmarks, setBookmarks] = useState<BookmarkItem[]>([]);
 
@@ -191,6 +194,14 @@ export default function MushafReader({ initialPage = 1 }: { initialPage?: number
 
           <button
             type="button"
+            onClick={() => setVocabOpen(true)}
+            style={{ padding: "0.4rem 0.8rem", borderRadius: 8, border: "1px solid #9a7b4f", background: "#fffdf7", color: "#7c5c32", cursor: "pointer", fontWeight: 600 }}
+          >
+            Notebook
+          </button>
+
+          <button
+            type="button"
             onClick={() => setSearchOpen(true)}
             style={{ padding: "0.4rem 0.85rem", borderRadius: 8, border: "none", background: "#292524", color: "#fff", cursor: "pointer", fontWeight: 600 }}
           >
@@ -277,6 +288,14 @@ export default function MushafReader({ initialPage = 1 }: { initialPage?: number
           word={wordDetail}
           onSelectRoot={(id, text) => setRootModal({ id, text })}
           onOpenAyahDiagram={(surah, ayah, surahName) => setDiagramModal({ surah, ayah, surahName })}
+          onSaveToVocab={async (itemType, w) => {
+            await createVocabItem({
+              item_type: itemType,
+              word_id: itemType === "word" ? w.word_id : null,
+              ayah_id: w.ayah_id,
+            });
+            setVocabOpen(true);
+          }}
         />
       </div>
 
@@ -289,6 +308,12 @@ export default function MushafReader({ initialPage = 1 }: { initialPage?: number
       <AyahIrabDiagramModal
         target={diagramModal}
         onClose={() => setDiagramModal(null)}
+      />
+
+      <VocabNotebookModal
+        open={vocabOpen}
+        onClose={() => setVocabOpen(false)}
+        onJumpToPage={(p) => setPageNumber(p)}
       />
 
       <RootExplorerModal

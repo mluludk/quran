@@ -281,3 +281,85 @@ export async function putReadingProgress(pageNumber: number): Promise<void> {
     body: JSON.stringify({ page_number: pageNumber }),
   });
 }
+
+export interface VocabCollection {
+  id: number;
+  name: string;
+  description: string;
+  item_count: number;
+}
+
+export interface VocabItem {
+  id: number;
+  collection_id: number | null;
+  collection_name: string;
+  item_type: "word" | "ayah";
+  word_id: number | null;
+  ayah_id: number | null;
+  note: string;
+  mastery_level: number; // 0: Baru, 1: Belajar, 2: Dikuasai
+  review_count: number;
+  arabic_text: string;
+  translation_id: string;
+  root: string;
+  surah_name: string;
+  surah_id: number;
+  ayah_number: number;
+  page_number: number | null;
+}
+
+export interface VocabProgress {
+  total_items: number;
+  new_count: number;
+  learning_count: number;
+  mastered_count: number;
+  total_reviews: number;
+}
+
+export async function listVocabCollections(): Promise<VocabCollection[]> {
+  const res = await apiFetch<{ data: VocabCollection[] | null }>("/vocab/collections");
+  return res.data ?? [];
+}
+
+export async function createVocabCollection(name: string): Promise<VocabCollection> {
+  return apiFetch<VocabCollection>("/vocab/collections", {
+    method: "POST",
+    body: JSON.stringify({ name }),
+  });
+}
+
+export async function listVocabItems(collectionId = 0): Promise<VocabItem[]> {
+  const res = await apiFetch<{ data: VocabItem[] | null }>(`/vocab/items?collection_id=${collectionId}`);
+  return res.data ?? [];
+}
+
+export async function createVocabItem(payload: {
+  collection_id?: number | null;
+  item_type: "word" | "ayah";
+  word_id?: number | null;
+  ayah_id?: number | null;
+  note?: string;
+}): Promise<{ id: number }> {
+  return apiFetch("/vocab/items", {
+    method: "POST",
+    body: JSON.stringify(payload),
+  });
+}
+
+export async function updateVocabItem(
+  id: number,
+  payload: { note?: string; collection_id?: number; mastery_level?: number; reviewed?: boolean }
+): Promise<void> {
+  await apiFetch(`/vocab/items/${id}`, {
+    method: "PATCH",
+    body: JSON.stringify(payload),
+  });
+}
+
+export async function deleteVocabItem(id: number): Promise<void> {
+  await apiFetch(`/vocab/items/${id}`, { method: "DELETE" });
+}
+
+export async function getVocabProgress(): Promise<VocabProgress> {
+  return apiFetch<VocabProgress>("/vocab/progress");
+}

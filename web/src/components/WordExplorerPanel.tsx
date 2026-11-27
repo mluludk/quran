@@ -8,6 +8,7 @@ interface Props {
   word: WordDetailResponse | null;
   onSelectRoot: (rootId: number, rootText: string) => void;
   onOpenAyahDiagram: (surah: number, ayah: number, surahName: string) => void;
+  onSaveToVocab: (itemType: "word" | "ayah", word: WordDetailResponse) => Promise<void>;
 }
 
 const POS_ARABIC_MAP: Record<string, string> = {
@@ -42,7 +43,7 @@ function formatSpacedRoot(root: string): string {
   return root.split("").join(" ");
 }
 
-export default function WordExplorerPanel({ loading, error, word, onSelectRoot, onOpenAyahDiagram }: Props) {
+export default function WordExplorerPanel({ loading, error, word, onSelectRoot, onOpenAyahDiagram, onSaveToVocab }: Props) {
   const stemSeg =
     word?.morphology?.find((s) => s.root) ?? word?.morphology?.[word.morphology.length - 1];
   const primaryIrab =
@@ -115,6 +116,40 @@ export default function WordExplorerPanel({ loading, error, word, onSelectRoot, 
                 }}
               >
                 Diagram I‘rab Ayat ↗
+              </button>
+            </div>
+            <div style={{ display: "flex", gap: "0.4rem", marginTop: "0.5rem" }}>
+              <button
+                type="button"
+                onClick={() => onSaveToVocab("word", word)}
+                style={{
+                  padding: "0.22rem 0.6rem",
+                  borderRadius: 6,
+                  border: "1px solid #d6cfc2",
+                  background: "#fff",
+                  color: "#292524",
+                  fontSize: "0.75rem",
+                  fontWeight: 600,
+                  cursor: "pointer",
+                }}
+              >
+                + Simpan Kata
+              </button>
+              <button
+                type="button"
+                onClick={() => onSaveToVocab("ayah", word)}
+                style={{
+                  padding: "0.22rem 0.6rem",
+                  borderRadius: 6,
+                  border: "1px solid #d6cfc2",
+                  background: "#fff",
+                  color: "#292524",
+                  fontSize: "0.75rem",
+                  fontWeight: 600,
+                  cursor: "pointer",
+                }}
+              >
+                + Simpan Ayat
               </button>
             </div>
           </div>

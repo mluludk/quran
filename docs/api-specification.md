@@ -48,6 +48,13 @@ Base path: `/api/v1`. JSON. Authentication requirements for user-state endpoints
 | DELETE | `/bookmarks/{id}` | Remove bookmark |
 | GET | `/reading-progress` | Get progress |
 | PUT | `/reading-progress` | Update progress |
+| GET | `/vocab/collections` | List vocabulary themes/collections |
+| POST | `/vocab/collections` | Create vocabulary theme |
+| GET | `/vocab/items` | List saved words/ayahs with notes & mastery |
+| POST | `/vocab/items` | Save word or ayah to notebook |
+| PATCH | `/vocab/items/{id}` | Update note, theme, or flashcard mastery |
+| DELETE | `/vocab/items/{id}` | Remove saved item |
+| GET | `/vocab/progress` | Vocabulary learning progress summary |
 
 ## 5. Example page response
 

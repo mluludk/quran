@@ -94,6 +94,12 @@ Backlog ini diturunkan dari [PRD.md](../PRD.md) dan [development-roadmap.md](./d
     - Sertakan daftar `phrases` (rentang kata, jenis frasa, dan *mahal i‘rab*) pada endpoint i‘rab per-ayat.
 33. **[M3-Web] UI Quran Phrase & Sentence Explorer di Diagram Ayat** (`area:web`, `P1`) — *Dep: #32*
     - Render garis rentang frasa/klausa (`PP`, `NS`, `VS`, `Idhafah`, `Shilah`, `Syarth`) pada diagram SVG RTL dan daftar penjelasan frasa di bawah diagram.
+34. **[M4] Schema & Migrasi Quran Vocabulary Notebook (`004_vocabulary_notebook.sql`)** (`area:data`, `P1`)
+    - Tambah tabel `vocab_collections` (tema) dan `vocab_items` (simpan kata/ayat, catatan, `mastery_level`, `review_count`).
+35. **[M2] API Vocabulary Notebook, Progress & Flashcard** (`area:api`, `P1`) — *Dep: #34*
+    - Implementasi `/vocab/collections`, `/vocab/items`, `/vocab/progress` untuk simpan kata/ayat, catatan, tema, dan review flashcard.
+36. **[M3-Web] UI Vocabulary Notebook, Tema, Progress & Flashcard** (`area:web`, `P1`) — *Dep: #35*
+    - Tombol simpan kata/ayat dari Word Explorer, manajemen tema & catatan pribadi, progress bar, dan mode Flashcard interaktif.
 
 ### M5: QA & Release
 20. **[M5] Visual QA, offline QA, dan verifikasi atribusi lisensi final** (`area:data`, `area:legal`, `P0`) — *Dep: #15, #18*

@@ -46,6 +46,7 @@ func NewApp(pool *pgxpool.Pool, manifestPath string, corsOrigins string) *fiber.
 	qh := &handlers.QuranHandler{Pool: pool}
 	wh := &handlers.WordHandler{Pool: pool}
 	bh := &handlers.BundleUserHandler{Pool: pool, ManifestPath: manifestPath}
+	vh := &handlers.VocabHandler{Pool: pool}
 
 	v1 := app.Group("/api/v1")
 
@@ -78,6 +79,15 @@ func NewApp(pool *pgxpool.Pool, manifestPath string, corsOrigins string) *fiber.
 	v1.Delete("/bookmarks/:id", bh.DeleteBookmark)
 	v1.Get("/reading-progress", bh.GetReadingProgress)
 	v1.Put("/reading-progress", bh.PutReadingProgress)
+
+	// Vocabulary Notebook & Flashcards
+	v1.Get("/vocab/collections", vh.ListCollections)
+	v1.Post("/vocab/collections", vh.CreateCollection)
+	v1.Get("/vocab/items", vh.ListItems)
+	v1.Post("/vocab/items", vh.CreateItem)
+	v1.Patch("/vocab/items/:id", vh.UpdateItem)
+	v1.Delete("/vocab/items/:id", vh.DeleteItem)
+	v1.Get("/vocab/progress", vh.GetProgress)
 
 	return app
 }

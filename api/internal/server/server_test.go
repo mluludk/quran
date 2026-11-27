@@ -162,4 +162,16 @@ func TestCoreAndIrabEndpoints(t *testing.T) {
 	if len(famResp.Family) == 0 {
 		t.Fatalf("expected non-empty root family for root 1")
 	}
+
+	// 9. /api/v1/vocab/collections & /api/v1/vocab/progress
+	rec = httptest.NewRecorder()
+	h.ServeHTTP(rec, httptest.NewRequest("GET", "/api/v1/vocab/collections", nil))
+	if rec.Code != 200 {
+		t.Fatalf("/vocab/collections status = %d", rec.Code)
+	}
+	rec = httptest.NewRecorder()
+	h.ServeHTTP(rec, httptest.NewRequest("GET", "/api/v1/vocab/progress", nil))
+	if rec.Code != 200 {
+		t.Fatalf("/vocab/progress status = %d", rec.Code)
+	}
 }
