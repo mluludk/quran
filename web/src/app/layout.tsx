@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Scheherazade_New } from "next/font/google";
+import "./globals.css";
 
 const arabicUi = Scheherazade_New({
   subsets: ["arabic"],
