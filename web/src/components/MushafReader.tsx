@@ -49,6 +49,7 @@ export default function MushafReader({
   const [diagramModal, setDiagramModal] = useState<{ surah: number; ayah: number; surahName: string } | null>(null);
   const [vocabOpen, setVocabOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [hideSeenTranslations, setHideSeenTranslations] = useState(true);
   const [bookmarks, setBookmarks] = useState<BookmarkItem[]>([]);
 
   const refreshBookmarks = useCallback(() => {
@@ -160,6 +161,29 @@ export default function MushafReader({
           >
             {mode === "tarjim" ? "Mode Mushaf" : "Mode Tarjim"}
           </a>
+          {mode === "tarjim" && (
+            <label
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.35rem",
+                fontSize: "0.82rem",
+                color: "#44403c",
+                cursor: "pointer",
+                padding: "0.35rem 0.6rem",
+                borderRadius: 8,
+                border: "1px solid #e7e5e4",
+                background: "#fff",
+              }}
+            >
+              <input
+                type="checkbox"
+                checked={hideSeenTranslations}
+                onChange={(e) => setHideSeenTranslations(e.target.checked)}
+              />
+              Hanya kata baru (sejak Al-Fatihah)
+            </label>
+          )}
           <button
             type="button"
             disabled={pageNumber <= 1}
@@ -302,6 +326,7 @@ export default function MushafReader({
 
                       const isSelected = selectedWordId === item.word_id;
                       if (mode === "tarjim") {
+                        const showTr = !hideSeenTranslations || item.is_first_occurrence !== false;
                         return (
                           <button
                             key={item.word_id}
@@ -325,14 +350,14 @@ export default function MushafReader({
                                 fontFamily: "system-ui, sans-serif",
                                 fontSize: "0.76rem",
                                 fontWeight: 500,
-                                color: "#1e3a5f",
+                                color: showTr ? "#1e3a5f" : "#d6d3d1",
                                 lineHeight: 1.25,
                                 direction: "ltr",
                                 textAlign: "center",
                                 maxWidth: 130,
                               }}
                             >
-                              {item.translation_id || "—"}
+                              {showTr ? item.translation_id || "—" : "·"}
                             </span>
                           </button>
                         );

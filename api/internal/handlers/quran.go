@@ -487,9 +487,18 @@ func (h *QuranHandler) GetPage(c *fiber.Ctx) error {
 		SELECT l.line_number, COALESCE(l.line_type,''), l.is_centered,
 		       li.item_type, li.word_id, li.surah_id, li.ayah_id, li.position_in_line,
 		       COALESCE(li.display_text,''), COALESCE(li.source_glyph_code,''),
-		       a.ayah_number, COALESCE(wt.translation,'')
+		       a.ayah_number, COALESCE(wt.translation,''),
+		       CASE
+		         WHEN li.word_id IS NULL THEN false
+		         ELSE NOT EXISTS (
+		           SELECT 1 FROM quran_words pw
+		           WHERE pw.normalized_search_text = w.normalized_search_text
+		             AND pw.id < w.id
+		         )
+		       END AS is_first_occurrence
 		FROM mushaf_lines l
 		JOIN mushaf_line_items li ON li.line_id = l.id
+		LEFT JOIN quran_words w ON w.id = li.word_id
 		LEFT JOIN ayahs a ON a.id = li.ayah_id
 		LEFT JOIN word_translations wt ON wt.word_id = li.word_id AND wt.language_code = 'id'
 		WHERE l.page_id = $1
@@ -512,10 +521,10 @@ func (h *QuranHandler) GetPage(c *fiber.Ctx) error {
 	for iRows.Next() {
 		var lineNum, pos int16
 		var lineType, itemType, dispTxt, glyphRaw, transID string
-		var isCentered bool
+		var isCentered, isFirstOcc bool
 		var wordID, ayahID *int64
 		var surahID, ayahNum *int16
-		if err := iRows.Scan(&lineNum, &lineType, &isCentered, &itemType, &wordID, &surahID, &ayahID, &pos, &dispTxt, &glyphRaw, &ayahNum, &transID); err != nil {
+		if err := iRows.Scan(&lineNum, &lineType, &isCentered, &itemType, &wordID, &surahID, &ayahID, &pos, &dispTxt, &glyphRaw, &ayahNum, &transID, &isFirstOcc); err != nil {
 			return err
 		}
 		la, ok := lineMap[lineNum]
@@ -525,16 +534,17 @@ func (h *QuranHandler) GetPage(c *fiber.Ctx) error {
 			lines = append(lines, la)
 		}
 		la.Items = append(la.Items, fiber.Map{
-			"item_type":         itemType,
-			"word_id":           wordID,
-			"surah_id":          surahID,
-			"ayah_id":           ayahID,
-			"ayah_number":       ayahNum,
-			"position":          pos,
-			"display_text":      dispTxt,
-			"source_glyph_code": glyphRaw,
-			"glyph_codes":       parseGlyphCodes(glyphRaw),
-			"translation_id":    transID,
+			"item_type":           itemType,
+			"word_id":             wordID,
+			"surah_id":            surahID,
+			"ayah_id":             ayahID,
+			"ayah_number":         ayahNum,
+			"position":            pos,
+			"display_text":        dispTxt,
+			"source_glyph_code":   glyphRaw,
+			"glyph_codes":         parseGlyphCodes(glyphRaw),
+			"translation_id":      transID,
+			"is_first_occurrence": isFirstOcc,
 		})
 	}
 
