@@ -50,11 +50,15 @@ Use fixed source layout and a selection overlay or hit-test map. This is a likel
 
 Test page 1, page 2, opening surah pages, pages with special layout, mid-page verse transitions, end-of-book pages, and glyph/diacritic edge cases.
 
-## 7. M0 proof of concept
+## 7. M0 proof of concept (Completed for Next.js Web)
 
-Render at least three representative pages in Flutter:
-- One opening page.
-- One dense or complex page.
-- One page selected for difficult glyph/line behavior.
+Implemented at `web/src/app/m0-proof/page.tsx` using real QPC V4 fonts (`p1.woff2`–`p3.woff2`, `surah-name-v4.woff2`, `QCF4_Hafs_01_W.woff2`) and `web/src/data/m0-proof-pages.json`:
+- **Page 1** (8 lines, 29 words): Al-Fatihah opening layout (`surah_name` + centered `ayah` lines).
+- **Page 2** (8 lines, 36 words): Al-Baqarah opening (`surah_name` + `basmallah` + centered `ayah` lines).
+- **Page 3** (15 lines, 127 words): Full 15-line justified layout.
 
-Demonstrate page integrity, scaling, word selection, and source-to-word mapping before choosing the renderer.
+**Key M0 renderer findings:**
+- Each `word_id` in `qpc_mapping.csv` can map to **one or more space-separated decimal codepoints** (e.g. `64582 64583`).
+- `page_lines.csv` provides `is_centered` to distinguish centered opening lines (Pages 1–2) from full-width 15-line pages (Page 3+).
+- Next.js DOM-based per-word `<button>` elements achieve exact word hit-testing and non-shifting highlight overlays (`outline`) with 100% alignment to Quran.com Indonesian WBW and `mustafa0x/quran-morphology` segments.
+- Flutter renderer parity check remains pending Flutter SDK availability in M3-Mobile.

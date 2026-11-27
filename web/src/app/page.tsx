@@ -11,6 +11,11 @@ export default function HomePage() {
         <li>Word-level selection &amp; Indonesian translation</li>
         <li>Root, lemma, POS &amp; morphology explorer</li>
       </ul>
+      <p>
+        <a href="/m0-proof" style={{ fontWeight: 600, color: "#7c5c32" }}>
+          → Buka M0 Renderer &amp; Hit-Test Proof (Halaman 1–3)
+        </a>
+      </p>
     </main>
   );
 }

@@ -1,0 +1,6126 @@
+{
+  "pages": [
+    {
+      "page_number": 1,
+      "font_family": "p1",
+      "lines": [
+        {
+          "line_number": 1,
+          "line_type": "surah_name",
+          "is_centered": true,
+          "items": [
+            {
+              "item_type": "surah_header",
+              "surah_number": 1,
+              "glyph_codes": [
+                57344,
+                57345
+              ]
+            }
+          ]
+        },
+        {
+          "line_number": 2,
+          "line_type": "ayah",
+          "is_centered": true,
+          "items": [
+            {
+              "item_type": "word",
+              "word_id": 1,
+              "location": "1:1:1",
+              "surah": 1,
+              "ayah": 1,
+              "word": 1,
+              "text": "بِسۡمِ",
+              "glyph_codes": [
+                64577
+              ],
+              "translation_id": "dengan nama",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "بِ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "ب",
+                  "tags": "P|PREF|LEM:ب"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "سْمِ",
+                  "pos": "N",
+                  "root": "سمو",
+                  "lemma": "اسْم",
+                  "tags": "ROOT:سمو|LEM:اسْم|M|GEN"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 2,
+              "location": "1:1:2",
+              "surah": 1,
+              "ayah": 1,
+              "word": 2,
+              "text": "ٱللَّهِ",
+              "glyph_codes": [
+                64578
+              ],
+              "translation_id": "Allah",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "ٱللَّهِ",
+                  "pos": "N",
+                  "root": "أله",
+                  "lemma": "اللَّه",
+                  "tags": "PN|ROOT:أله|LEM:اللَّه|GEN"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 3,
+              "location": "1:1:3",
+              "surah": 1,
+              "ayah": 1,
+              "word": 3,
+              "text": "ٱلرَّحۡمَٰنِ",
+              "glyph_codes": [
+                64579
+              ],
+              "translation_id": "Maha Pengasih",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "ٱل",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "ال",
+                  "tags": "DET|PREF|LEM:ال"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "رَّحْمَٰنِ",
+                  "pos": "N",
+                  "root": "رحم",
+                  "lemma": "رَحْمٰن",
+                  "tags": "ROOT:رحم|LEM:رَحْمٰن|MS|GEN|ADJ"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 4,
+              "location": "1:1:4",
+              "surah": 1,
+              "ayah": 1,
+              "word": 4,
+              "text": "ٱلرَّحِيمِ",
+              "glyph_codes": [
+                64580
+              ],
+              "translation_id": "Maha Penyayang",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "ٱل",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "ال",
+                  "tags": "DET|PREF|LEM:ال"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "رَّحِيمِ",
+                  "pos": "N",
+                  "root": "رحم",
+                  "lemma": "رَحِيم",
+                  "tags": "ROOT:رحم|LEM:رَحِيم|MS|GEN|ADJ"
+                }
+              ]
+            },
+            {
+              "item_type": "ayah_end",
+              "word_id": 5,
+              "location": "1:1:5",
+              "surah": 1,
+              "ayah": 1,
+              "word": 5,
+              "text": "١",
+              "glyph_codes": [
+                64581
+              ],
+              "translation_id": null,
+              "morphology": []
+            }
+          ]
+        },
+        {
+          "line_number": 3,
+          "line_type": "ayah",
+          "is_centered": true,
+          "items": [
+            {
+              "item_type": "word",
+              "word_id": 6,
+              "location": "1:2:1",
+              "surah": 1,
+              "ayah": 2,
+              "word": 1,
+              "text": "ٱلۡحَمۡدُ",
+              "glyph_codes": [
+                64582
+              ],
+              "translation_id": "pujian",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "ٱلْ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "ال",
+                  "tags": "DET|PREF|LEM:ال"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "حَمْدُ",
+                  "pos": "N",
+                  "root": "حمد",
+                  "lemma": "حَمْد",
+                  "tags": "ROOT:حمد|LEM:حَمْد|M|NOM"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 7,
+              "location": "1:2:2",
+              "surah": 1,
+              "ayah": 2,
+              "word": 2,
+              "text": "لِلَّهِ",
+              "glyph_codes": [
+                64583
+              ],
+              "translation_id": "bagi Allah",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "لِ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "ل",
+                  "tags": "P|PREF|LEM:ل"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "لَّهِ",
+                  "pos": "N",
+                  "root": "أله",
+                  "lemma": "اللَّه",
+                  "tags": "PN|ROOT:أله|LEM:اللَّه|GEN"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 8,
+              "location": "1:2:3",
+              "surah": 1,
+              "ayah": 2,
+              "word": 3,
+              "text": "رَبِّ",
+              "glyph_codes": [
+                64584
+              ],
+              "translation_id": "Tuhan",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "رَبِّ",
+                  "pos": "N",
+                  "root": "ربب",
+                  "lemma": "رَبّ",
+                  "tags": "ROOT:ربب|LEM:رَبّ|M|GEN"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 9,
+              "location": "1:2:4",
+              "surah": 1,
+              "ayah": 2,
+              "word": 4,
+              "text": "ٱلۡعَٰلَمِينَ",
+              "glyph_codes": [
+                64585
+              ],
+              "translation_id": "alam semesta",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "ٱلْ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "ال",
+                  "tags": "DET|PREF|LEM:ال"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "عَٰلَمِينَ",
+                  "pos": "N",
+                  "root": "علم",
+                  "lemma": "عالَم",
+                  "tags": "ROOT:علم|LEM:عالَم|MP|GEN"
+                }
+              ]
+            },
+            {
+              "item_type": "ayah_end",
+              "word_id": 10,
+              "location": "1:2:5",
+              "surah": 1,
+              "ayah": 2,
+              "word": 5,
+              "text": "٢",
+              "glyph_codes": [
+                64586
+              ],
+              "translation_id": null,
+              "morphology": []
+            }
+          ]
+        },
+        {
+          "line_number": 4,
+          "line_type": "ayah",
+          "is_centered": true,
+          "items": [
+            {
+              "item_type": "word",
+              "word_id": 11,
+              "location": "1:3:1",
+              "surah": 1,
+              "ayah": 3,
+              "word": 1,
+              "text": "ٱلرَّحۡمَٰنِ",
+              "glyph_codes": [
+                64587
+              ],
+              "translation_id": "Maha Pengasih",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "ٱل",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "ال",
+                  "tags": "DET|PREF|LEM:ال"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "رَّحْمَٰنِ",
+                  "pos": "N",
+                  "root": "رحم",
+                  "lemma": "رَحْمٰن",
+                  "tags": "ROOT:رحم|LEM:رَحْمٰن|MS|GEN|ADJ"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 12,
+              "location": "1:3:2",
+              "surah": 1,
+              "ayah": 3,
+              "word": 2,
+              "text": "ٱلرَّحِيمِ",
+              "glyph_codes": [
+                64588
+              ],
+              "translation_id": "Maha Penyayang",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "ٱل",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "ال",
+                  "tags": "DET|PREF|LEM:ال"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "رَّحِيمِ",
+                  "pos": "N",
+                  "root": "رحم",
+                  "lemma": "رَحِيم",
+                  "tags": "ROOT:رحم|LEM:رَحِيم|MS|GEN|ADJ"
+                }
+              ]
+            },
+            {
+              "item_type": "ayah_end",
+              "word_id": 13,
+              "location": "1:3:3",
+              "surah": 1,
+              "ayah": 3,
+              "word": 3,
+              "text": "٣",
+              "glyph_codes": [
+                64589
+              ],
+              "translation_id": null,
+              "morphology": []
+            },
+            {
+              "item_type": "word",
+              "word_id": 14,
+              "location": "1:4:1",
+              "surah": 1,
+              "ayah": 4,
+              "word": 1,
+              "text": "مَٰلِكِ",
+              "glyph_codes": [
+                64590
+              ],
+              "translation_id": "Penguasa",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "مَٰلِكِ",
+                  "pos": "N",
+                  "root": "ملك",
+                  "lemma": "مالِك",
+                  "tags": "ACT_PCPL|VF:1|ROOT:ملك|LEM:مالِك|M|GEN"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 15,
+              "location": "1:4:2",
+              "surah": 1,
+              "ayah": 4,
+              "word": 2,
+              "text": "يَوۡمِ",
+              "glyph_codes": [
+                64591
+              ],
+              "translation_id": "hari",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "يَوْمِ",
+                  "pos": "N",
+                  "root": "يوم",
+                  "lemma": "يَوْم",
+                  "tags": "ROOT:يوم|LEM:يَوْم|M|GEN"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 16,
+              "location": "1:4:3",
+              "surah": 1,
+              "ayah": 4,
+              "word": 3,
+              "text": "ٱلدِّينِ",
+              "glyph_codes": [
+                64592
+              ],
+              "translation_id": "pembalasan",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "ٱل",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "ال",
+                  "tags": "DET|PREF|LEM:ال"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "دِّينِ",
+                  "pos": "N",
+                  "root": "دين",
+                  "lemma": "دِين",
+                  "tags": "ROOT:دين|LEM:دِين|M|GEN"
+                }
+              ]
+            },
+            {
+              "item_type": "ayah_end",
+              "word_id": 17,
+              "location": "1:4:4",
+              "surah": 1,
+              "ayah": 4,
+              "word": 4,
+              "text": "٤",
+              "glyph_codes": [
+                64593
+              ],
+              "translation_id": null,
+              "morphology": []
+            }
+          ]
+        },
+        {
+          "line_number": 5,
+          "line_type": "ayah",
+          "is_centered": true,
+          "items": [
+            {
+              "item_type": "word",
+              "word_id": 18,
+              "location": "1:5:1",
+              "surah": 1,
+              "ayah": 5,
+              "word": 1,
+              "text": "إِيَّاكَ",
+              "glyph_codes": [
+                64594
+              ],
+              "translation_id": "hanya kepadaMu",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "إِيَّاكَ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": "إِيّا",
+                  "tags": "PRON|LEM:إِيّا|2MS"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 19,
+              "location": "1:5:2",
+              "surah": 1,
+              "ayah": 5,
+              "word": 2,
+              "text": "نَعۡبُدُ",
+              "glyph_codes": [
+                64595
+              ],
+              "translation_id": "kami menyembah",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "نَعْبُدُ",
+                  "pos": "V",
+                  "root": "عبد",
+                  "lemma": "عَبَدَ",
+                  "tags": "IMPF|VF:1|ROOT:عبد|LEM:عَبَدَ|1P|MOOD:IND"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 20,
+              "location": "1:5:3",
+              "surah": 1,
+              "ayah": 5,
+              "word": 3,
+              "text": "وَإِيَّاكَ",
+              "glyph_codes": [
+                64596
+              ],
+              "translation_id": "dan hanya kepadaMu",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "وَ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "و",
+                  "tags": "CONJ|PREF|LEM:و"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "إِيَّاكَ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": "إِيّا",
+                  "tags": "PRON|LEM:إِيّا|2MS"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 21,
+              "location": "1:5:4",
+              "surah": 1,
+              "ayah": 5,
+              "word": 4,
+              "text": "نَسۡتَعِينُ",
+              "glyph_codes": [
+                64597
+              ],
+              "translation_id": "kami mohon pertolongan",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "نَسْتَعِينُ",
+                  "pos": "V",
+                  "root": "عون",
+                  "lemma": "اسْتَعِينُ",
+                  "tags": "IMPF|VF:10|ROOT:عون|LEM:اسْتَعِينُ|1P|MOOD:IND"
+                }
+              ]
+            },
+            {
+              "item_type": "ayah_end",
+              "word_id": 22,
+              "location": "1:5:5",
+              "surah": 1,
+              "ayah": 5,
+              "word": 5,
+              "text": "٥",
+              "glyph_codes": [
+                64598
+              ],
+              "translation_id": null,
+              "morphology": []
+            },
+            {
+              "item_type": "word",
+              "word_id": 23,
+              "location": "1:6:1",
+              "surah": 1,
+              "ayah": 6,
+              "word": 1,
+              "text": "ٱهۡدِنَا",
+              "glyph_codes": [
+                64599
+              ],
+              "translation_id": "tunjukkan kami",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "ٱهْدِ",
+                  "pos": "V",
+                  "root": "هدي",
+                  "lemma": "هَدَى",
+                  "tags": "IMPV|VF:1|ROOT:هدي|LEM:هَدَى|2MS"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "نَا",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|SUFF|1P"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "line_number": 6,
+          "line_type": "ayah",
+          "is_centered": true,
+          "items": [
+            {
+              "item_type": "word",
+              "word_id": 24,
+              "location": "1:6:2",
+              "surah": 1,
+              "ayah": 6,
+              "word": 2,
+              "text": "ٱلصِّرَٰطَ",
+              "glyph_codes": [
+                64600
+              ],
+              "translation_id": "jalan",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "ٱل",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "ال",
+                  "tags": "DET|PREF|LEM:ال"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "صِّرَٰطَ",
+                  "pos": "N",
+                  "root": "صرط",
+                  "lemma": "صِراط",
+                  "tags": "ROOT:صرط|LEM:صِراط|M|ACC"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 25,
+              "location": "1:6:3",
+              "surah": 1,
+              "ayah": 6,
+              "word": 3,
+              "text": "ٱلۡمُسۡتَقِيمَ",
+              "glyph_codes": [
+                64601
+              ],
+              "translation_id": "lurus",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "ٱلْ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "ال",
+                  "tags": "DET|PREF|LEM:ال"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "مُسْتَقِيمَ",
+                  "pos": "N",
+                  "root": "قوم",
+                  "lemma": "مُسْتَقِيم",
+                  "tags": "ACT_PCPL|VF:10|ROOT:قوم|LEM:مُسْتَقِيم|M|ACC|ADJ"
+                }
+              ]
+            },
+            {
+              "item_type": "ayah_end",
+              "word_id": 26,
+              "location": "1:6:4",
+              "surah": 1,
+              "ayah": 6,
+              "word": 4,
+              "text": "٦",
+              "glyph_codes": [
+                64602
+              ],
+              "translation_id": null,
+              "morphology": []
+            },
+            {
+              "item_type": "word",
+              "word_id": 27,
+              "location": "1:7:1",
+              "surah": 1,
+              "ayah": 7,
+              "word": 1,
+              "text": "صِرَٰطَ",
+              "glyph_codes": [
+                64603
+              ],
+              "translation_id": "jalan",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "صِرَٰطَ",
+                  "pos": "N",
+                  "root": "صرط",
+                  "lemma": "صِراط",
+                  "tags": "ROOT:صرط|LEM:صِراط|M|ACC"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 28,
+              "location": "1:7:2",
+              "surah": 1,
+              "ayah": 7,
+              "word": 2,
+              "text": "ٱلَّذِينَ",
+              "glyph_codes": [
+                64604
+              ],
+              "translation_id": "orang-orang yang",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "ٱلَّذِينَ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": "الَّذِي",
+                  "tags": "REL|LEM:الَّذِي|MP"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 29,
+              "location": "1:7:3",
+              "surah": 1,
+              "ayah": 7,
+              "word": 3,
+              "text": "أَنۡعَمۡتَ",
+              "glyph_codes": [
+                64605
+              ],
+              "translation_id": "diberi nikmat",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "أَنْعَمْ",
+                  "pos": "V",
+                  "root": "نعم",
+                  "lemma": "أَنْعَمَ",
+                  "tags": "PERF|VF:4|ROOT:نعم|LEM:أَنْعَمَ|2MS"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "تَ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|SUFF|2MS"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "line_number": 7,
+          "line_type": "ayah",
+          "is_centered": true,
+          "items": [
+            {
+              "item_type": "word",
+              "word_id": 30,
+              "location": "1:7:4",
+              "surah": 1,
+              "ayah": 7,
+              "word": 4,
+              "text": "عَلَيۡهِمۡ",
+              "glyph_codes": [
+                64606
+              ],
+              "translation_id": "kepadanya",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "عَلَيْ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "عَلَى",
+                  "tags": "P|LEM:عَلَى"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "هِمْ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|SUFF|3MP"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 31,
+              "location": "1:7:5",
+              "surah": 1,
+              "ayah": 7,
+              "word": 5,
+              "text": "غَيۡرِ",
+              "glyph_codes": [
+                64607
+              ],
+              "translation_id": "bukan",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "غَيْرِ",
+                  "pos": "N",
+                  "root": "غير",
+                  "lemma": "غَيْر",
+                  "tags": "ROOT:غير|LEM:غَيْر|M|GEN"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 32,
+              "location": "1:7:6",
+              "surah": 1,
+              "ayah": 7,
+              "word": 6,
+              "text": "ٱلۡمَغۡضُوبِ",
+              "glyph_codes": [
+                64608
+              ],
+              "translation_id": "orang yang dimurkai",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "ٱلْ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "ال",
+                  "tags": "DET|PREF|LEM:ال"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "مَغْضُوبِ",
+                  "pos": "N",
+                  "root": "غضب",
+                  "lemma": "مَغْضُوب",
+                  "tags": "PASS_PCPL|VF:1|ROOT:غضب|LEM:مَغْضُوب|M|GEN"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 33,
+              "location": "1:7:7",
+              "surah": 1,
+              "ayah": 7,
+              "word": 7,
+              "text": "عَلَيۡهِمۡ",
+              "glyph_codes": [
+                64609
+              ],
+              "translation_id": "kepadanya",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "عَلَيْ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "عَلَى",
+                  "tags": "P|LEM:عَلَى"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "هِمْ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|SUFF|3MP"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "line_number": 8,
+          "line_type": "ayah",
+          "is_centered": true,
+          "items": [
+            {
+              "item_type": "word",
+              "word_id": 34,
+              "location": "1:7:8",
+              "surah": 1,
+              "ayah": 7,
+              "word": 8,
+              "text": "وَلَا",
+              "glyph_codes": [
+                64610
+              ],
+              "translation_id": "dan tidak",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "وَ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "و",
+                  "tags": "CONJ|PREF|LEM:و"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "لَا",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "لا",
+                  "tags": "NEG|LEM:لا"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 35,
+              "location": "1:7:9",
+              "surah": 1,
+              "ayah": 7,
+              "word": 9,
+              "text": "ٱلضَّآلِّينَ",
+              "glyph_codes": [
+                64611
+              ],
+              "translation_id": "orang-orang yang sesat",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "ٱل",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "ال",
+                  "tags": "DET|PREF|LEM:ال"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "ضَّآلِّينَ",
+                  "pos": "N",
+                  "root": "ضلل",
+                  "lemma": "ضالّ",
+                  "tags": "ACT_PCPL|VF:1|ROOT:ضلل|LEM:ضالّ|MP|GEN"
+                }
+              ]
+            },
+            {
+              "item_type": "ayah_end",
+              "word_id": 36,
+              "location": "1:7:10",
+              "surah": 1,
+              "ayah": 7,
+              "word": 10,
+              "text": "٧",
+              "glyph_codes": [
+                64612
+              ],
+              "translation_id": null,
+              "morphology": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 2,
+      "font_family": "p2",
+      "lines": [
+        {
+          "line_number": 1,
+          "line_type": "surah_name",
+          "is_centered": true,
+          "items": [
+            {
+              "item_type": "surah_header",
+              "surah_number": 2,
+              "glyph_codes": [
+                57344,
+                57346
+              ]
+            }
+          ]
+        },
+        {
+          "line_number": 2,
+          "line_type": "basmallah",
+          "is_centered": true,
+          "items": [
+            {
+              "item_type": "basmala",
+              "glyph_codes": [
+                63709
+              ]
+            }
+          ]
+        },
+        {
+          "line_number": 3,
+          "line_type": "ayah",
+          "is_centered": true,
+          "items": [
+            {
+              "item_type": "word",
+              "word_id": 37,
+              "location": "2:1:1",
+              "surah": 2,
+              "ayah": 1,
+              "word": 1,
+              "text": "الٓمٓ",
+              "glyph_codes": [
+                64577
+              ],
+              "translation_id": "Alif lam mim",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "الٓمٓ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "INL|"
+                }
+              ]
+            },
+            {
+              "item_type": "ayah_end",
+              "word_id": 38,
+              "location": "2:1:2",
+              "surah": 2,
+              "ayah": 1,
+              "word": 2,
+              "text": "١",
+              "glyph_codes": [
+                64578
+              ],
+              "translation_id": null,
+              "morphology": []
+            },
+            {
+              "item_type": "word",
+              "word_id": 39,
+              "location": "2:2:1",
+              "surah": 2,
+              "ayah": 2,
+              "word": 1,
+              "text": "ذَٰلِكَ",
+              "glyph_codes": [
+                64579
+              ],
+              "translation_id": "itu",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "ذَٰ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": "ذا",
+                  "tags": "DEM|LEM:ذا|MS"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "لِ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "ل",
+                  "tags": "DIST|SUFF|LEM:ل"
+                },
+                {
+                  "segment": 3,
+                  "arabic": "كَ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "ADDR|SUFF|M"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 40,
+              "location": "2:2:2",
+              "surah": 2,
+              "ayah": 2,
+              "word": 2,
+              "text": "ٱلۡكِتَٰبُ",
+              "glyph_codes": [
+                64580
+              ],
+              "translation_id": "Kitab",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "ٱلْ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "ال",
+                  "tags": "DET|PREF|LEM:ال"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "كِتَٰبُ",
+                  "pos": "N",
+                  "root": "كتب",
+                  "lemma": "كِتاب",
+                  "tags": "ROOT:كتب|LEM:كِتاب|M|NOM"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 41,
+              "location": "2:2:3",
+              "surah": 2,
+              "ayah": 2,
+              "word": 3,
+              "text": "لَا",
+              "glyph_codes": [
+                64581
+              ],
+              "translation_id": "tidak ada",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "لَا",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "لا",
+                  "tags": "NEG|LEM:لا|FAM:إِنّ"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 42,
+              "location": "2:2:4",
+              "surah": 2,
+              "ayah": 2,
+              "word": 4,
+              "text": "رَيۡبَۛ",
+              "glyph_codes": [
+                64582,
+                64583
+              ],
+              "translation_id": "keraguan",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "رَيْبَ",
+                  "pos": "N",
+                  "root": "ريب",
+                  "lemma": "رَيْب",
+                  "tags": "ROOT:ريب|LEM:رَيْب|M|ACC"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 43,
+              "location": "2:2:5",
+              "surah": 2,
+              "ayah": 2,
+              "word": 5,
+              "text": "فِيهِۛ",
+              "glyph_codes": [
+                64584,
+                64585
+              ],
+              "translation_id": "didalamnya",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "فِي",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "فِي",
+                  "tags": "P|LEM:فِي"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "هِ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|SUFF|3MS"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 44,
+              "location": "2:2:6",
+              "surah": 2,
+              "ayah": 2,
+              "word": 6,
+              "text": "هُدٗى",
+              "glyph_codes": [
+                64586
+              ],
+              "translation_id": "petunjuk",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "هُدًى",
+                  "pos": "N",
+                  "root": "هدي",
+                  "lemma": "هُدًى",
+                  "tags": "ROOT:هدي|LEM:هُدًى|M|INDEF|NOM"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "line_number": 4,
+          "line_type": "ayah",
+          "is_centered": true,
+          "items": [
+            {
+              "item_type": "word",
+              "word_id": 45,
+              "location": "2:2:7",
+              "surah": 2,
+              "ayah": 2,
+              "word": 7,
+              "text": "لِّلۡمُتَّقِينَ",
+              "glyph_codes": [
+                64587
+              ],
+              "translation_id": "bagi orang-orang yang takwa",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "لِّ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "ل",
+                  "tags": "P|PREF|LEM:ل"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "لْ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "ال",
+                  "tags": "DET|PREF|LEM:ال"
+                },
+                {
+                  "segment": 3,
+                  "arabic": "مُتَّقِينَ",
+                  "pos": "N",
+                  "root": "وقي",
+                  "lemma": "مُتَّقي",
+                  "tags": "ACT_PCPL|VF:8|ROOT:وقي|LEM:مُتَّقي|MP|GEN"
+                }
+              ]
+            },
+            {
+              "item_type": "ayah_end",
+              "word_id": 46,
+              "location": "2:2:8",
+              "surah": 2,
+              "ayah": 2,
+              "word": 8,
+              "text": "٢",
+              "glyph_codes": [
+                64588
+              ],
+              "translation_id": null,
+              "morphology": []
+            },
+            {
+              "item_type": "word",
+              "word_id": 47,
+              "location": "2:3:1",
+              "surah": 2,
+              "ayah": 3,
+              "word": 1,
+              "text": "ٱلَّذِينَ",
+              "glyph_codes": [
+                64589
+              ],
+              "translation_id": "orang-orang yang",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "ٱلَّذِينَ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": "الَّذِي",
+                  "tags": "REL|LEM:الَّذِي|MP"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 48,
+              "location": "2:3:2",
+              "surah": 2,
+              "ayah": 3,
+              "word": 2,
+              "text": "يُؤۡمِنُونَ",
+              "glyph_codes": [
+                64590
+              ],
+              "translation_id": "beriman",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "يُؤْمِنُ",
+                  "pos": "V",
+                  "root": "أمن",
+                  "lemma": "آمَنَ",
+                  "tags": "IMPF|VF:4|ROOT:أمن|LEM:آمَنَ|3MP|MOOD:IND"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "ونَ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|SUFF|3MP"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 49,
+              "location": "2:3:3",
+              "surah": 2,
+              "ayah": 3,
+              "word": 3,
+              "text": "بِٱلۡغَيۡبِ",
+              "glyph_codes": [
+                64591
+              ],
+              "translation_id": "dengan yang gaib",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "بِ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "ب",
+                  "tags": "P|PREF|LEM:ب"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "ٱلْ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "ال",
+                  "tags": "DET|PREF|LEM:ال"
+                },
+                {
+                  "segment": 3,
+                  "arabic": "غَيْبِ",
+                  "pos": "N",
+                  "root": "غيب",
+                  "lemma": "غَيْب",
+                  "tags": "ROOT:غيب|LEM:غَيْب|M|GEN"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 50,
+              "location": "2:3:4",
+              "surah": 2,
+              "ayah": 3,
+              "word": 4,
+              "text": "وَيُقِيمُونَ",
+              "glyph_codes": [
+                64592
+              ],
+              "translation_id": "dan mereka mendirikan",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "وَ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "و",
+                  "tags": "CONJ|PREF|LEM:و"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "يُقِيمُ",
+                  "pos": "V",
+                  "root": "قوم",
+                  "lemma": "أَقامَ",
+                  "tags": "IMPF|VF:4|ROOT:قوم|LEM:أَقامَ|3MP|MOOD:IND"
+                },
+                {
+                  "segment": 3,
+                  "arabic": "ونَ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|SUFF|3MP"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 51,
+              "location": "2:3:5",
+              "surah": 2,
+              "ayah": 3,
+              "word": 5,
+              "text": "ٱلصَّلَوٰةَ",
+              "glyph_codes": [
+                64593
+              ],
+              "translation_id": "sholat",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "ٱل",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "ال",
+                  "tags": "DET|PREF|LEM:ال"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "صَّلَوٰةَ",
+                  "pos": "N",
+                  "root": "صلو",
+                  "lemma": "صَلاة",
+                  "tags": "ROOT:صلو|LEM:صَلاة|F|ACC"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "line_number": 5,
+          "line_type": "ayah",
+          "is_centered": true,
+          "items": [
+            {
+              "item_type": "word",
+              "word_id": 52,
+              "location": "2:3:6",
+              "surah": 2,
+              "ayah": 3,
+              "word": 6,
+              "text": "وَمِمَّا",
+              "glyph_codes": [
+                64594
+              ],
+              "translation_id": "dan sebagian dari apa",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "وَ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "و",
+                  "tags": "REM|PREF|LEM:و"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "مِ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "مِن",
+                  "tags": "P|LEM:مِن"
+                },
+                {
+                  "segment": 3,
+                  "arabic": "مَّا",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": "ما",
+                  "tags": "REL|LEM:ما"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 53,
+              "location": "2:3:7",
+              "surah": 2,
+              "ayah": 3,
+              "word": 7,
+              "text": "رَزَقۡنَٰهُمۡ",
+              "glyph_codes": [
+                64595
+              ],
+              "translation_id": "telah Kami beri rezki kepada mereka",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "رَزَقْ",
+                  "pos": "V",
+                  "root": "رزق",
+                  "lemma": "رَزَقَ",
+                  "tags": "PERF|VF:1|ROOT:رزق|LEM:رَزَقَ|1P"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "نَٰ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|SUFF|1P"
+                },
+                {
+                  "segment": 3,
+                  "arabic": "هُمْ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|SUFF|3MP"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 54,
+              "location": "2:3:8",
+              "surah": 2,
+              "ayah": 3,
+              "word": 8,
+              "text": "يُنفِقُونَ",
+              "glyph_codes": [
+                64596
+              ],
+              "translation_id": "mereka menafkahkan",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "يُنفِقُ",
+                  "pos": "V",
+                  "root": "نفق",
+                  "lemma": "أَنفَقَ",
+                  "tags": "IMPF|VF:4|ROOT:نفق|LEM:أَنفَقَ|3MP|MOOD:IND"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "ونَ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|SUFF|3MP"
+                }
+              ]
+            },
+            {
+              "item_type": "ayah_end",
+              "word_id": 55,
+              "location": "2:3:9",
+              "surah": 2,
+              "ayah": 3,
+              "word": 9,
+              "text": "٣",
+              "glyph_codes": [
+                64597
+              ],
+              "translation_id": null,
+              "morphology": []
+            },
+            {
+              "item_type": "word",
+              "word_id": 56,
+              "location": "2:4:1",
+              "surah": 2,
+              "ayah": 4,
+              "word": 1,
+              "text": "وَٱلَّذِينَ",
+              "glyph_codes": [
+                64598
+              ],
+              "translation_id": "dan orang-orang yang",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "وَ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "و",
+                  "tags": "CONJ|PREF|LEM:و"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "ٱلَّذِينَ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": "الَّذِي",
+                  "tags": "REL|LEM:الَّذِي|MP"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 57,
+              "location": "2:4:2",
+              "surah": 2,
+              "ayah": 4,
+              "word": 2,
+              "text": "يُؤۡمِنُونَ",
+              "glyph_codes": [
+                64599
+              ],
+              "translation_id": "beriman",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "يُؤْمِنُ",
+                  "pos": "V",
+                  "root": "أمن",
+                  "lemma": "آمَنَ",
+                  "tags": "IMPF|VF:4|ROOT:أمن|LEM:آمَنَ|3MP|MOOD:IND"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "ونَ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|SUFF|3MP"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 58,
+              "location": "2:4:3",
+              "surah": 2,
+              "ayah": 4,
+              "word": 3,
+              "text": "بِمَآ",
+              "glyph_codes": [
+                64600
+              ],
+              "translation_id": "pada apa",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "بِ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "ب",
+                  "tags": "P|PREF|LEM:ب"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "مَآ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": "ما",
+                  "tags": "REL|LEM:ما"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 59,
+              "location": "2:4:4",
+              "surah": 2,
+              "ayah": 4,
+              "word": 4,
+              "text": "أُنزِلَ",
+              "glyph_codes": [
+                64601
+              ],
+              "translation_id": "diturunkan",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "أُنزِلَ",
+                  "pos": "V",
+                  "root": "نزل",
+                  "lemma": "أَنزَلَ",
+                  "tags": "PERF|VF:4|PASS|ROOT:نزل|LEM:أَنزَلَ|3MS"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "line_number": 6,
+          "line_type": "ayah",
+          "is_centered": true,
+          "items": [
+            {
+              "item_type": "word",
+              "word_id": 60,
+              "location": "2:4:5",
+              "surah": 2,
+              "ayah": 4,
+              "word": 5,
+              "text": "إِلَيۡكَ",
+              "glyph_codes": [
+                64602
+              ],
+              "translation_id": "kepadamu",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "إِلَيْ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "إِلَى",
+                  "tags": "P|LEM:إِلَى"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "كَ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|SUFF|2MS"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 61,
+              "location": "2:4:6",
+              "surah": 2,
+              "ayah": 4,
+              "word": 6,
+              "text": "وَمَآ",
+              "glyph_codes": [
+                64603
+              ],
+              "translation_id": "dan apa",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "وَ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "و",
+                  "tags": "CONJ|PREF|LEM:و"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "مَآ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": "ما",
+                  "tags": "REL|LEM:ما"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 62,
+              "location": "2:4:7",
+              "surah": 2,
+              "ayah": 4,
+              "word": 7,
+              "text": "أُنزِلَ",
+              "glyph_codes": [
+                64604
+              ],
+              "translation_id": "diturunkan",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "أُنزِلَ",
+                  "pos": "V",
+                  "root": "نزل",
+                  "lemma": "أَنزَلَ",
+                  "tags": "PERF|VF:4|PASS|ROOT:نزل|LEM:أَنزَلَ|3MS"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 63,
+              "location": "2:4:8",
+              "surah": 2,
+              "ayah": 4,
+              "word": 8,
+              "text": "مِن",
+              "glyph_codes": [
+                64605
+              ],
+              "translation_id": "dari",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "مِن",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "مِن",
+                  "tags": "P|LEM:مِن"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 64,
+              "location": "2:4:9",
+              "surah": 2,
+              "ayah": 4,
+              "word": 9,
+              "text": "قَبۡلِكَ",
+              "glyph_codes": [
+                64606
+              ],
+              "translation_id": "sebelum kamu",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "قَبْلِ",
+                  "pos": "N",
+                  "root": "قبل",
+                  "lemma": "قَبْل",
+                  "tags": "ROOT:قبل|LEM:قَبْل|GEN"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "كَ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|SUFF|2MS"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 65,
+              "location": "2:4:10",
+              "surah": 2,
+              "ayah": 4,
+              "word": 10,
+              "text": "وَبِٱلۡأٓخِرَةِ",
+              "glyph_codes": [
+                64607
+              ],
+              "translation_id": "dan pada hari akhirat",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "وَ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "و",
+                  "tags": "REM|PREF|LEM:و"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "بِ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "ب",
+                  "tags": "P|PREF|LEM:ب"
+                },
+                {
+                  "segment": 3,
+                  "arabic": "ٱلْ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "ال",
+                  "tags": "DET|PREF|LEM:ال"
+                },
+                {
+                  "segment": 4,
+                  "arabic": "ءَاخِرَةِ",
+                  "pos": "N",
+                  "root": "أخر",
+                  "lemma": "آخِر",
+                  "tags": "ROOT:أخر|LEM:آخِر|FS|GEN"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 66,
+              "location": "2:4:11",
+              "surah": 2,
+              "ayah": 4,
+              "word": 11,
+              "text": "هُمۡ",
+              "glyph_codes": [
+                64608
+              ],
+              "translation_id": "mereka",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "هُمْ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|3MP"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 67,
+              "location": "2:4:12",
+              "surah": 2,
+              "ayah": 4,
+              "word": 12,
+              "text": "يُوقِنُونَ",
+              "glyph_codes": [
+                64609
+              ],
+              "translation_id": "mereka yakin",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "يُوقِنُ",
+                  "pos": "V",
+                  "root": "يقن",
+                  "lemma": "يُوقِنُ",
+                  "tags": "IMPF|VF:4|ROOT:يقن|LEM:يُوقِنُ|3MP|MOOD:IND"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "ونَ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|SUFF|3MP"
+                }
+              ]
+            },
+            {
+              "item_type": "ayah_end",
+              "word_id": 68,
+              "location": "2:4:13",
+              "surah": 2,
+              "ayah": 4,
+              "word": 13,
+              "text": "٤",
+              "glyph_codes": [
+                64610
+              ],
+              "translation_id": null,
+              "morphology": []
+            }
+          ]
+        },
+        {
+          "line_number": 7,
+          "line_type": "ayah",
+          "is_centered": true,
+          "items": [
+            {
+              "item_type": "word",
+              "word_id": 69,
+              "location": "2:5:1",
+              "surah": 2,
+              "ayah": 5,
+              "word": 1,
+              "text": "أُوْلَٰٓئِكَ",
+              "glyph_codes": [
+                64611
+              ],
+              "translation_id": "mereka itu",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "أُو۟لَٰٓئِ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": "ذا",
+                  "tags": "DEM|LEM:ذا|P"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "كَ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "ADDR|SUFF|M"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 70,
+              "location": "2:5:2",
+              "surah": 2,
+              "ayah": 5,
+              "word": 2,
+              "text": "عَلَىٰ",
+              "glyph_codes": [
+                64612
+              ],
+              "translation_id": "atas",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "عَلَىٰ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "عَلَى",
+                  "tags": "P|LEM:عَلَى"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 71,
+              "location": "2:5:3",
+              "surah": 2,
+              "ayah": 5,
+              "word": 3,
+              "text": "هُدٗى",
+              "glyph_codes": [
+                64613
+              ],
+              "translation_id": "petunjuk",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "هُدًى",
+                  "pos": "N",
+                  "root": "هدي",
+                  "lemma": "هُدًى",
+                  "tags": "ROOT:هدي|LEM:هُدًى|M|INDEF|GEN"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 72,
+              "location": "2:5:4",
+              "surah": 2,
+              "ayah": 5,
+              "word": 4,
+              "text": "مِّن",
+              "glyph_codes": [
+                64614
+              ],
+              "translation_id": "dari",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "مِّن",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "مِن",
+                  "tags": "P|LEM:مِن"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 73,
+              "location": "2:5:5",
+              "surah": 2,
+              "ayah": 5,
+              "word": 5,
+              "text": "رَّبِّهِمۡۖ",
+              "glyph_codes": [
+                64615,
+                64616
+              ],
+              "translation_id": "Tuhan mereka",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "رَّبِّ",
+                  "pos": "N",
+                  "root": "ربب",
+                  "lemma": "رَبّ",
+                  "tags": "ROOT:ربب|LEM:رَبّ|M|GEN"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "هِمْ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|SUFF|3MP"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 74,
+              "location": "2:5:6",
+              "surah": 2,
+              "ayah": 5,
+              "word": 6,
+              "text": "وَأُوْلَٰٓئِكَ",
+              "glyph_codes": [
+                64617
+              ],
+              "translation_id": "dan mereka itu",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "وَ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "و",
+                  "tags": "CONJ|PREF|LEM:و"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "أُو۟لَٰٓئِ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": "ذا",
+                  "tags": "DEM|LEM:ذا|P"
+                },
+                {
+                  "segment": 3,
+                  "arabic": "كَ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "ADDR|SUFF|M"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "line_number": 8,
+          "line_type": "ayah",
+          "is_centered": true,
+          "items": [
+            {
+              "item_type": "word",
+              "word_id": 75,
+              "location": "2:5:7",
+              "surah": 2,
+              "ayah": 5,
+              "word": 7,
+              "text": "هُمُ",
+              "glyph_codes": [
+                64618
+              ],
+              "translation_id": "mereka",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "هُمُ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|3MP"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 76,
+              "location": "2:5:8",
+              "surah": 2,
+              "ayah": 5,
+              "word": 8,
+              "text": "ٱلۡمُفۡلِحُونَ",
+              "glyph_codes": [
+                64619
+              ],
+              "translation_id": "orang-orang yang beruntung",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "ٱلْ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "ال",
+                  "tags": "DET|PREF|LEM:ال"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "مُفْلِحُونَ",
+                  "pos": "N",
+                  "root": "فلح",
+                  "lemma": "مُفْلِح",
+                  "tags": "ACT_PCPL|VF:4|ROOT:فلح|LEM:مُفْلِح|MP|NOM"
+                }
+              ]
+            },
+            {
+              "item_type": "ayah_end",
+              "word_id": 77,
+              "location": "2:5:9",
+              "surah": 2,
+              "ayah": 5,
+              "word": 9,
+              "text": "٥",
+              "glyph_codes": [
+                64620
+              ],
+              "translation_id": null,
+              "morphology": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 3,
+      "font_family": "p3",
+      "lines": [
+        {
+          "line_number": 1,
+          "line_type": "ayah",
+          "is_centered": false,
+          "items": [
+            {
+              "item_type": "word",
+              "word_id": 78,
+              "location": "2:6:1",
+              "surah": 2,
+              "ayah": 6,
+              "word": 1,
+              "text": "إِنَّ",
+              "glyph_codes": [
+                64577
+              ],
+              "translation_id": "sesungguhnya",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "إِنَّ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "إِنّ",
+                  "tags": "ACC|LEM:إِنّ|FAM:إِنّ"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 79,
+              "location": "2:6:2",
+              "surah": 2,
+              "ayah": 6,
+              "word": 2,
+              "text": "ٱلَّذِينَ",
+              "glyph_codes": [
+                64578
+              ],
+              "translation_id": "orang-orang yang",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "ٱلَّذِينَ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": "الَّذِي",
+                  "tags": "REL|LEM:الَّذِي|MP"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 80,
+              "location": "2:6:3",
+              "surah": 2,
+              "ayah": 6,
+              "word": 3,
+              "text": "كَفَرُواْ",
+              "glyph_codes": [
+                64579
+              ],
+              "translation_id": "kafir/ingkar",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "كَفَرُ",
+                  "pos": "V",
+                  "root": "كفر",
+                  "lemma": "كَفَرَ",
+                  "tags": "PERF|VF:1|ROOT:كفر|LEM:كَفَرَ|3MP"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "وا۟",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|SUFF|3MP"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 81,
+              "location": "2:6:4",
+              "surah": 2,
+              "ayah": 6,
+              "word": 4,
+              "text": "سَوَآءٌ",
+              "glyph_codes": [
+                64580
+              ],
+              "translation_id": "sama",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "سَوَآءٌ",
+                  "pos": "N",
+                  "root": "سوي",
+                  "lemma": "سَواء",
+                  "tags": "ROOT:سوي|LEM:سَواء|M|INDEF|NOM"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 82,
+              "location": "2:6:5",
+              "surah": 2,
+              "ayah": 6,
+              "word": 5,
+              "text": "عَلَيۡهِمۡ",
+              "glyph_codes": [
+                64581
+              ],
+              "translation_id": "atas mereka",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "عَلَيْ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "عَلَى",
+                  "tags": "P|LEM:عَلَى"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "هِمْ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|SUFF|3MP"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 83,
+              "location": "2:6:6",
+              "surah": 2,
+              "ayah": 6,
+              "word": 6,
+              "text": "ءَأَنذَرۡتَهُمۡ",
+              "glyph_codes": [
+                64582
+              ],
+              "translation_id": "apakah engkau peringatkan mereka",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "ءَ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "أ",
+                  "tags": "EQ|PREF|LEM:أ"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "أَنذَرْ",
+                  "pos": "V",
+                  "root": "نذر",
+                  "lemma": "أَنذَرَ",
+                  "tags": "PERF|VF:4|ROOT:نذر|LEM:أَنذَرَ|2MS"
+                },
+                {
+                  "segment": 3,
+                  "arabic": "تَ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|SUFF|2MS"
+                },
+                {
+                  "segment": 4,
+                  "arabic": "هُمْ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|SUFF|3MP"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 84,
+              "location": "2:6:7",
+              "surah": 2,
+              "ayah": 6,
+              "word": 7,
+              "text": "أَمۡ",
+              "glyph_codes": [
+                64583
+              ],
+              "translation_id": "atau",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "أَمْ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "أَم",
+                  "tags": "CONJ|LEM:أَم"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 85,
+              "location": "2:6:8",
+              "surah": 2,
+              "ayah": 6,
+              "word": 8,
+              "text": "لَمۡ",
+              "glyph_codes": [
+                64584
+              ],
+              "translation_id": "tidak",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "لَمْ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "لَم",
+                  "tags": "NEG|LEM:لَم"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 86,
+              "location": "2:6:9",
+              "surah": 2,
+              "ayah": 6,
+              "word": 9,
+              "text": "تُنذِرۡهُمۡ",
+              "glyph_codes": [
+                64585
+              ],
+              "translation_id": "engkau peringatkan mereka",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "تُنذِرْ",
+                  "pos": "V",
+                  "root": "نذر",
+                  "lemma": "أَنذَرَ",
+                  "tags": "IMPF|VF:4|ROOT:نذر|LEM:أَنذَرَ|2MS|MOOD:JUS"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "هُمْ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|SUFF|3MP"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "line_number": 2,
+          "line_type": "ayah",
+          "is_centered": false,
+          "items": [
+            {
+              "item_type": "word",
+              "word_id": 87,
+              "location": "2:6:10",
+              "surah": 2,
+              "ayah": 6,
+              "word": 10,
+              "text": "لَا",
+              "glyph_codes": [
+                64586
+              ],
+              "translation_id": "tidak",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "لَا",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "لا",
+                  "tags": "NEG|LEM:لا"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 88,
+              "location": "2:6:11",
+              "surah": 2,
+              "ayah": 6,
+              "word": 11,
+              "text": "يُؤۡمِنُونَ",
+              "glyph_codes": [
+                64587
+              ],
+              "translation_id": "mereka beriman",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "يُؤْمِنُ",
+                  "pos": "V",
+                  "root": "أمن",
+                  "lemma": "آمَنَ",
+                  "tags": "IMPF|VF:4|ROOT:أمن|LEM:آمَنَ|3MP|MOOD:IND"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "ونَ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|SUFF|3MP"
+                }
+              ]
+            },
+            {
+              "item_type": "ayah_end",
+              "word_id": 89,
+              "location": "2:6:12",
+              "surah": 2,
+              "ayah": 6,
+              "word": 12,
+              "text": "٦",
+              "glyph_codes": [
+                64588
+              ],
+              "translation_id": null,
+              "morphology": []
+            },
+            {
+              "item_type": "word",
+              "word_id": 90,
+              "location": "2:7:1",
+              "surah": 2,
+              "ayah": 7,
+              "word": 1,
+              "text": "خَتَمَ",
+              "glyph_codes": [
+                64589
+              ],
+              "translation_id": "menutup/mengunci",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "خَتَمَ",
+                  "pos": "V",
+                  "root": "ختم",
+                  "lemma": "خَتَمَ",
+                  "tags": "PERF|VF:1|ROOT:ختم|LEM:خَتَمَ|3MS"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 91,
+              "location": "2:7:2",
+              "surah": 2,
+              "ayah": 7,
+              "word": 2,
+              "text": "ٱللَّهُ",
+              "glyph_codes": [
+                64590
+              ],
+              "translation_id": "Allah",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "ٱللَّهُ",
+                  "pos": "N",
+                  "root": "أله",
+                  "lemma": "اللَّه",
+                  "tags": "PN|ROOT:أله|LEM:اللَّه|NOM"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 92,
+              "location": "2:7:3",
+              "surah": 2,
+              "ayah": 7,
+              "word": 3,
+              "text": "عَلَىٰ",
+              "glyph_codes": [
+                64591
+              ],
+              "translation_id": "atas",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "عَلَىٰ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "عَلَى",
+                  "tags": "P|LEM:عَلَى"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 93,
+              "location": "2:7:4",
+              "surah": 2,
+              "ayah": 7,
+              "word": 4,
+              "text": "قُلُوبِهِمۡ",
+              "glyph_codes": [
+                64592
+              ],
+              "translation_id": "hati mereka",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "قُلُوبِ",
+                  "pos": "N",
+                  "root": "قلب",
+                  "lemma": "قَلْب",
+                  "tags": "ROOT:قلب|LEM:قَلْب|FP|GEN"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "هِمْ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|SUFF|3MP"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 94,
+              "location": "2:7:5",
+              "surah": 2,
+              "ayah": 7,
+              "word": 5,
+              "text": "وَعَلَىٰ",
+              "glyph_codes": [
+                64593
+              ],
+              "translation_id": "dan atas",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "وَ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "و",
+                  "tags": "CONJ|PREF|LEM:و"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "عَلَىٰ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "عَلَى",
+                  "tags": "P|LEM:عَلَى"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 95,
+              "location": "2:7:6",
+              "surah": 2,
+              "ayah": 7,
+              "word": 6,
+              "text": "سَمۡعِهِمۡۖ",
+              "glyph_codes": [
+                64594,
+                64595
+              ],
+              "translation_id": "pendengaran mereka",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "سَمْعِ",
+                  "pos": "N",
+                  "root": "سمع",
+                  "lemma": "سَمْع",
+                  "tags": "ROOT:سمع|LEM:سَمْع|M|GEN"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "هِمْ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|SUFF|3MP"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 96,
+              "location": "2:7:7",
+              "surah": 2,
+              "ayah": 7,
+              "word": 7,
+              "text": "وَعَلَىٰٓ",
+              "glyph_codes": [
+                64596
+              ],
+              "translation_id": "dan atas",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "وَ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "و",
+                  "tags": "REM|PREF|LEM:و"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "عَلَىٰٓ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "عَلَى",
+                  "tags": "P|LEM:عَلَى"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "line_number": 3,
+          "line_type": "ayah",
+          "is_centered": false,
+          "items": [
+            {
+              "item_type": "word",
+              "word_id": 97,
+              "location": "2:7:8",
+              "surah": 2,
+              "ayah": 7,
+              "word": 8,
+              "text": "أَبۡصَٰرِهِمۡ",
+              "glyph_codes": [
+                64597
+              ],
+              "translation_id": "penglihatan mereka",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "أَبْصَٰرِ",
+                  "pos": "N",
+                  "root": "بصر",
+                  "lemma": "بَصَر",
+                  "tags": "ROOT:بصر|LEM:بَصَر|MP|GEN"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "هِمْ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|SUFF|3MP"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 98,
+              "location": "2:7:9",
+              "surah": 2,
+              "ayah": 7,
+              "word": 9,
+              "text": "غِشَٰوَةٞۖ",
+              "glyph_codes": [
+                64598,
+                64599
+              ],
+              "translation_id": "tutup/tabir",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "غِشَٰوَةٌ",
+                  "pos": "N",
+                  "root": "غشو",
+                  "lemma": "غِشاوَة",
+                  "tags": "ROOT:غشو|LEM:غِشاوَة|F|INDEF|NOM"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 99,
+              "location": "2:7:10",
+              "surah": 2,
+              "ayah": 7,
+              "word": 10,
+              "text": "وَلَهُمۡ",
+              "glyph_codes": [
+                64600
+              ],
+              "translation_id": "dan bagi mereka",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "وَ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "و",
+                  "tags": "REM|PREF|LEM:و"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "لَ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "ل",
+                  "tags": "P|PREF|LEM:ل"
+                },
+                {
+                  "segment": 3,
+                  "arabic": "هُمْ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|3MP"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 100,
+              "location": "2:7:11",
+              "surah": 2,
+              "ayah": 7,
+              "word": 11,
+              "text": "عَذَابٌ",
+              "glyph_codes": [
+                64601
+              ],
+              "translation_id": "siksaan",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "عَذَابٌ",
+                  "pos": "N",
+                  "root": "عذب",
+                  "lemma": "عَذاب",
+                  "tags": "ROOT:عذب|LEM:عَذاب|M|INDEF|NOM"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 101,
+              "location": "2:7:12",
+              "surah": 2,
+              "ayah": 7,
+              "word": 12,
+              "text": "عَظِيمٞ",
+              "glyph_codes": [
+                64602
+              ],
+              "translation_id": "besar/berat",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "عَظِيمٌ",
+                  "pos": "N",
+                  "root": "عظم",
+                  "lemma": "عَظِيم",
+                  "tags": "ROOT:عظم|LEM:عَظِيم|MS|INDEF|NOM|ADJ"
+                }
+              ]
+            },
+            {
+              "item_type": "ayah_end",
+              "word_id": 102,
+              "location": "2:7:13",
+              "surah": 2,
+              "ayah": 7,
+              "word": 13,
+              "text": "٧",
+              "glyph_codes": [
+                64603
+              ],
+              "translation_id": null,
+              "morphology": []
+            },
+            {
+              "item_type": "word",
+              "word_id": 103,
+              "location": "2:8:1",
+              "surah": 2,
+              "ayah": 8,
+              "word": 1,
+              "text": "وَمِنَ",
+              "glyph_codes": [
+                64604
+              ],
+              "translation_id": "dan diantara",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "وَ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "و",
+                  "tags": "REM|PREF|LEM:و"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "مِنَ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "مِن",
+                  "tags": "P|LEM:مِن"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 104,
+              "location": "2:8:2",
+              "surah": 2,
+              "ayah": 8,
+              "word": 2,
+              "text": "ٱلنَّاسِ",
+              "glyph_codes": [
+                64605
+              ],
+              "translation_id": "manusia",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "ٱل",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "ال",
+                  "tags": "DET|PREF|LEM:ال"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "نَّاسِ",
+                  "pos": "N",
+                  "root": "أنس",
+                  "lemma": "ناس",
+                  "tags": "ROOT:أنس|LEM:ناس|MP|GEN"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "line_number": 4,
+          "line_type": "ayah",
+          "is_centered": false,
+          "items": [
+            {
+              "item_type": "word",
+              "word_id": 105,
+              "location": "2:8:3",
+              "surah": 2,
+              "ayah": 8,
+              "word": 3,
+              "text": "مَن",
+              "glyph_codes": [
+                64606
+              ],
+              "translation_id": "orang yang",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "مَن",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": "مَن",
+                  "tags": "REL|LEM:مَن"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 106,
+              "location": "2:8:4",
+              "surah": 2,
+              "ayah": 8,
+              "word": 4,
+              "text": "يَقُولُ",
+              "glyph_codes": [
+                64607
+              ],
+              "translation_id": "berkata",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "يَقُولُ",
+                  "pos": "V",
+                  "root": "قول",
+                  "lemma": "قالَ",
+                  "tags": "IMPF|VF:1|ROOT:قول|LEM:قالَ|3MS|MOOD:IND"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 107,
+              "location": "2:8:5",
+              "surah": 2,
+              "ayah": 8,
+              "word": 5,
+              "text": "ءَامَنَّا",
+              "glyph_codes": [
+                64608
+              ],
+              "translation_id": "kami beriman",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "ءَامَ",
+                  "pos": "V",
+                  "root": "أمن",
+                  "lemma": "آمَنَ",
+                  "tags": "PERF|VF:4|ROOT:أمن|LEM:آمَنَ|1P"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "نَّا",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|SUFF|1P"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 108,
+              "location": "2:8:6",
+              "surah": 2,
+              "ayah": 8,
+              "word": 6,
+              "text": "بِٱللَّهِ",
+              "glyph_codes": [
+                64609
+              ],
+              "translation_id": "kepada Allah",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "بِ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "ب",
+                  "tags": "P|PREF|LEM:ب"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "ٱللَّهِ",
+                  "pos": "N",
+                  "root": "أله",
+                  "lemma": "اللَّه",
+                  "tags": "PN|ROOT:أله|LEM:اللَّه|GEN"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 109,
+              "location": "2:8:7",
+              "surah": 2,
+              "ayah": 8,
+              "word": 7,
+              "text": "وَبِٱلۡيَوۡمِ",
+              "glyph_codes": [
+                64610
+              ],
+              "translation_id": "dan kepada hari",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "وَ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "و",
+                  "tags": "CONJ|PREF|LEM:و"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "بِ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "ب",
+                  "tags": "P|PREF|LEM:ب"
+                },
+                {
+                  "segment": 3,
+                  "arabic": "ٱلْ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "ال",
+                  "tags": "DET|PREF|LEM:ال"
+                },
+                {
+                  "segment": 4,
+                  "arabic": "يَوْمِ",
+                  "pos": "N",
+                  "root": "يوم",
+                  "lemma": "يَوْم",
+                  "tags": "ROOT:يوم|LEM:يَوْم|M|GEN"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 110,
+              "location": "2:8:8",
+              "surah": 2,
+              "ayah": 8,
+              "word": 8,
+              "text": "ٱلۡأٓخِرِ",
+              "glyph_codes": [
+                64611
+              ],
+              "translation_id": "akhirat",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "ٱلْ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "ال",
+                  "tags": "DET|PREF|LEM:ال"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "ءَاخِرِ",
+                  "pos": "N",
+                  "root": "أخر",
+                  "lemma": "آخِر",
+                  "tags": "ROOT:أخر|LEM:آخِر|MS|GEN|ADJ"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 111,
+              "location": "2:8:9",
+              "surah": 2,
+              "ayah": 8,
+              "word": 9,
+              "text": "وَمَا",
+              "glyph_codes": [
+                64612
+              ],
+              "translation_id": "dan bukanlah",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "وَ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "و",
+                  "tags": "CIRC|PREF|LEM:و"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "مَا",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "ما",
+                  "tags": "NEG|LEM:ما|FAM:كَان"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 112,
+              "location": "2:8:10",
+              "surah": 2,
+              "ayah": 8,
+              "word": 10,
+              "text": "هُم",
+              "glyph_codes": [
+                64613
+              ],
+              "translation_id": "mereka",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "هُم",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|3MP"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 113,
+              "location": "2:8:11",
+              "surah": 2,
+              "ayah": 8,
+              "word": 11,
+              "text": "بِمُؤۡمِنِينَ",
+              "glyph_codes": [
+                64614
+              ],
+              "translation_id": "orang-orang yang beriman",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "بِ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "ب",
+                  "tags": "P|PREF|LEM:ب"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "مُؤْمِنِينَ",
+                  "pos": "N",
+                  "root": "أمن",
+                  "lemma": "مُؤْمِن",
+                  "tags": "ACT_PCPL|VF:4|ROOT:أمن|LEM:مُؤْمِن|MP|GEN"
+                }
+              ]
+            },
+            {
+              "item_type": "ayah_end",
+              "word_id": 114,
+              "location": "2:8:12",
+              "surah": 2,
+              "ayah": 8,
+              "word": 12,
+              "text": "٨",
+              "glyph_codes": [
+                64615
+              ],
+              "translation_id": null,
+              "morphology": []
+            }
+          ]
+        },
+        {
+          "line_number": 5,
+          "line_type": "ayah",
+          "is_centered": false,
+          "items": [
+            {
+              "item_type": "word",
+              "word_id": 115,
+              "location": "2:9:1",
+              "surah": 2,
+              "ayah": 9,
+              "word": 1,
+              "text": "يُخَٰدِعُونَ",
+              "glyph_codes": [
+                64616
+              ],
+              "translation_id": "mereka hendak menipu",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "يُخَٰدِعُ",
+                  "pos": "V",
+                  "root": "خدع",
+                  "lemma": "يُخادِعُ",
+                  "tags": "IMPF|VF:3|ROOT:خدع|LEM:يُخادِعُ|3MP|MOOD:IND"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "ونَ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|SUFF|3MP"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 116,
+              "location": "2:9:2",
+              "surah": 2,
+              "ayah": 9,
+              "word": 2,
+              "text": "ٱللَّهَ",
+              "glyph_codes": [
+                64617
+              ],
+              "translation_id": "Allah",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "ٱللَّهَ",
+                  "pos": "N",
+                  "root": "أله",
+                  "lemma": "اللَّه",
+                  "tags": "PN|ROOT:أله|LEM:اللَّه|ACC"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 117,
+              "location": "2:9:3",
+              "surah": 2,
+              "ayah": 9,
+              "word": 3,
+              "text": "وَٱلَّذِينَ",
+              "glyph_codes": [
+                64618
+              ],
+              "translation_id": "dan orang-orang yang",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "وَ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "و",
+                  "tags": "CONJ|PREF|LEM:و"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "ٱلَّذِينَ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": "الَّذِي",
+                  "tags": "REL|LEM:الَّذِي|MP"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 118,
+              "location": "2:9:4",
+              "surah": 2,
+              "ayah": 9,
+              "word": 4,
+              "text": "ءَامَنُواْ",
+              "glyph_codes": [
+                64619
+              ],
+              "translation_id": "beriman",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "ءَامَنُ",
+                  "pos": "V",
+                  "root": "أمن",
+                  "lemma": "آمَنَ",
+                  "tags": "PERF|VF:4|ROOT:أمن|LEM:آمَنَ|3MP"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "وا۟",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|SUFF|3MP"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 119,
+              "location": "2:9:5",
+              "surah": 2,
+              "ayah": 9,
+              "word": 5,
+              "text": "وَمَا",
+              "glyph_codes": [
+                64620
+              ],
+              "translation_id": "dan tidaklah",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "وَ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "و",
+                  "tags": "REM|PREF|LEM:و"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "مَا",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "ما",
+                  "tags": "NEG|LEM:ما"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 120,
+              "location": "2:9:6",
+              "surah": 2,
+              "ayah": 9,
+              "word": 6,
+              "text": "يَخۡدَعُونَ",
+              "glyph_codes": [
+                64621
+              ],
+              "translation_id": "mereka menipu",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "يَخْدَعُ",
+                  "pos": "V",
+                  "root": "خدع",
+                  "lemma": "يَخْدَعُ",
+                  "tags": "IMPF|VF:1|ROOT:خدع|LEM:يَخْدَعُ|3MP|MOOD:IND"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "ونَ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|SUFF|3MP"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 121,
+              "location": "2:9:7",
+              "surah": 2,
+              "ayah": 9,
+              "word": 7,
+              "text": "إِلَّآ",
+              "glyph_codes": [
+                64622
+              ],
+              "translation_id": "kecuali",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "إِلَّآ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "إِلّا",
+                  "tags": "RES|LEM:إِلّا"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 122,
+              "location": "2:9:8",
+              "surah": 2,
+              "ayah": 9,
+              "word": 8,
+              "text": "أَنفُسَهُمۡ",
+              "glyph_codes": [
+                64623
+              ],
+              "translation_id": "diri mereka",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "أَنفُسَ",
+                  "pos": "N",
+                  "root": "نفس",
+                  "lemma": "نَفْس",
+                  "tags": "ROOT:نفس|LEM:نَفْس|FP|ACC"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "هُمْ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|SUFF|3MP"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "line_number": 6,
+          "line_type": "ayah",
+          "is_centered": false,
+          "items": [
+            {
+              "item_type": "word",
+              "word_id": 123,
+              "location": "2:9:9",
+              "surah": 2,
+              "ayah": 9,
+              "word": 9,
+              "text": "وَمَا",
+              "glyph_codes": [
+                64624
+              ],
+              "translation_id": "dan tidaklah",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "وَ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "و",
+                  "tags": "CIRC|PREF|LEM:و"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "مَا",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "ما",
+                  "tags": "NEG|LEM:ما"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 124,
+              "location": "2:9:10",
+              "surah": 2,
+              "ayah": 9,
+              "word": 10,
+              "text": "يَشۡعُرُونَ",
+              "glyph_codes": [
+                64625
+              ],
+              "translation_id": "mereka menyadari",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "يَشْعُرُ",
+                  "pos": "V",
+                  "root": "شعر",
+                  "lemma": "يَشْعُرُ",
+                  "tags": "IMPF|VF:1|ROOT:شعر|LEM:يَشْعُرُ|3MP|MOOD:IND"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "ونَ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|SUFF|3MP"
+                }
+              ]
+            },
+            {
+              "item_type": "ayah_end",
+              "word_id": 125,
+              "location": "2:9:11",
+              "surah": 2,
+              "ayah": 9,
+              "word": 11,
+              "text": "٩",
+              "glyph_codes": [
+                64626
+              ],
+              "translation_id": null,
+              "morphology": []
+            },
+            {
+              "item_type": "word",
+              "word_id": 126,
+              "location": "2:10:1",
+              "surah": 2,
+              "ayah": 10,
+              "word": 1,
+              "text": "فِي",
+              "glyph_codes": [
+                64627
+              ],
+              "translation_id": "di dalam",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "فِى",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "فِي",
+                  "tags": "P|LEM:فِي"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 127,
+              "location": "2:10:2",
+              "surah": 2,
+              "ayah": 10,
+              "word": 2,
+              "text": "قُلُوبِهِم",
+              "glyph_codes": [
+                64628
+              ],
+              "translation_id": "hati mereka",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "قُلُوبِ",
+                  "pos": "N",
+                  "root": "قلب",
+                  "lemma": "قَلْب",
+                  "tags": "ROOT:قلب|LEM:قَلْب|FP|GEN"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "هِم",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|SUFF|3MP"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 128,
+              "location": "2:10:3",
+              "surah": 2,
+              "ayah": 10,
+              "word": 3,
+              "text": "مَّرَضٞ",
+              "glyph_codes": [
+                64629
+              ],
+              "translation_id": "penyakit",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "مَّرَضٌ",
+                  "pos": "N",
+                  "root": "مرض",
+                  "lemma": "مَرَض",
+                  "tags": "ROOT:مرض|LEM:مَرَض|M|INDEF|NOM"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 129,
+              "location": "2:10:4",
+              "surah": 2,
+              "ayah": 10,
+              "word": 4,
+              "text": "فَزَادَهُمُ",
+              "glyph_codes": [
+                64630
+              ],
+              "translation_id": "maka menambah",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "فَ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "ف",
+                  "tags": "REM|PREF|LEM:ف"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "زَادَ",
+                  "pos": "V",
+                  "root": "زيد",
+                  "lemma": "زادَ",
+                  "tags": "PERF|VF:1|ROOT:زيد|LEM:زادَ|3MS"
+                },
+                {
+                  "segment": 3,
+                  "arabic": "هُمُ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|SUFF|3MP"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 130,
+              "location": "2:10:5",
+              "surah": 2,
+              "ayah": 10,
+              "word": 5,
+              "text": "ٱللَّهُ",
+              "glyph_codes": [
+                64631
+              ],
+              "translation_id": "Allah",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "ٱللَّهُ",
+                  "pos": "N",
+                  "root": "أله",
+                  "lemma": "اللَّه",
+                  "tags": "PN|ROOT:أله|LEM:اللَّه|NOM"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 131,
+              "location": "2:10:6",
+              "surah": 2,
+              "ayah": 10,
+              "word": 6,
+              "text": "مَرَضٗاۖ",
+              "glyph_codes": [
+                64632,
+                64633
+              ],
+              "translation_id": "penyakit",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "مَرَضًا",
+                  "pos": "N",
+                  "root": "مرض",
+                  "lemma": "مَرَض",
+                  "tags": "ROOT:مرض|LEM:مَرَض|M|INDEF|ACC"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "line_number": 7,
+          "line_type": "ayah",
+          "is_centered": false,
+          "items": [
+            {
+              "item_type": "word",
+              "word_id": 132,
+              "location": "2:10:7",
+              "surah": 2,
+              "ayah": 10,
+              "word": 7,
+              "text": "وَلَهُمۡ",
+              "glyph_codes": [
+                64634
+              ],
+              "translation_id": "dan bagi mereka",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "وَ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "و",
+                  "tags": "REM|PREF|LEM:و"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "لَ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "ل",
+                  "tags": "P|PREF|LEM:ل"
+                },
+                {
+                  "segment": 3,
+                  "arabic": "هُمْ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|3MP"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 133,
+              "location": "2:10:8",
+              "surah": 2,
+              "ayah": 10,
+              "word": 8,
+              "text": "عَذَابٌ",
+              "glyph_codes": [
+                64635
+              ],
+              "translation_id": "siksaan",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "عَذَابٌ",
+                  "pos": "N",
+                  "root": "عذب",
+                  "lemma": "عَذاب",
+                  "tags": "ROOT:عذب|LEM:عَذاب|M|INDEF|NOM"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 134,
+              "location": "2:10:9",
+              "surah": 2,
+              "ayah": 10,
+              "word": 9,
+              "text": "أَلِيمُۢ",
+              "glyph_codes": [
+                64636
+              ],
+              "translation_id": "yang sangat pedih",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "أَلِيمٌۢ",
+                  "pos": "N",
+                  "root": "ألم",
+                  "lemma": "أَلِيم",
+                  "tags": "ROOT:ألم|LEM:أَلِيم|MS|INDEF|NOM|ADJ"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 135,
+              "location": "2:10:10",
+              "surah": 2,
+              "ayah": 10,
+              "word": 10,
+              "text": "بِمَا",
+              "glyph_codes": [
+                64637
+              ],
+              "translation_id": "dengan sebab",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "بِ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "ب",
+                  "tags": "P|PREF|LEM:ب"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "مَا",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": "ما",
+                  "tags": "REL|LEM:ما"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 136,
+              "location": "2:10:11",
+              "surah": 2,
+              "ayah": 10,
+              "word": 11,
+              "text": "كَانُواْ",
+              "glyph_codes": [
+                64638
+              ],
+              "translation_id": "adalah mereka",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "كَانُ",
+                  "pos": "V",
+                  "root": "كون",
+                  "lemma": "كانَ",
+                  "tags": "PERF|VF:1|ROOT:كون|LEM:كانَ|FAM:كَان|3MP"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "وا۟",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|SUFF|3MP"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 137,
+              "location": "2:10:12",
+              "surah": 2,
+              "ayah": 10,
+              "word": 12,
+              "text": "يَكۡذِبُونَ",
+              "glyph_codes": [
+                64639
+              ],
+              "translation_id": "berdusta",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "يَكْذِبُ",
+                  "pos": "V",
+                  "root": "كذب",
+                  "lemma": "كَذَبَ",
+                  "tags": "IMPF|VF:1|ROOT:كذب|LEM:كَذَبَ|3MP|MOOD:IND"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "ونَ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|SUFF|3MP"
+                }
+              ]
+            },
+            {
+              "item_type": "ayah_end",
+              "word_id": 138,
+              "location": "2:10:13",
+              "surah": 2,
+              "ayah": 10,
+              "word": 13,
+              "text": "١٠",
+              "glyph_codes": [
+                64640
+              ],
+              "translation_id": null,
+              "morphology": []
+            },
+            {
+              "item_type": "word",
+              "word_id": 139,
+              "location": "2:11:1",
+              "surah": 2,
+              "ayah": 11,
+              "word": 1,
+              "text": "وَإِذَا",
+              "glyph_codes": [
+                64641
+              ],
+              "translation_id": "dan apabila",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "وَ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "و",
+                  "tags": "REM|PREF|LEM:و"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "إِذَا",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": "إِذا",
+                  "tags": "T|LEM:إِذا"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 140,
+              "location": "2:11:2",
+              "surah": 2,
+              "ayah": 11,
+              "word": 2,
+              "text": "قِيلَ",
+              "glyph_codes": [
+                64642
+              ],
+              "translation_id": "ketika dikatakan",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "قِيلَ",
+                  "pos": "V",
+                  "root": "قول",
+                  "lemma": "قالَ",
+                  "tags": "PERF|VF:1|PASS|ROOT:قول|LEM:قالَ|3MS"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 141,
+              "location": "2:11:3",
+              "surah": 2,
+              "ayah": 11,
+              "word": 3,
+              "text": "لَهُمۡ",
+              "glyph_codes": [
+                64643
+              ],
+              "translation_id": "kepada mereka",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "لَ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "ل",
+                  "tags": "P|PREF|LEM:ل"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "هُمْ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|3MP"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "line_number": 8,
+          "line_type": "ayah",
+          "is_centered": false,
+          "items": [
+            {
+              "item_type": "word",
+              "word_id": 142,
+              "location": "2:11:4",
+              "surah": 2,
+              "ayah": 11,
+              "word": 4,
+              "text": "لَا",
+              "glyph_codes": [
+                64644
+              ],
+              "translation_id": "jangan",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "لَا",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "لا",
+                  "tags": "PRO|LEM:لا"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 143,
+              "location": "2:11:5",
+              "surah": 2,
+              "ayah": 11,
+              "word": 5,
+              "text": "تُفۡسِدُواْ",
+              "glyph_codes": [
+                64645
+              ],
+              "translation_id": "kalian membuat kerusakan",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "تُفْسِدُ",
+                  "pos": "V",
+                  "root": "فسد",
+                  "lemma": "أَفْسَدُ",
+                  "tags": "IMPF|VF:4|ROOT:فسد|LEM:أَفْسَدُ|2MP|MOOD:JUS"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "وا۟",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|SUFF|2MP"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 144,
+              "location": "2:11:6",
+              "surah": 2,
+              "ayah": 11,
+              "word": 6,
+              "text": "فِي",
+              "glyph_codes": [
+                64646
+              ],
+              "translation_id": "di",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "فِى",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "فِي",
+                  "tags": "P|LEM:فِي"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 145,
+              "location": "2:11:7",
+              "surah": 2,
+              "ayah": 11,
+              "word": 7,
+              "text": "ٱلۡأَرۡضِ",
+              "glyph_codes": [
+                64647
+              ],
+              "translation_id": "bumi",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "ٱلْ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "ال",
+                  "tags": "DET|PREF|LEM:ال"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "أَرْضِ",
+                  "pos": "N",
+                  "root": "أرض",
+                  "lemma": "أَرْض",
+                  "tags": "ROOT:أرض|LEM:أَرْض|F|GEN"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 146,
+              "location": "2:11:8",
+              "surah": 2,
+              "ayah": 11,
+              "word": 8,
+              "text": "قَالُوٓاْ",
+              "glyph_codes": [
+                64648
+              ],
+              "translation_id": "mereka berkata",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "قَالُ",
+                  "pos": "V",
+                  "root": "قول",
+                  "lemma": "قالَ",
+                  "tags": "PERF|VF:1|ROOT:قول|LEM:قالَ|3MP"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "وٓا۟",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|SUFF|3MP"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 147,
+              "location": "2:11:9",
+              "surah": 2,
+              "ayah": 11,
+              "word": 9,
+              "text": "إِنَّمَا",
+              "glyph_codes": [
+                64649
+              ],
+              "translation_id": "sesungguhnya hanyalah",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "إِنَّ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "إِنّ",
+                  "tags": "ACC|LEM:إِنّ|FAM:إِنّ"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "مَا",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "ما",
+                  "tags": "PREV|LEM:ما"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 148,
+              "location": "2:11:10",
+              "surah": 2,
+              "ayah": 11,
+              "word": 10,
+              "text": "نَحۡنُ",
+              "glyph_codes": [
+                64650
+              ],
+              "translation_id": "kami",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "نَحْنُ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|1P"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 149,
+              "location": "2:11:11",
+              "surah": 2,
+              "ayah": 11,
+              "word": 11,
+              "text": "مُصۡلِحُونَ",
+              "glyph_codes": [
+                64651
+              ],
+              "translation_id": "orang-orang yang melakukan perbaikan",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "مُصْلِحُونَ",
+                  "pos": "N",
+                  "root": "صلح",
+                  "lemma": "مُصْلِح",
+                  "tags": "ACT_PCPL|VF:4|ROOT:صلح|LEM:مُصْلِح|MP|NOM"
+                }
+              ]
+            },
+            {
+              "item_type": "ayah_end",
+              "word_id": 150,
+              "location": "2:11:12",
+              "surah": 2,
+              "ayah": 11,
+              "word": 12,
+              "text": "١١",
+              "glyph_codes": [
+                64652
+              ],
+              "translation_id": null,
+              "morphology": []
+            },
+            {
+              "item_type": "word",
+              "word_id": 151,
+              "location": "2:12:1",
+              "surah": 2,
+              "ayah": 12,
+              "word": 1,
+              "text": "أَلَآ",
+              "glyph_codes": [
+                64653
+              ],
+              "translation_id": "ingatlah",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "أَلَآ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "أَلا",
+                  "tags": "ATT|LEM:أَلا"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 152,
+              "location": "2:12:2",
+              "surah": 2,
+              "ayah": 12,
+              "word": 2,
+              "text": "إِنَّهُمۡ",
+              "glyph_codes": [
+                64654
+              ],
+              "translation_id": "sesungguhnya mereka",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "إِنَّ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "إِنّ",
+                  "tags": "ACC|LEM:إِنّ|FAM:إِنّ"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "هُمْ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|SUFF|3MP"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "line_number": 9,
+          "line_type": "ayah",
+          "is_centered": false,
+          "items": [
+            {
+              "item_type": "word",
+              "word_id": 153,
+              "location": "2:12:3",
+              "surah": 2,
+              "ayah": 12,
+              "word": 3,
+              "text": "هُمُ",
+              "glyph_codes": [
+                64655
+              ],
+              "translation_id": "mereka",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "هُمُ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|3MP"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 154,
+              "location": "2:12:4",
+              "surah": 2,
+              "ayah": 12,
+              "word": 4,
+              "text": "ٱلۡمُفۡسِدُونَ",
+              "glyph_codes": [
+                64656
+              ],
+              "translation_id": "orang-orang yang membuat kerusakan",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "ٱلْ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "ال",
+                  "tags": "DET|PREF|LEM:ال"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "مُفْسِدُونَ",
+                  "pos": "N",
+                  "root": "فسد",
+                  "lemma": "مُفْسِد",
+                  "tags": "ACT_PCPL|VF:4|ROOT:فسد|LEM:مُفْسِد|MP|NOM"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 155,
+              "location": "2:12:5",
+              "surah": 2,
+              "ayah": 12,
+              "word": 5,
+              "text": "وَلَٰكِن",
+              "glyph_codes": [
+                64657
+              ],
+              "translation_id": "akan tetapi",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "وَ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "و",
+                  "tags": "SUP|PREF|LEM:و"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "لَٰكِن",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "لٰكِن",
+                  "tags": "AMD|LEM:لٰكِن"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 156,
+              "location": "2:12:6",
+              "surah": 2,
+              "ayah": 12,
+              "word": 6,
+              "text": "لَّا",
+              "glyph_codes": [
+                64658
+              ],
+              "translation_id": "tidak",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "لَّا",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "لا",
+                  "tags": "NEG|LEM:لا"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 157,
+              "location": "2:12:7",
+              "surah": 2,
+              "ayah": 12,
+              "word": 7,
+              "text": "يَشۡعُرُونَ",
+              "glyph_codes": [
+                64659
+              ],
+              "translation_id": "mereka sadar",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "يَشْعُرُ",
+                  "pos": "V",
+                  "root": "شعر",
+                  "lemma": "يَشْعُرُ",
+                  "tags": "IMPF|VF:1|ROOT:شعر|LEM:يَشْعُرُ|3MP|MOOD:IND"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "ونَ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|SUFF|3MP"
+                }
+              ]
+            },
+            {
+              "item_type": "ayah_end",
+              "word_id": 158,
+              "location": "2:12:8",
+              "surah": 2,
+              "ayah": 12,
+              "word": 8,
+              "text": "١٢",
+              "glyph_codes": [
+                64660
+              ],
+              "translation_id": null,
+              "morphology": []
+            },
+            {
+              "item_type": "word",
+              "word_id": 159,
+              "location": "2:13:1",
+              "surah": 2,
+              "ayah": 13,
+              "word": 1,
+              "text": "وَإِذَا",
+              "glyph_codes": [
+                64661
+              ],
+              "translation_id": "dan apabila",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "وَ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "و",
+                  "tags": "CONJ|PREF|LEM:و"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "إِذَا",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": "إِذا",
+                  "tags": "T|LEM:إِذا"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 160,
+              "location": "2:13:2",
+              "surah": 2,
+              "ayah": 13,
+              "word": 2,
+              "text": "قِيلَ",
+              "glyph_codes": [
+                64662
+              ],
+              "translation_id": "dikatakan",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "قِيلَ",
+                  "pos": "V",
+                  "root": "قول",
+                  "lemma": "قالَ",
+                  "tags": "PERF|VF:1|PASS|ROOT:قول|LEM:قالَ|3MS"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 161,
+              "location": "2:13:3",
+              "surah": 2,
+              "ayah": 13,
+              "word": 3,
+              "text": "لَهُمۡ",
+              "glyph_codes": [
+                64663
+              ],
+              "translation_id": "kepada mereka",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "لَ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "ل",
+                  "tags": "P|PREF|LEM:ل"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "هُمْ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|3MP"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "line_number": 10,
+          "line_type": "ayah",
+          "is_centered": false,
+          "items": [
+            {
+              "item_type": "word",
+              "word_id": 162,
+              "location": "2:13:4",
+              "surah": 2,
+              "ayah": 13,
+              "word": 4,
+              "text": "ءَامِنُواْ",
+              "glyph_codes": [
+                64664
+              ],
+              "translation_id": "beriman",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "ءَامِنُ",
+                  "pos": "V",
+                  "root": "أمن",
+                  "lemma": "آمَنَ",
+                  "tags": "IMPV|VF:4|ROOT:أمن|LEM:آمَنَ|2MP"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "وا۟",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|SUFF|2MP"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 163,
+              "location": "2:13:5",
+              "surah": 2,
+              "ayah": 13,
+              "word": 5,
+              "text": "كَمَآ",
+              "glyph_codes": [
+                64665
+              ],
+              "translation_id": "sebagaimana",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "كَ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "ك",
+                  "tags": "P|PREF|LEM:ك"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "مَآ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "ما",
+                  "tags": "SUB|LEM:ما"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 164,
+              "location": "2:13:6",
+              "surah": 2,
+              "ayah": 13,
+              "word": 6,
+              "text": "ءَامَنَ",
+              "glyph_codes": [
+                64666
+              ],
+              "translation_id": "telah beriman",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "ءَامَنَ",
+                  "pos": "V",
+                  "root": "أمن",
+                  "lemma": "آمَنَ",
+                  "tags": "PERF|VF:4|ROOT:أمن|LEM:آمَنَ|3MS"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 165,
+              "location": "2:13:7",
+              "surah": 2,
+              "ayah": 13,
+              "word": 7,
+              "text": "ٱلنَّاسُ",
+              "glyph_codes": [
+                64667
+              ],
+              "translation_id": "manusia",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "ٱل",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "ال",
+                  "tags": "DET|PREF|LEM:ال"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "نَّاسُ",
+                  "pos": "N",
+                  "root": "أنس",
+                  "lemma": "ناس",
+                  "tags": "ROOT:أنس|LEM:ناس|MP|NOM"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 166,
+              "location": "2:13:8",
+              "surah": 2,
+              "ayah": 13,
+              "word": 8,
+              "text": "قَالُوٓاْ",
+              "glyph_codes": [
+                64668
+              ],
+              "translation_id": "mereka berkata",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "قَالُ",
+                  "pos": "V",
+                  "root": "قول",
+                  "lemma": "قالَ",
+                  "tags": "PERF|VF:1|ROOT:قول|LEM:قالَ|3MP"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "وٓا۟",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|SUFF|3MP"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 167,
+              "location": "2:13:9",
+              "surah": 2,
+              "ayah": 13,
+              "word": 9,
+              "text": "أَنُؤۡمِنُ",
+              "glyph_codes": [
+                64669
+              ],
+              "translation_id": "apakah kami beriman",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "أَ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": "أ",
+                  "tags": "INTG|PREF|LEM:أ"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "نُؤْمِنُ",
+                  "pos": "V",
+                  "root": "أمن",
+                  "lemma": "آمَنَ",
+                  "tags": "IMPF|VF:4|ROOT:أمن|LEM:آمَنَ|1P|MOOD:IND"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 168,
+              "location": "2:13:10",
+              "surah": 2,
+              "ayah": 13,
+              "word": 10,
+              "text": "كَمَآ",
+              "glyph_codes": [
+                64670
+              ],
+              "translation_id": "sebagaimana",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "كَ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "ك",
+                  "tags": "P|PREF|LEM:ك"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "مَآ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "ما",
+                  "tags": "SUB|LEM:ما"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 169,
+              "location": "2:13:11",
+              "surah": 2,
+              "ayah": 13,
+              "word": 11,
+              "text": "ءَامَنَ",
+              "glyph_codes": [
+                64671
+              ],
+              "translation_id": "beriman",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "ءَامَنَ",
+                  "pos": "V",
+                  "root": "أمن",
+                  "lemma": "آمَنَ",
+                  "tags": "PERF|VF:4|ROOT:أمن|LEM:آمَنَ|3MS"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 170,
+              "location": "2:13:12",
+              "surah": 2,
+              "ayah": 13,
+              "word": 12,
+              "text": "ٱلسُّفَهَآءُۗ",
+              "glyph_codes": [
+                64672,
+                64673
+              ],
+              "translation_id": "orang-orang bodoh",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "ٱل",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "ال",
+                  "tags": "DET|PREF|LEM:ال"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "سُّفَهَآءُ",
+                  "pos": "N",
+                  "root": "سفه",
+                  "lemma": "سَفِيه",
+                  "tags": "ROOT:سفه|LEM:سَفِيه|MP|NOM"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "line_number": 11,
+          "line_type": "ayah",
+          "is_centered": false,
+          "items": [
+            {
+              "item_type": "word",
+              "word_id": 171,
+              "location": "2:13:13",
+              "surah": 2,
+              "ayah": 13,
+              "word": 13,
+              "text": "أَلَآ",
+              "glyph_codes": [
+                64674
+              ],
+              "translation_id": "ingatlah",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "أَلَآ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "أَلا",
+                  "tags": "ATT|LEM:أَلا"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 172,
+              "location": "2:13:14",
+              "surah": 2,
+              "ayah": 13,
+              "word": 14,
+              "text": "إِنَّهُمۡ",
+              "glyph_codes": [
+                64675
+              ],
+              "translation_id": "sesungguhnya mereka",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "إِنَّ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "إِنّ",
+                  "tags": "ACC|LEM:إِنّ|FAM:إِنّ"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "هُمْ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|SUFF|3MP"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 173,
+              "location": "2:13:15",
+              "surah": 2,
+              "ayah": 13,
+              "word": 15,
+              "text": "هُمُ",
+              "glyph_codes": [
+                64676
+              ],
+              "translation_id": "mereka",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "هُمُ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|3MP"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 174,
+              "location": "2:13:16",
+              "surah": 2,
+              "ayah": 13,
+              "word": 16,
+              "text": "ٱلسُّفَهَآءُ",
+              "glyph_codes": [
+                64677
+              ],
+              "translation_id": "orang-orang bodoh",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "ٱل",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "ال",
+                  "tags": "DET|PREF|LEM:ال"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "سُّفَهَآءُ",
+                  "pos": "N",
+                  "root": "سفه",
+                  "lemma": "سَفِيه",
+                  "tags": "ROOT:سفه|LEM:سَفِيه|MP|NOM"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 175,
+              "location": "2:13:17",
+              "surah": 2,
+              "ayah": 13,
+              "word": 17,
+              "text": "وَلَٰكِن",
+              "glyph_codes": [
+                64678
+              ],
+              "translation_id": "akan tetapi",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "وَ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "و",
+                  "tags": "SUP|PREF|LEM:و"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "لَٰكِن",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "لٰكِن",
+                  "tags": "AMD|LEM:لٰكِن"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 176,
+              "location": "2:13:18",
+              "surah": 2,
+              "ayah": 13,
+              "word": 18,
+              "text": "لَّا",
+              "glyph_codes": [
+                64679
+              ],
+              "translation_id": "tidak",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "لَّا",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "لا",
+                  "tags": "NEG|LEM:لا"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 177,
+              "location": "2:13:19",
+              "surah": 2,
+              "ayah": 13,
+              "word": 19,
+              "text": "يَعۡلَمُونَ",
+              "glyph_codes": [
+                64680
+              ],
+              "translation_id": "mereka mengetahui",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "يَعْلَمُ",
+                  "pos": "V",
+                  "root": "علم",
+                  "lemma": "عَلِمَ",
+                  "tags": "IMPF|VF:1|ROOT:علم|LEM:عَلِمَ|3MP|MOOD:IND"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "ونَ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|SUFF|3MP"
+                }
+              ]
+            },
+            {
+              "item_type": "ayah_end",
+              "word_id": 178,
+              "location": "2:13:20",
+              "surah": 2,
+              "ayah": 13,
+              "word": 20,
+              "text": "١٣",
+              "glyph_codes": [
+                64681
+              ],
+              "translation_id": null,
+              "morphology": []
+            },
+            {
+              "item_type": "word",
+              "word_id": 179,
+              "location": "2:14:1",
+              "surah": 2,
+              "ayah": 14,
+              "word": 1,
+              "text": "وَإِذَا",
+              "glyph_codes": [
+                64682
+              ],
+              "translation_id": "dan apabila",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "وَ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "و",
+                  "tags": "CONJ|PREF|LEM:و"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "إِذَا",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": "إِذا",
+                  "tags": "T|LEM:إِذا"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 180,
+              "location": "2:14:2",
+              "surah": 2,
+              "ayah": 14,
+              "word": 2,
+              "text": "لَقُواْ",
+              "glyph_codes": [
+                64683
+              ],
+              "translation_id": "mereka berjumpa",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "لَقُ",
+                  "pos": "V",
+                  "root": "لقي",
+                  "lemma": "لَقُ",
+                  "tags": "PERF|VF:1|ROOT:لقي|LEM:لَقُ|3MP"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "وا۟",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|SUFF|3MP"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "line_number": 12,
+          "line_type": "ayah",
+          "is_centered": false,
+          "items": [
+            {
+              "item_type": "word",
+              "word_id": 181,
+              "location": "2:14:3",
+              "surah": 2,
+              "ayah": 14,
+              "word": 3,
+              "text": "ٱلَّذِينَ",
+              "glyph_codes": [
+                64684
+              ],
+              "translation_id": "orang-orang yang",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "ٱلَّذِينَ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": "الَّذِي",
+                  "tags": "REL|LEM:الَّذِي|MP"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 182,
+              "location": "2:14:4",
+              "surah": 2,
+              "ayah": 14,
+              "word": 4,
+              "text": "ءَامَنُواْ",
+              "glyph_codes": [
+                64685
+              ],
+              "translation_id": "beriman",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "ءَامَنُ",
+                  "pos": "V",
+                  "root": "أمن",
+                  "lemma": "آمَنَ",
+                  "tags": "PERF|VF:4|ROOT:أمن|LEM:آمَنَ|3MP"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "وا۟",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|SUFF|3MP"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 183,
+              "location": "2:14:5",
+              "surah": 2,
+              "ayah": 14,
+              "word": 5,
+              "text": "قَالُوٓاْ",
+              "glyph_codes": [
+                64686
+              ],
+              "translation_id": "mereka berkata",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "قَالُ",
+                  "pos": "V",
+                  "root": "قول",
+                  "lemma": "قالَ",
+                  "tags": "PERF|VF:1|ROOT:قول|LEM:قالَ|3MP"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "وٓا۟",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|SUFF|3MP"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 184,
+              "location": "2:14:6",
+              "surah": 2,
+              "ayah": 14,
+              "word": 6,
+              "text": "ءَامَنَّا",
+              "glyph_codes": [
+                64687
+              ],
+              "translation_id": "kami telah beriman",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "ءَامَ",
+                  "pos": "V",
+                  "root": "أمن",
+                  "lemma": "آمَنَ",
+                  "tags": "PERF|VF:4|ROOT:أمن|LEM:آمَنَ|1P"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "نَّا",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|SUFF|1P"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 185,
+              "location": "2:14:7",
+              "surah": 2,
+              "ayah": 14,
+              "word": 7,
+              "text": "وَإِذَا",
+              "glyph_codes": [
+                64688
+              ],
+              "translation_id": "dan apabila",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "وَ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "و",
+                  "tags": "CONJ|PREF|LEM:و"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "إِذَا",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": "إِذا",
+                  "tags": "T|LEM:إِذا"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 186,
+              "location": "2:14:8",
+              "surah": 2,
+              "ayah": 14,
+              "word": 8,
+              "text": "خَلَوۡاْ",
+              "glyph_codes": [
+                64689
+              ],
+              "translation_id": "mereka kembali",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "خَلَ",
+                  "pos": "V",
+                  "root": "خلو",
+                  "lemma": "خَلا",
+                  "tags": "PERF|VF:1|ROOT:خلو|LEM:خَلا|3MP"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "وْا۟",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|SUFF|3MP"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 187,
+              "location": "2:14:9",
+              "surah": 2,
+              "ayah": 14,
+              "word": 9,
+              "text": "إِلَىٰ",
+              "glyph_codes": [
+                64690
+              ],
+              "translation_id": "kepada",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "إِلَىٰ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "إِلَى",
+                  "tags": "P|LEM:إِلَى"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 188,
+              "location": "2:14:10",
+              "surah": 2,
+              "ayah": 14,
+              "word": 10,
+              "text": "شَيَٰطِينِهِمۡ",
+              "glyph_codes": [
+                64691
+              ],
+              "translation_id": "syaitan-syaitan mereka",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "شَيَٰطِينِ",
+                  "pos": "N",
+                  "root": "شطن",
+                  "lemma": "شَيْطان",
+                  "tags": "ROOT:شطن|LEM:شَيْطان|MP|GEN"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "هِمْ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|SUFF|3MP"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 189,
+              "location": "2:14:11",
+              "surah": 2,
+              "ayah": 14,
+              "word": 11,
+              "text": "قَالُوٓاْ",
+              "glyph_codes": [
+                64692
+              ],
+              "translation_id": "mereka berkata",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "قَالُ",
+                  "pos": "V",
+                  "root": "قول",
+                  "lemma": "قالَ",
+                  "tags": "PERF|VF:1|ROOT:قول|LEM:قالَ|3MP"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "وٓا۟",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|SUFF|3MP"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 190,
+              "location": "2:14:12",
+              "surah": 2,
+              "ayah": 14,
+              "word": 12,
+              "text": "إِنَّا",
+              "glyph_codes": [
+                64693
+              ],
+              "translation_id": "sesungguhnya kami",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "إِنَّ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "إِنّ",
+                  "tags": "ACC|LEM:إِنّ|FAM:إِنّ"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "ا",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|SUFF|1P"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "line_number": 13,
+          "line_type": "ayah",
+          "is_centered": false,
+          "items": [
+            {
+              "item_type": "word",
+              "word_id": 191,
+              "location": "2:14:13",
+              "surah": 2,
+              "ayah": 14,
+              "word": 13,
+              "text": "مَعَكُمۡ",
+              "glyph_codes": [
+                64694
+              ],
+              "translation_id": "bersama kalian",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "مَعَ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": "مَع",
+                  "tags": "LOC|LEM:مَع|ACC"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "كُمْ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|SUFF|2MP"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 192,
+              "location": "2:14:14",
+              "surah": 2,
+              "ayah": 14,
+              "word": 14,
+              "text": "إِنَّمَا",
+              "glyph_codes": [
+                64695
+              ],
+              "translation_id": "sesungguhnya hanyalah",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "إِنَّ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "إِنّ",
+                  "tags": "ACC|LEM:إِنّ|FAM:إِنّ"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "مَا",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "ما",
+                  "tags": "PREV|LEM:ما"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 193,
+              "location": "2:14:15",
+              "surah": 2,
+              "ayah": 14,
+              "word": 15,
+              "text": "نَحۡنُ",
+              "glyph_codes": [
+                64696
+              ],
+              "translation_id": "kami",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "نَحْنُ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|1P"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 194,
+              "location": "2:14:16",
+              "surah": 2,
+              "ayah": 14,
+              "word": 16,
+              "text": "مُسۡتَهۡزِءُونَ",
+              "glyph_codes": [
+                64697
+              ],
+              "translation_id": "orang-orang yang berolok-olok",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "مُسْتَهْزِءُونَ",
+                  "pos": "N",
+                  "root": "هزأ",
+                  "lemma": "مُسْتَهْزِء",
+                  "tags": "ACT_PCPL|VF:10|ROOT:هزأ|LEM:مُسْتَهْزِء|MP|NOM"
+                }
+              ]
+            },
+            {
+              "item_type": "ayah_end",
+              "word_id": 195,
+              "location": "2:14:17",
+              "surah": 2,
+              "ayah": 14,
+              "word": 17,
+              "text": "١٤",
+              "glyph_codes": [
+                64698
+              ],
+              "translation_id": null,
+              "morphology": []
+            },
+            {
+              "item_type": "word",
+              "word_id": 196,
+              "location": "2:15:1",
+              "surah": 2,
+              "ayah": 15,
+              "word": 1,
+              "text": "ٱللَّهُ",
+              "glyph_codes": [
+                64699
+              ],
+              "translation_id": "Allah",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "ٱللَّهُ",
+                  "pos": "N",
+                  "root": "أله",
+                  "lemma": "اللَّه",
+                  "tags": "PN|ROOT:أله|LEM:اللَّه|NOM"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 197,
+              "location": "2:15:2",
+              "surah": 2,
+              "ayah": 15,
+              "word": 2,
+              "text": "يَسۡتَهۡزِئُ",
+              "glyph_codes": [
+                64700
+              ],
+              "translation_id": "akan memperolok-olok",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "يَسْتَهْزِئُ",
+                  "pos": "V",
+                  "root": "هزأ",
+                  "lemma": "اسْتُهْزِئَ",
+                  "tags": "IMPF|VF:10|ROOT:هزأ|LEM:اسْتُهْزِئَ|3MS|MOOD:IND"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 198,
+              "location": "2:15:3",
+              "surah": 2,
+              "ayah": 15,
+              "word": 3,
+              "text": "بِهِمۡ",
+              "glyph_codes": [
+                64701
+              ],
+              "translation_id": "kepada mereka",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "بِ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "ب",
+                  "tags": "P|PREF|LEM:ب"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "هِمْ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|3MP"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 199,
+              "location": "2:15:4",
+              "surah": 2,
+              "ayah": 15,
+              "word": 4,
+              "text": "وَيَمُدُّهُمۡ",
+              "glyph_codes": [
+                64702
+              ],
+              "translation_id": "dan membiarkan mereka",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "وَ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "و",
+                  "tags": "CONJ|PREF|LEM:و"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "يَمُدُّ",
+                  "pos": "V",
+                  "root": "مدد",
+                  "lemma": "مَدَّ",
+                  "tags": "IMPF|VF:1|ROOT:مدد|LEM:مَدَّ|3MS|MOOD:IND"
+                },
+                {
+                  "segment": 3,
+                  "arabic": "هُمْ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|SUFF|3MP"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "line_number": 14,
+          "line_type": "ayah",
+          "is_centered": false,
+          "items": [
+            {
+              "item_type": "word",
+              "word_id": 200,
+              "location": "2:15:5",
+              "surah": 2,
+              "ayah": 15,
+              "word": 5,
+              "text": "فِي",
+              "glyph_codes": [
+                64703
+              ],
+              "translation_id": "dalam",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "فِى",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "فِي",
+                  "tags": "P|LEM:فِي"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 201,
+              "location": "2:15:6",
+              "surah": 2,
+              "ayah": 15,
+              "word": 6,
+              "text": "طُغۡيَٰنِهِمۡ",
+              "glyph_codes": [
+                64704
+              ],
+              "translation_id": "kedurhakaan mereka",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "طُغْيَٰنِ",
+                  "pos": "N",
+                  "root": "طغي",
+                  "lemma": "طُغْيان",
+                  "tags": "VN|VF:1|ROOT:طغي|LEM:طُغْيان|M|GEN"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "هِمْ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|SUFF|3MP"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 202,
+              "location": "2:15:7",
+              "surah": 2,
+              "ayah": 15,
+              "word": 7,
+              "text": "يَعۡمَهُونَ",
+              "glyph_codes": [
+                64705
+              ],
+              "translation_id": "terombang-ambing",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "يَعْمَهُ",
+                  "pos": "V",
+                  "root": "عمه",
+                  "lemma": "يَعْمَهُ",
+                  "tags": "IMPF|VF:1|ROOT:عمه|LEM:يَعْمَهُ|3MP|MOOD:IND"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "ونَ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|SUFF|3MP"
+                }
+              ]
+            },
+            {
+              "item_type": "ayah_end",
+              "word_id": 203,
+              "location": "2:15:8",
+              "surah": 2,
+              "ayah": 15,
+              "word": 8,
+              "text": "١٥",
+              "glyph_codes": [
+                64706
+              ],
+              "translation_id": null,
+              "morphology": []
+            },
+            {
+              "item_type": "word",
+              "word_id": 204,
+              "location": "2:16:1",
+              "surah": 2,
+              "ayah": 16,
+              "word": 1,
+              "text": "أُوْلَٰٓئِكَ",
+              "glyph_codes": [
+                64707
+              ],
+              "translation_id": "mereka itu",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "أُو۟لَٰٓئِ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": "ذا",
+                  "tags": "DEM|LEM:ذا|P"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "كَ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "ADDR|SUFF|M"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 205,
+              "location": "2:16:2",
+              "surah": 2,
+              "ayah": 16,
+              "word": 2,
+              "text": "ٱلَّذِينَ",
+              "glyph_codes": [
+                64708
+              ],
+              "translation_id": "orang-orang yang",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "ٱلَّذِينَ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": "الَّذِي",
+                  "tags": "REL|LEM:الَّذِي|MP"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 206,
+              "location": "2:16:3",
+              "surah": 2,
+              "ayah": 16,
+              "word": 3,
+              "text": "ٱشۡتَرَوُاْ",
+              "glyph_codes": [
+                64709
+              ],
+              "translation_id": "mereka membeli",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "ٱشْتَرَ",
+                  "pos": "V",
+                  "root": "شري",
+                  "lemma": "اشْتَرَى",
+                  "tags": "PERF|VF:8|ROOT:شري|LEM:اشْتَرَى|3MP"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "وُا۟",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|SUFF|3MP"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 207,
+              "location": "2:16:4",
+              "surah": 2,
+              "ayah": 16,
+              "word": 4,
+              "text": "ٱلضَّلَٰلَةَ",
+              "glyph_codes": [
+                64710
+              ],
+              "translation_id": "kesesatan",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "ٱل",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "ال",
+                  "tags": "DET|PREF|LEM:ال"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "ضَّلَٰلَةَ",
+                  "pos": "N",
+                  "root": "ضلل",
+                  "lemma": "ضَلالَة",
+                  "tags": "ROOT:ضلل|LEM:ضَلالَة|F|ACC"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "line_number": 15,
+          "line_type": "ayah",
+          "is_centered": false,
+          "items": [
+            {
+              "item_type": "word",
+              "word_id": 208,
+              "location": "2:16:5",
+              "surah": 2,
+              "ayah": 16,
+              "word": 5,
+              "text": "بِٱلۡهُدَىٰ",
+              "glyph_codes": [
+                64711
+              ],
+              "translation_id": "dengan petunjuk",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "بِ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "ب",
+                  "tags": "P|PREF|LEM:ب"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "ٱلْ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "ال",
+                  "tags": "DET|PREF|LEM:ال"
+                },
+                {
+                  "segment": 3,
+                  "arabic": "هُدَىٰ",
+                  "pos": "N",
+                  "root": "هدي",
+                  "lemma": "هُدًى",
+                  "tags": "ROOT:هدي|LEM:هُدًى|M|GEN"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 209,
+              "location": "2:16:6",
+              "surah": 2,
+              "ayah": 16,
+              "word": 6,
+              "text": "فَمَا",
+              "glyph_codes": [
+                64712
+              ],
+              "translation_id": "maka tidak",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "فَ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "ف",
+                  "tags": "REM|PREF|LEM:ف"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "مَا",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "ما",
+                  "tags": "NEG|LEM:ما"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 210,
+              "location": "2:16:7",
+              "surah": 2,
+              "ayah": 16,
+              "word": 7,
+              "text": "رَبِحَت",
+              "glyph_codes": [
+                64713
+              ],
+              "translation_id": "beruntung",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "رَبِحَت",
+                  "pos": "V",
+                  "root": "ربح",
+                  "lemma": "رَبِحَت",
+                  "tags": "PERF|VF:1|ROOT:ربح|LEM:رَبِحَت|3FS"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 211,
+              "location": "2:16:8",
+              "surah": 2,
+              "ayah": 16,
+              "word": 8,
+              "text": "تِّجَٰرَتُهُمۡ",
+              "glyph_codes": [
+                64714
+              ],
+              "translation_id": "perniagaan mereka",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "تِّجَٰرَتُ",
+                  "pos": "N",
+                  "root": "تجر",
+                  "lemma": "تِجارَة",
+                  "tags": "ROOT:تجر|LEM:تِجارَة|F|NOM"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "هُمْ",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|SUFF|3MP"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 212,
+              "location": "2:16:9",
+              "surah": 2,
+              "ayah": 16,
+              "word": 9,
+              "text": "وَمَا",
+              "glyph_codes": [
+                64715
+              ],
+              "translation_id": "dan tidak",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "وَ",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "و",
+                  "tags": "CONJ|PREF|LEM:و"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "مَا",
+                  "pos": "P",
+                  "root": null,
+                  "lemma": "ما",
+                  "tags": "NEG|LEM:ما"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 213,
+              "location": "2:16:10",
+              "surah": 2,
+              "ayah": 16,
+              "word": 10,
+              "text": "كَانُواْ",
+              "glyph_codes": [
+                64716
+              ],
+              "translation_id": "adalah mereka",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "كَانُ",
+                  "pos": "V",
+                  "root": "كون",
+                  "lemma": "كانَ",
+                  "tags": "PERF|VF:1|ROOT:كون|LEM:كانَ|FAM:كَان|3MP"
+                },
+                {
+                  "segment": 2,
+                  "arabic": "وا۟",
+                  "pos": "N",
+                  "root": null,
+                  "lemma": null,
+                  "tags": "PRON|SUFF|3MP"
+                }
+              ]
+            },
+            {
+              "item_type": "word",
+              "word_id": 214,
+              "location": "2:16:11",
+              "surah": 2,
+              "ayah": 16,
+              "word": 11,
+              "text": "مُهۡتَدِينَ",
+              "glyph_codes": [
+                64717
+              ],
+              "translation_id": "orang-orang yang mendapat petunjuk",
+              "morphology": [
+                {
+                  "segment": 1,
+                  "arabic": "مُهْتَدِينَ",
+                  "pos": "N",
+                  "root": "هدي",
+                  "lemma": "مُهْتَدي",
+                  "tags": "ACT_PCPL|VF:8|ROOT:هدي|LEM:مُهْتَدي|MP|ACC"
+                }
+              ]
+            },
+            {
+              "item_type": "ayah_end",
+              "word_id": 215,
+              "location": "2:16:12",
+              "surah": 2,
+              "ayah": 16,
+              "word": 12,
+              "text": "١٦",
+              "glyph_codes": [
+                64718
+              ],
+              "translation_id": null,
+              "morphology": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
