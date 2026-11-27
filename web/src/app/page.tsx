@@ -11,9 +11,22 @@ export default function HomePage() {
         <li>Word-level selection &amp; Indonesian translation</li>
         <li>Root, lemma, POS &amp; morphology explorer</li>
       </ul>
-      <p>
-        <a href="/m0-proof" style={{ fontWeight: 600, color: "#7c5c32" }}>
-          → Buka M0 Renderer &amp; Hit-Test Proof (Halaman 1–3)
+      <p style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
+        <a
+          href="/mushaf"
+          style={{
+            padding: "0.55rem 1rem",
+            borderRadius: 8,
+            background: "#7c5c32",
+            color: "#fff",
+            textDecoration: "none",
+            fontWeight: 600,
+          }}
+        >
+          Buka Mushaf Reader (604 Halaman) →
+        </a>
+        <a href="/m0-proof" style={{ padding: "0.55rem 0.5rem", fontWeight: 600, color: "#7c5c32" }}>
+          M0 Renderer Proof (Halaman 1–3)
         </a>
       </p>
     </main>
