@@ -439,3 +439,55 @@ export async function submitLearnAnswer(normalizedWord: string, isCorrect: boole
     body: JSON.stringify({ normalized_word: normalizedWord, is_correct: isCorrect }),
   });
 }
+
+export interface WordFrequencyResponse {
+  word_id: number;
+  arabic_text: string;
+  normalized_word: string;
+  translation_id: string;
+  word_count: number;
+  surah_count: number;
+  makkiyah_count: number;
+  madaniyah_count: number;
+  root: { id: number | null; arabic_text: string; count: number };
+  variations: { arabic_text: string; count: number }[] | null;
+  top_surahs: {
+    surah_id: number;
+    name_arabic: string;
+    transliteration: string;
+    revelation_type: string;
+    count: number;
+  }[] | null;
+  occurrences: {
+    word_id: number;
+    arabic_text: string;
+    surah_id: number;
+    surah_name: string;
+    ayah_number: number;
+    word_number: number;
+    translation_id: string;
+    ayah_text: string;
+    page_number: number | null;
+  }[] | null;
+  pagination: { total: number; limit: number; offset: number };
+}
+
+export interface TopFrequencyItem {
+  word_id?: number;
+  sample_word_id?: number;
+  root_id?: number;
+  arabic_text: string;
+  normalized_word?: string;
+  count: number;
+  translation_id?: string;
+  root?: string;
+}
+
+export async function fetchWordFrequency(wordId: number, limit = 15, offset = 0): Promise<WordFrequencyResponse> {
+  return apiFetch<WordFrequencyResponse>(`/words/${wordId}/frequency?limit=${limit}&offset=${offset}`);
+}
+
+export async function fetchTopFrequency(kind: "words" | "roots" = "words", limit = 25): Promise<TopFrequencyItem[]> {
+  const res = await apiFetch<{ data: TopFrequencyItem[] | null }>(`/frequency/top?kind=${kind}&limit=${limit}`);
+  return res.data ?? [];
+}

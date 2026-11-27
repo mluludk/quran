@@ -112,6 +112,12 @@ Backlog ini diturunkan dari [PRD.md](../PRD.md) dan [development-roadmap.md](./d
     - Sertakan `grammar_roles` per kata pada endpoint halaman agar UI dapat mewarnai fungsi nahwu tanpa request tambahan.
 42. **[M3-Web] Quran Grammar Learning Mode UI di `/mushaf` & `/tarjim`** (`area:web`, `P1`) — *Dep: #41*
     - Tambah toggle Mode Belajar Nahwu, *color legend* filter (`Mubtada'`, `Khabar`, `Fa'il`, `Maf'ul`, `Huruf Jar`, `Ism Majrur`, `Amil`), dan tampilan `Amil` di Word Explorer.
+43. **[M2] API Vocabulary Frequency (`/words/{id}/frequency` & `/frequency/top`)** (`area:api`, `P1`) — *Dep: #10*
+    - Sajikan frekuensi kata, variasi bentuk, frekuensi root, distribusi Makkiyah/Madaniyah, daftar konteks ayat, dan top kata/root terbanyak.
+44. **[M3-Web] Halaman `/frequency` & Perbandingan Konteks Ayat** (`area:web`, `P1`) — *Dep: #43*
+    - Bangun halaman `/frequency` dengan leaderboard kata/root terbanyak, statistik variasi bentuk, dan perbandingan penggunaan dalam konteks ayat.
+45. **[M3-Web] Integrasi tombol Frekuensi & Konteks di WordExplorerPanel** (`area:web`, `P1`) — *Dep: #44*
+    - Tambah tombol **Frekuensi & Konteks ↗** pada panel Word & I‘rab Explorer menuju `/frequency?wordId=...`.
 
 ### M5: QA & Release
 20. **[M5] Visual QA, offline QA, dan verifikasi atribusi lisensi final** (`area:data`, `area:legal`, `P0`) — *Dep: #15, #18*

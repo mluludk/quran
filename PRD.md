@@ -94,6 +94,9 @@ Build an offline-first digital Mushaf for Mushaf Madinah, riwayah Hafs, with a 6
 - Optional toggle on `/mushaf` and `/tarjim` (preserves standard Mushaf reading when OFF) to highlight words by grammatical function: *Mubtada'*, *Khabar*, *Fa'il*, *Maf'ul Bih*, *Huruf Jar*, *Ism Majrur*, and *Amil*.
 - Selecting a highlighted word displays its **Amil** and Indonesian grammatical reasoning in the Word & I‘rab Explorer.
 
+### Quran Vocabulary Frequency (`/frequency`)
+- Displays exact word occurrence counts, root occurrence counts, surface form variations, Makkiyah vs Madaniyah distribution, top surahs, and full ayah context comparisons, plus Top Frequent Words & Roots leaderboards.
+
 ## 8. Data and architecture principles
 
 - Preserve original source records and identifiers.

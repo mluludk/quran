@@ -151,6 +151,21 @@ export default function WordExplorerPanel({ loading, error, word, onSelectRoot, 
               >
                 + Simpan Ayat
               </button>
+              <a
+                href={`/frequency?wordId=${word.word_id}`}
+                style={{
+                  padding: "0.22rem 0.6rem",
+                  borderRadius: 6,
+                  border: "1px solid #d6cfc2",
+                  background: "#fafaf9",
+                  color: "#7c5c32",
+                  fontSize: "0.75rem",
+                  fontWeight: 600,
+                  textDecoration: "none",
+                }}
+              >
+                Frekuensi &amp; Konteks ↗
+              </a>
             </div>
           </div>
 

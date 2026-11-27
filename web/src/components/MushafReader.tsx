@@ -336,6 +336,22 @@ export default function MushafReader({
             Belajar
           </a>
 
+          <a
+            href="/frequency"
+            style={{
+              padding: "0.4rem 0.8rem",
+              borderRadius: 8,
+              border: "1px solid #d6cfc2",
+              background: "#fff",
+              color: "#292524",
+              textDecoration: "none",
+              fontSize: "0.85rem",
+              fontWeight: 600,
+            }}
+          >
+            Frekuensi
+          </a>
+
           <button
             type="button"
             onClick={() => setSearchOpen(true)}
