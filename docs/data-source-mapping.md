@@ -1,17 +1,18 @@
 # Data Source Mapping and Audit
 
-**Status:** Candidates only. None of the sources listed below is approved until contents, provenance, license, and coverage are audited.
+**Status:** M0 source audit completed for primary candidates. Distribution remains gated on [license-compliance.md](./license-compliance.md) clearance for commercial/public deployment.
 
-## 1. Candidate sources
+## 1. Audited sources
 
-| Data | Candidate | Purpose | Audit status |
+| Data | Source | Format & Key Structure | M0 Audit Status |
 |---|---|---|---|
-| Mushaf layout / glyph mapping | QPC V4 Mushaf Bundle — https://github.com/hussainsajib/qpc-v4-mushaf-bundle | Candidate page, line, glyph/word mapping and font data | Pending |
-| 15-line layout database | QUL Mushaf layouts — https://github.com/blueheron786/quranic-universal-library-mushaf-layouts | Candidate SQLite 15-line layout | Pending |
-| Word-by-word dataset | https://github.com/Mushaf-Learning/quran-word-by-word | Candidate translations and linguistic links (verify Indonesian `id` coverage; prepare fallback e.g. QUL / Quran.com v4 Indonesian WBW) | Pending |
-| Morphology | Quranic Arabic Corpus — https://corpus.quran.com/ | Root, lemma, POS, morphology | Pending licensing and coverage review |
-| Quran text | Tanzil — https://tanzil.net/docs/Text_License | Candidate text and source metadata | Pending |
-| I‘rab (Nahwu) | Classical & contemporary works (e.g. Muhyiddin Darwish, Zakariya Da‘as, or open syntactic treebanks) | Grammatical role, status, sign, amil, and syntactic relations (separate from QAC morphology) | Pending |
+| Mushaf layout / glyph mapping | QPC V4 Mushaf Bundle — https://github.com/hussainsajib/qpc-v4-mushaf-bundle | `words.csv` (83,668 rows: `id,location,surah,ayah,word,text` incl. ayah-end markers), `page_lines.csv` (8,624 rows: `page_number,line_number,line_type,is_centered,first_word_id,last_word_id,surah_number`), `qpc_mapping.csv` (`word_id,page_number,code`), 604 `p*.woff2` + `surah-name-v4.woff2` + `QCF4_Hafs_01_W.woff2` | **Verified** (data complete; font license requires KFQPC check) |
+| 15-line layout reference | QUL Mushaf layouts — https://github.com/blueheron786/quranic-universal-library-mushaf-layouts | `qpc-v1-15-lines.db.zip`, `qpc-v2-15-lines.db.zip` (SQLite) | **Verified** as secondary reference; QPC V4 bundle already embeds derived `page_lines.csv` |
+| Word-by-word dataset (archived candidate) | https://github.com/Mushaf-Learning/quran-word-by-word | Repo directories (`words/`, `morphology/`, `translations/`) contain only `.gitkeep` (empty) | **Rejected** (no data files) |
+| Word-by-word Indonesian (`id`) | Quran.com API v4 / QUL (`https://api.quran.com/api/v4`, `language=id`) | JSON per verse/word with `location` (`surah:ayah:word`), `char_type_name`, `translation.text` (`indonesian`) | **Verified** (data & `location` key align with `words.csv`) |
+| Morphology (Root, Lemma, POS, Segments) | `mustafa0x/quran-morphology` (fork of Quranic Arabic Corpus v0.4) — https://github.com/mustafa0x/quran-morphology | `quran-morphology.txt` TSV with `surah:ayah:word:segment`, Arabic segment, POS, `ROOT:...`, `LEM:...`, grammatical tags | **Verified** (segment key aligns with `location`; **GNU GPL** upstream) |
+| Quran text (reference / fallback) | Tanzil — https://tanzil.net/docs/Text_License | Verified Uthmani/Simple text | **Verified** (CC BY 3.0, verbatim only) |
+| I‘rab (Nahwu) | Classical & contemporary works (e.g. Muhyiddin Darwish, Zakariya Da‘as, or open syntactic treebanks) | Grammatical role, status, sign, amil, and syntactic relations (separate from QAC morphology) | Pending (M4) |
 
 ## 2. Audit checklist per source
 

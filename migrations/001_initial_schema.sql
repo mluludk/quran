@@ -60,6 +60,7 @@ CREATE TABLE mushaf_lines (
   page_id BIGINT NOT NULL REFERENCES mushaf_pages(id),
   line_number SMALLINT NOT NULL,
   line_type TEXT,
+  is_centered BOOLEAN NOT NULL DEFAULT false,
   UNIQUE (page_id, line_number)
 );
 

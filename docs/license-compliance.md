@@ -29,13 +29,16 @@ A repository license may not cover every bundled data file, font, translation, o
 - Whether permission is needed from publisher or contributor.
 - Trademark or edition designation usage.
 
-## 3. Candidate-source review queue
+## 3. M0 audit findings (candidate sources)
 
-- QPC V4 Mushaf Bundle: inspect repository license and individual fonts/data assets.
-- QUL layout database: inspect database license and provenance.
-- Quranic Arabic Corpus: review corpus terms for commercial use and redistribution; obtain written permission if needed.
-- Tanzil: review its text license and attribution/redistribution requirements.
-- Word-by-word translation repository: review each translation and annotation source independently.
+| Asset / Source | License / Terms | Web (`@font-face` / API) & Mobile Impact | Action Required |
+|---|---|---|---|
+| **QPC V4 Mushaf Bundle** (`hussainsajib/qpc-v4-mushaf-bundle`) | Bundle metadata derived from QUL/fonts; **fonts (`p1..p604.woff2`, `surah-name-v4.woff2`, `QCF4_Hafs_01_W.woff2`) are copyright King Fahd Complex (KFQPC)** | KFQPC terms may restrict commercial redistribution or modification | Verify/obtain KFQPC permission before commercial launch; retain attribution |
+| **QUL Mushaf Layouts** (`blueheron786/...`) | No `LICENSE` file in GitHub mirror; upstream is QUL / Tarteel AI | Unclear redistribution terms on mirror repo | Prefer QUL official provenance or `qpc-v4-mushaf-bundle` derived CSVs |
+| **Quranic Arabic Corpus / `mustafa0x/quran-morphology`** | **GNU GPL** (verbatim copy/attribution required; strong copyleft) | Distributing GPL dataset inside a closed-source app or bundling may trigger GPL obligations | Either open-source the app/dataset integration under GPL-compatible terms, obtain commercial permission, or replace with non-GPL morphology source |
+| **Tanzil Quran Text** (`tanzil.net`) | **CC BY 3.0** (verbatim text only, no alterations) | Allowed for web & mobile with attribution + link to `tanzil.net` | Add mandatory copyright notice & link in app/web footer |
+| **Quran.com API v4 / QUL Indonesian WBW** | Platform-hosted open Islamic data; some individual resources lack explicit license tags | Check specific Indonesian WBW resource attribution on QUL | Confirm upstream Indonesian WBW author/attribution before bundling |
+| **Mushaf-Learning/quran-word-by-word** | MIT (empty repo, `.gitkeep` only) | Not usable (no data) | Dropped |
 
 ## 4. Evidence to retain
 
