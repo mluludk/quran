@@ -71,17 +71,18 @@ Build an offline-first digital Mushaf for Mushaf Madinah, riwayah Hafs, with a 6
 - Word detail presented in bottom sheet or secondary panel.
 
 ### Word detail
-- Displayed word and verse context.
+- Displayed word and verse context, plus quick summary badges (*role*, *Isim/Fi'il/Harf*, *i‘rab status*).
 - Indonesian translation.
 - Root and lemma (if available).
 - POS and morphology (if sourced).
-- **I‘rab (Nahwu) tab/section (when sourced):** grammatical role, status (*marfu‘, mansub, majrur, majzum*), sign (*tanda i‘rab*), *amil*, syntactic relations to other words in the ayah, explanation, and source reference (supporting multiple scholarly opinions).
+- **I‘rab (Nahwu) tab/section (when sourced):** grammatical role, status (*marfu‘, mansub, majrur, majzum, mabni*), sign (*tanda i‘rab*), *amil*, syntactic relations (*Hubungan Nahwu*) to other words in the ayah, explanation, and source reference (supporting multiple scholarly opinions).
+- **Ayah I‘rab Dependency Diagram:** interactive RTL SVG arc diagram showing word order and syntactic relations across the entire ayah.
 - Links to root occurrences.
 
-### Root explorer
-- Root form.
-- Related word forms/lemmas.
-- Occurrence list with verse references.
+### Root & Word Family explorer
+- Root form (spaced three-letter root, e.g. `ك ت ب`).
+- **Word Family view:** derivations grouped by lemma, category (*Fi'il*, *Isim*, *Masdar*), and verb form (*wazan*), with root-letter vs affix (*ziyadah*) highlighting and occurrence counts.
+- Occurrence list with verse references and Indonesian word meanings.
 - Jump back to Mushaf location.
 
 ## 8. Data and architecture principles

@@ -2,36 +2,30 @@
 
 Indicative estimate for one experienced developer; dataset licensing, layout quality, and renderer proof may change this estimate.
 
-## M0 — Source audit and renderer proof (1–2 weeks)
+## M0 — Source audit and renderer proof (**Completed for Web**)
 
-- Audit candidate layout, linguistic, and translation sources.
-- Review licensing and redistribution terms (both mobile bundle and web `@font-face` / API serving).
-- Inspect file formats, mappings, segmentation, and fonts.
-- Build a minimal proof with three representative pages and word hit-testing (web DOM proof + Flutter renderer parity check).
-- Decide renderer approach.
+- Audited QPC V4, QUL, `mustafa0x/quran-morphology`, Quran.com API v4 Indonesian WBW, Tanzil, MASAQ v6, and NoorBayan/Quranic.
+- Documented licensing and redistribution terms in `docs/license-compliance.md`.
+- Built Next.js `/m0-proof` (3 representative pages with QPC V4 fonts and word hit-testing).
+- Flutter renderer parity check deferred to M3-Mobile.
 
-**Gate:** renderer and data sources are viable and legally cleared for the target platforms.
+## M1 — Database and ETL (**Completed**)
 
-## M1 — Database and ETL (1–2 weeks)
+- Applied `migrations/001_initial_schema.sql` and `migrations/002_irab_schema.sql` on PostgreSQL 16.
+- Implemented `acquire.py`, `normalize.py`, `pipeline.py`, `irab_masaq.py`, `validate.py`, and `build_bundle.py`.
+- Loaded 114 surahs, 6,236 ayahs, 77,432 words, 604 pages, 130,030 morphology segments, 77,429 Indonesian translations, 157,673 MASAQ v6 i‘rab nodes, and 24,882 syntactic relations, plus `mushaf_bundle.db`.
 
-- Finalize schema based on source mapping.
-- Implement source versioning and staging.
-- Import Quran core, layout, and linguistics.
-- Build validation reports, crosswalks, and offline SQLite bundle generator.
+## M2 — Backend API (**Completed**)
 
-## M2 — Backend API (about 1 week)
+- Go/Fiber `/api/v1` endpoints for surahs, ayahs, editions, pages, words (with morphology, i‘rab & relations), ayah i‘rab graph, root detail, root word family (`/roots/:id/family`), root occurrences, search, bundles, bookmarks, and reading progress.
+- CORS, `Cache-Control` headers, and live PostgreSQL integration tests (`go test -v ./...`).
 
-- Go/Fiber endpoints for edition/page, ayah, word detail, roots, search, and bundle manifest.
-- CORS configuration and HTTP caching headers (`ETag` / `Cache-Control`) for Next.js web client.
-- API schema and integration tests.
+## M3-Web — Next.js reader, Word, I‘rab & Root Family Explorer (**Completed**)
 
-## M3-Web — Next.js reader & Word Explorer (1–2 weeks)
-
-- Fixed 604-page renderer with web fonts and DOM word hit-testing.
-- Page/surah/ayah navigation and shareable URLs.
-- Word detail panel (Indonesian translation, root, lemma, POS, morphology).
-- Root explorer and Arabic/root/lemma search.
-- End-to-end validation of dataset accuracy and UX before mobile build.
+- Fixed 604-page renderer (`/mushaf`) with dynamic per-page QPC V4 `@font-face` (`p1`–`p604.woff2`) and `Scheherazade New` Arabic UI font.
+- Word hit-testing, highlight overlay, and redesigned Word & I‘rab Explorer panel (badges, spaced root, Indonesian translation, Sharaf segments, MASAQ I‘rab, and Hubungan Nahwu).
+- Interactive SVG RTL Ayah I‘rab Dependency Arc Diagram (`AyahIrabDiagramModal.tsx`).
+- Root & Word Family Explorer (`RootExplorerModal.tsx` with Fi'il/Isim/Masdar filters and root-letter vs affix highlighting), Arabic/Root search, bookmarks, and reading progress.
 
 ## M3-Mobile — Flutter offline-first reader (2–3 weeks)
 

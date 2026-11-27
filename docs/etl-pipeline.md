@@ -16,24 +16,25 @@ Build repeatable, versioned ingestion pipelines from audited source datasets int
 8. Generate validation report and offline bundle.
 9. Promote a successful build; preserve rollback artifacts.
 
-## 2. Suggested Python structure
+## 2. Implemented Python structure
 
 ```text
 etl/
   README.md
   pyproject.toml
-  config/
-  sources/
-    qpc_layout/
-    translations/
-    morphology/
-  parsers/
-  transforms/
-  crosswalks/
-  loaders/
-  validators/
-  reports/
-  build_bundle.py
+  etl/
+    __init__.py
+    m0_audit.py       # Source inventory & SHA-256 checksums
+    acquire.py        # Immutable raw snapshot downloader (QPC V4, WBW ID, Morphology)
+    normalize.py      # Arabic search normalization (display text untouched)
+    pipeline.py       # Idempotent PostgreSQL loader (Core, Layout, Morphology, WBW ID)
+    irab_masaq.py     # MASAQ v6 I‘rab nodes & intra-ayah relations loader
+    validate.py       # Structural, integrity & coverage validator
+    build_bundle.py   # Read-only SQLite mushaf_bundle.db + FTS5 + manifest builder
+  tests/
+    test_normalize.py
+  sources/raw/        # Cached immutable snapshots (gitignored)
+  reports/            # Validation reports & offline bundle artifacts
 ```
 
 ## 3. Reproducibility

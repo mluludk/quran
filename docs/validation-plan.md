@@ -18,14 +18,14 @@
 - Root/lemma/translation references resolve.
 - Source provenance is present for imported annotations.
 
-## 3. Linguistic coverage
+## 3. Linguistic & I‘rab coverage
 
 Report:
-- words with translation,
-- words with root,
-- words with lemma,
-- words with POS,
-- words with morphology,
+- words with Indonesian translation (`77,429 / 77,432` — 100.0% in M1 baseline),
+- words with root (`50,268`) and lemma (`76,572`),
+- words with POS and morphology (`77,429` words / `130,030` segments — 100.0%),
+- words with MASAQ v6 i‘rab nodes (`77,410` words / `157,673` nodes across `6,236` ayahs),
+- intra-ayah syntactic relations (`24,882` records in `irab_relations`),
 - ambiguous or multiple analyses,
 - records with conflicting source assertions.
 
