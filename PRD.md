@@ -45,11 +45,12 @@ Build an offline-first digital Mushaf for Mushaf Madinah, riwayah Hafs, with a 6
 - Word detail: translation, root, lemma, POS, morphology, source/provenance where available.
 - Root explorer and occurrences.
 
-### P1 — Reading utilities
+### P1 — Reading utilities & I‘rab Explorer
 - Bookmarks.
 - Reading progress.
 - Search by Arabic word, root, and lemma.
 - Offline data bundle and updates.
+- **Quran I‘rab Explorer (post-core Word Explorer):** grammatical role (*i‘rab*), *amil*, case/mood status (*rafa‘, nashab, jar, jazm*), *tanda i‘rab*, syntactic relations (*hubungan nahwu*), explanation, and multi-opinion support with source provenance (requires Arabic/nahwu scholar validation).
 
 ## 6. User stories
 
@@ -74,6 +75,7 @@ Build an offline-first digital Mushaf for Mushaf Madinah, riwayah Hafs, with a 6
 - Indonesian translation.
 - Root and lemma (if available).
 - POS and morphology (if sourced).
+- **I‘rab (Nahwu) tab/section (when sourced):** grammatical role, status (*marfu‘, mansub, majrur, majzum*), sign (*tanda i‘rab*), *amil*, syntactic relations to other words in the ayah, explanation, and source reference (supporting multiple scholarly opinions).
 - Links to root occurrences.
 
 ### Root explorer

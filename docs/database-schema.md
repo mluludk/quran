@@ -138,6 +138,58 @@ CREATE TABLE source_crosswalks (
 
 `word_morphology` models `segment_number` explicitly because linguistic corpora (e.g., Quranic Arabic Corpus) decompose words into morpheme segments (prefix, stem, suffix), each with its own POS and morphological features. Unique constraints across linguistic and crosswalk tables ensure ETL imports are idempotent.
 
+## 3b. I‘rab (Nahwu) & syntactic relations
+
+```sql
+CREATE TABLE irab_sources (
+  id BIGSERIAL PRIMARY KEY,
+  name TEXT NOT NULL,
+  author TEXT,
+  edition TEXT,
+  version TEXT NOT NULL DEFAULT '',
+  license_reference TEXT,
+  source_url TEXT,
+  UNIQUE (name, version)
+);
+
+CREATE TABLE irab_analyses (
+  id BIGSERIAL PRIMARY KEY,
+  ayah_id BIGINT NOT NULL REFERENCES ayahs(id),
+  source_id BIGINT NOT NULL REFERENCES irab_sources(id),
+  opinion_label TEXT NOT NULL DEFAULT 'primary', -- supports multiple scholarly opinions per ayah
+  summary TEXT,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+  UNIQUE (ayah_id, source_id, opinion_label)
+);
+
+CREATE TABLE irab_word_nodes (
+  id BIGSERIAL PRIMARY KEY,
+  analysis_id BIGINT NOT NULL REFERENCES irab_analyses(id) ON DELETE CASCADE,
+  word_id BIGINT NOT NULL REFERENCES quran_words(id),
+  segment_number SMALLINT NOT NULL DEFAULT 1,
+  sequence_order SMALLINT NOT NULL,
+  role_arabic TEXT NOT NULL,        -- e.g. مبتدأ، خبر، مضاف إليه
+  role_latin TEXT,                  -- e.g. Mubtada', Khabar
+  irab_status TEXT,                 -- e.g. marfu', mansub, majrur, majzum, mabni
+  irab_sign TEXT,                   -- e.g. الضمة الظاهرة
+  amil TEXT,                        -- governing factor
+  explanation TEXT,
+  UNIQUE (analysis_id, word_id, segment_number)
+);
+
+CREATE TABLE irab_relations (
+  id BIGSERIAL PRIMARY KEY,
+  analysis_id BIGINT NOT NULL REFERENCES irab_analyses(id) ON DELETE CASCADE,
+  source_node_id BIGINT NOT NULL REFERENCES irab_word_nodes(id) ON DELETE CASCADE,
+  target_node_id BIGINT NOT NULL REFERENCES irab_word_nodes(id) ON DELETE CASCADE,
+  relation_type TEXT NOT NULL,      -- e.g. khabar_of, naat_of, mudhaf_ilaih_of, mutaalliq_bi
+  description TEXT,
+  UNIQUE (analysis_id, source_node_id, target_node_id, relation_type)
+);
+```
+
+Separating `word_morphology` (Sharaf) from `irab_word_nodes` / `irab_relations` (Nahwu) allows a single ayah to store multiple valid scholarly i‘rab opinions without polluting word-level morphological records.
+
 ## 4. User state
 
 ```sql

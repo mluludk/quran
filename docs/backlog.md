@@ -68,6 +68,12 @@ Backlog ini diturunkan dari [PRD.md](../PRD.md) dan [development-roadmap.md](./d
 ### M4: Sync & Parity
 19. **[M4] Sinkronisasi user state & paritas visual web ↔ mobile** (`area:api`, `area:web`, `area:mobile`, `P2`) — *Dep: #11, #15, #18*
     - Kebijakan resolusi konflik sync bookmark/progress dan uji paritas visual halaman representatif.
+21. **[M4] Audit sumber kitab/dataset I‘rab & izin digitalisasi** (`area:data`, `area:legal`, `P1`) — *Dep: #1, #2*
+    - Evaluasi hak cipta, edisi, dan cakupan kitab i‘rab (mis. Muhyiddin Darwish, Zakariya Da‘as, atau treebank sintaksis terbuka) serta rencana validasi ahli nahwu.
+22. **[M4] ETL & API Quran I‘rab Explorer** (`area:etl`, `area:api`, `P1`) — *Dep: #21*
+    - Terapkan `migrations/002_irab_schema.sql`, pipeline ETL i‘rab (mendukung multi-pendapat per ayat), serta endpoint `/words/{id}/irab` dan `/ayahs/{surah}/{ayah}/irab`.
+23. **[M4] UI Quran I‘rab Explorer & Relasi Nahwu (Web & Mobile)** (`area:web`, `area:mobile`, `P1`) — *Dep: #14, #17, #22*
+    - Integrasikan tab I‘rab (kedudukan, status, tanda i‘rab, amil, hubungan nahwu, penjelasan, referensi sumber) ke Word Explorer di Next.js dan Flutter.
 
 ### M5: QA & Release
 20. **[M5] Visual QA, offline QA, dan verifikasi atribusi lisensi final** (`area:data`, `area:legal`, `P0`) — *Dep: #15, #18*

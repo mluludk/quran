@@ -11,6 +11,7 @@ Review:
 - Arabic fonts and glyph files.
 - Indonesian translations.
 - Root, lemma, POS, morphology and other annotations.
+- I‘rab (nahwu) books, digitized syntactic analyses, and scholarly commentaries (copyright, edition, digitization permission, and scholar review).
 - Source code and ETL libraries.
 
 A repository license may not cover every bundled data file, font, translation, or upstream asset.

@@ -11,6 +11,7 @@
 | Word-by-word dataset | https://github.com/Mushaf-Learning/quran-word-by-word | Candidate translations and linguistic links (verify Indonesian `id` coverage; prepare fallback e.g. QUL / Quran.com v4 Indonesian WBW) | Pending |
 | Morphology | Quranic Arabic Corpus — https://corpus.quran.com/ | Root, lemma, POS, morphology | Pending licensing and coverage review |
 | Quran text | Tanzil — https://tanzil.net/docs/Text_License | Candidate text and source metadata | Pending |
+| I‘rab (Nahwu) | Classical & contemporary works (e.g. Muhyiddin Darwish, Zakariya Da‘as, or open syntactic treebanks) | Grammatical role, status, sign, amil, and syntactic relations (separate from QAC morphology) | Pending |
 
 ## 2. Audit checklist per source
 

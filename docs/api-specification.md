@@ -21,7 +21,9 @@ Base path: `/api/v1`. JSON. Authentication requirements for user-state endpoints
 | GET | `/words/{id}` | Word and verse context |
 | GET | `/words/{id}/translation` | Word translation |
 | GET | `/words/{id}/morphology` | Root, lemma, POS, morphology |
+| GET | `/words/{id}/irab` | I‘rab (nahwu) role, status, sign, amil & syntactic relations |
 | GET | `/words/{id}/occurrences` | Occurrences for word/lemma as supported |
+| GET | `/ayahs/{surah}/{ayah}/irab` | Full ayah i‘rab analyses (supports multiple opinions) and word relations |
 | GET | `/roots/{id}` | Root detail |
 | GET | `/roots/{id}/words` | Word forms related to root |
 | GET | `/roots/{id}/occurrences` | Root occurrence list |

@@ -41,8 +41,13 @@ Indicative estimate for one experienced developer; dataset licensing, layout qua
 - Word Explorer, search, bookmarks, and reading progress offline.
 - Device layout and accessibility checks.
 
-## M4 — Sync, polish & cross-platform parity (1 week)
+## M4 — Sync, I‘rab Explorer & cross-platform parity (2–3 weeks)
 
+- **Quran I‘rab Explorer:**
+  - Source, copyright, and digitization audit for i‘rab datasets/works.
+  - ETL ingestion for `irab_sources`, `irab_analyses`, `irab_word_nodes`, `irab_relations` + Arabic/nahwu scholar validation.
+  - API endpoints (`/words/{id}/irab`, `/ayahs/{surah}/{ayah}/irab`).
+  - Integrated I‘rab & syntactic relation UI in Next.js and Flutter Word Explorer.
 - Optional user-state sync (bookmarks and reading progress) between web and mobile.
 - Visual parity checks between Next.js and Flutter across representative pages.
 
@@ -53,4 +58,4 @@ Indicative estimate for one experienced developer; dataset licensing, layout qua
 - Release packaging, telemetry/privacy review, and backups.
 - Pilot release.
 
-**Indicative total:** 8–14 weeks, contingent on dataset and renderer viability.
+**Indicative total:** 9–16 weeks, contingent on dataset, i‘rab source clearance, and renderer viability.
