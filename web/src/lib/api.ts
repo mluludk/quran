@@ -377,3 +377,64 @@ export async function deleteVocabItem(id: number): Promise<void> {
 export async function getVocabProgress(): Promise<VocabProgress> {
   return apiFetch<VocabProgress>("/vocab/progress");
 }
+
+export interface LearnJuzProgress {
+  juz_number: number;
+  unique_words: number;
+  mastered_words: number;
+}
+
+export interface LearnSummaryResponse {
+  total_unique_words: number;
+  mastered_words: number;
+  learning_words: number;
+  total_correct: number;
+  total_wrong: number;
+  juz_progress: LearnJuzProgress[] | null;
+}
+
+export interface LearnCard {
+  word_id: number;
+  normalized_word: string;
+  arabic_text: string;
+  translation_id: string;
+  root: string;
+  surah_id: number;
+  surah_name: string;
+  ayah_number: number;
+  page_number: number | null;
+  frequency: number;
+  mastery_level: number;
+  choices: string[];
+}
+
+export async function fetchLearnSummary(): Promise<LearnSummaryResponse> {
+  return apiFetch<LearnSummaryResponse>("/learn/summary");
+}
+
+export async function fetchLearnDeck(params: {
+  mode: "frequency" | "juz" | "page";
+  juz?: number;
+  page?: number;
+  onlyNew?: boolean;
+  limit?: number;
+  offset?: number;
+}): Promise<LearnCard[]> {
+  const sp = new URLSearchParams({
+    mode: params.mode,
+    juz: String(params.juz ?? 30),
+    page: String(params.page ?? 1),
+    only_new: String(params.onlyNew ?? false),
+    limit: String(params.limit ?? 15),
+    offset: String(params.offset ?? 0),
+  });
+  const res = await apiFetch<{ cards: LearnCard[] | null }>(`/learn/deck?${sp.toString()}`);
+  return res.cards ?? [];
+}
+
+export async function submitLearnAnswer(normalizedWord: string, isCorrect: boolean): Promise<{ mastery_level: number }> {
+  return apiFetch<{ mastery_level: number }>("/learn/answer", {
+    method: "POST",
+    body: JSON.stringify({ normalized_word: normalizedWord, is_correct: isCorrect }),
+  });
+}

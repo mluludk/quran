@@ -100,6 +100,12 @@ Backlog ini diturunkan dari [PRD.md](../PRD.md) dan [development-roadmap.md](./d
     - Implementasi `/vocab/collections`, `/vocab/items`, `/vocab/progress` untuk simpan kata/ayat, catatan, tema, dan review flashcard.
 36. **[M3-Web] UI Vocabulary Notebook, Tema, Progress & Flashcard** (`area:web`, `P1`) — *Dep: #35*
     - Tombol simpan kata/ayat dari Word Explorer, manajemen tema & catatan pribadi, progress bar, dan mode Flashcard interaktif.
+37. **[M4] Schema & Migrasi Modul Pembelajaran Hafalan Kata (`006_learning_module.sql`)** (`area:data`, `P1`)
+    - Tambah tabel `learning_word_progress` untuk melacak penguasaan per kata ternormalisasi (`mastery_level`, `correct_count`, `wrong_count`).
+38. **[M2] API Modul Pembelajaran (`/learn/summary`, `/learn/deck`, `/learn/answer`)** (`area:api`, `P1`) — *Dep: #37*
+    - Sajikan dek latihan berdasarkan frekuensi, Juz (1–30), atau halaman Mushaf beserta 4 opsi pilihan ganda.
+39. **[M3-Web] Halaman `/learn` (Kuis Pilihan Ganda, Flashcard & Progress Per Juz)** (`area:web`, `P1`) — *Dep: #38*
+    - Bangun antarmuka `/learn` dengan dashboard progress Juz 1–30, kuis interaktif, flashcard, dan integrasi simpan ke Vocabulary Notebook.
 
 ### M5: QA & Release
 20. **[M5] Visual QA, offline QA, dan verifikasi atribusi lisensi final** (`area:data`, `area:legal`, `P0`) — *Dep: #15, #18*

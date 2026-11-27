@@ -55,6 +55,9 @@ Base path: `/api/v1`. JSON. Authentication requirements for user-state endpoints
 | PATCH | `/vocab/items/{id}` | Update note, theme, or flashcard mastery |
 | DELETE | `/vocab/items/{id}` | Remove saved item |
 | GET | `/vocab/progress` | Vocabulary learning progress summary |
+| GET | `/learn/summary` | Global & per-Juz word mastery summary |
+| GET | `/learn/deck` | Practice deck (`mode=frequency\|juz\|page`) with quiz choices |
+| POST | `/learn/answer` | Record quiz/flashcard answer and update word mastery |
 
 ## 5. Example page response
 

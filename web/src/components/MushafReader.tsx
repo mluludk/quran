@@ -289,6 +289,22 @@ export default function MushafReader({
             Notebook
           </button>
 
+          <a
+            href="/learn"
+            style={{
+              padding: "0.4rem 0.8rem",
+              borderRadius: 8,
+              border: "1px solid #166534",
+              background: "#f0fdf4",
+              color: "#166534",
+              textDecoration: "none",
+              fontSize: "0.85rem",
+              fontWeight: 600,
+            }}
+          >
+            Belajar
+          </a>
+
           <button
             type="button"
             onClick={() => setSearchOpen(true)}

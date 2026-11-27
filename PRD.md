@@ -85,6 +85,11 @@ Build an offline-first digital Mushaf for Mushaf Madinah, riwayah Hafs, with a 6
 - Occurrence list with verse references and Indonesian word meanings.
 - Jump back to Mushaf location.
 
+### Word-by-Word Learning Module (`/learn`)
+- Three learning tracks: **High-Frequency Words (80/20)**, **Per Juz (1–30)** (with *new words since Al-Fatihah* option), and **Per Mushaf Page (1–604)**.
+- Interactive **Multiple-Choice Quiz (4 options)** and **Flashcard** modes.
+- Mastery tracking per normalized Arabic word (`learning_word_progress`) so mastered words carry across all Juz, plus 1-click save to **Vocabulary Notebook**.
+
 ## 8. Data and architecture principles
 
 - Preserve original source records and identifiers.

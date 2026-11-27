@@ -47,6 +47,7 @@ func NewApp(pool *pgxpool.Pool, manifestPath string, corsOrigins string) *fiber.
 	wh := &handlers.WordHandler{Pool: pool}
 	bh := &handlers.BundleUserHandler{Pool: pool, ManifestPath: manifestPath}
 	vh := &handlers.VocabHandler{Pool: pool}
+	lh := &handlers.LearnHandler{Pool: pool}
 
 	v1 := app.Group("/api/v1")
 
@@ -89,6 +90,11 @@ func NewApp(pool *pgxpool.Pool, manifestPath string, corsOrigins string) *fiber.
 	v1.Patch("/vocab/items/:id", vh.UpdateItem)
 	v1.Delete("/vocab/items/:id", vh.DeleteItem)
 	v1.Get("/vocab/progress", vh.GetProgress)
+
+	// Word-by-Word Learning Module
+	v1.Get("/learn/summary", lh.GetSummary)
+	v1.Get("/learn/deck", lh.GetDeck)
+	v1.Post("/learn/answer", lh.SubmitAnswer)
 
 	return app
 }

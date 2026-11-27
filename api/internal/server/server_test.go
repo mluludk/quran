@@ -181,4 +181,16 @@ func TestCoreAndIrabEndpoints(t *testing.T) {
 	if rec.Code != 200 {
 		t.Fatalf("/juz status = %d", rec.Code)
 	}
+
+	// 11. /api/v1/learn/summary & /api/v1/learn/deck
+	rec = httptest.NewRecorder()
+	h.ServeHTTP(rec, httptest.NewRequest("GET", "/api/v1/learn/summary", nil))
+	if rec.Code != 200 {
+		t.Fatalf("/learn/summary status = %d", rec.Code)
+	}
+	rec = httptest.NewRecorder()
+	h.ServeHTTP(rec, httptest.NewRequest("GET", "/api/v1/learn/deck?mode=frequency&limit=5", nil))
+	if rec.Code != 200 {
+		t.Fatalf("/learn/deck status = %d: %s", rec.Code, rec.Body.String())
+	}
 }
