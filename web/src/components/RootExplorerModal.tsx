@@ -58,7 +58,7 @@ export default function RootExplorerModal({ rootId, rootText, onClose, onJumpToP
       >
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.75rem" }}>
           <h3 style={{ margin: 0 }}>
-            Root Explorer: <span style={{ fontSize: "1.35rem" }}>{rootText}</span> ({total} kata)
+            Root Explorer: <span className="arabic-ui" style={{ fontSize: "1.6rem" }}>{rootText}</span> ({total} kata)
           </h3>
           <button type="button" onClick={onClose} style={{ border: "none", background: "transparent", fontSize: "1.25rem", cursor: "pointer" }}>
             ×
@@ -82,7 +82,7 @@ export default function RootExplorerModal({ rootId, rootText, onClose, onJumpToP
                 }}
               >
                 <div>
-                  <span style={{ fontSize: "1.25rem", marginRight: "0.65rem" }}>{h.arabic_text}</span>
+                  <span className="arabic-ui" style={{ fontSize: "1.45rem", marginRight: "0.65rem" }}>{h.arabic_text}</span>
                   <span style={{ fontWeight: 600, fontSize: "0.9rem" }}>{h.translation_id}</span>
                   <div style={{ fontSize: "0.78rem", color: "#57534e" }}>
                     {h.surah_name} ({h.surah_id}:{h.ayah_number}) · Hal. {h.page_number ?? "?"}

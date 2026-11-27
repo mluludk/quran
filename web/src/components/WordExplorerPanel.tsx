@@ -28,9 +28,9 @@ export default function WordExplorerPanel({ loading, error, word, onSelectRoot }
       {!loading && word && (
         <div style={{ display: "flex", flexDirection: "column", gap: "0.9rem" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", borderBottom: "1px solid #f5f5f4", paddingBottom: "0.6rem" }}>
-            <span style={{ fontSize: "2rem", direction: "rtl" }}>{word.arabic_text}</span>
+            <span className="arabic-ui" style={{ fontSize: "2.25rem", lineHeight: 1.4, direction: "rtl" }}>{word.arabic_text}</span>
             <span style={{ fontSize: "0.82rem", color: "#57534e" }}>
-              {word.surah_name} {word.surah_id}:{word.ayah_number}:{word.word_number}
+              <span className="arabic-ui" style={{ fontSize: "1rem" }}>{word.surah_name}</span> {word.surah_id}:{word.ayah_number}:{word.word_number}
             </span>
           </div>
 
@@ -60,7 +60,7 @@ export default function WordExplorerPanel({ loading, error, word, onSelectRoot }
                   }}
                 >
                   <div style={{ display: "flex", justifyContent: "space-between", fontWeight: 600 }}>
-                    <span style={{ fontSize: "1.1rem" }}>{seg.segment_arabic}</span>
+                    <span className="arabic-ui" style={{ fontSize: "1.3rem" }}>{seg.segment_arabic}</span>
                     <span>POS: {seg.pos}</span>
                   </div>
                   <div style={{ color: "#57534e", marginTop: "0.2rem", display: "flex", flexWrap: "wrap", gap: "0.5rem", alignItems: "center" }}>
@@ -79,10 +79,14 @@ export default function WordExplorerPanel({ loading, error, word, onSelectRoot }
                           color: "#78350f",
                         }}
                       >
-                        Root: {seg.root} ↗
+                        Root: <span className="arabic-ui" style={{ fontSize: "1rem" }}>{seg.root}</span> ↗
                       </button>
                     )}
-                    {seg.lemma && <span>Lemma: {seg.lemma}</span>}
+                    {seg.lemma && (
+                      <span>
+                        Lemma: <span className="arabic-ui" style={{ fontSize: "1.05rem" }}>{seg.lemma}</span>
+                      </span>
+                    )}
                   </div>
                 </div>
               ))}

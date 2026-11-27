@@ -132,3 +132,7 @@
   position: sticky;
   top: 1rem;
 }
+
+.arabic-ui {
+  font-family: var(--font-arabic-ui), "Scheherazade New", "Amiri", serif;
+}

@@ -116,10 +116,11 @@ export default function SearchAndBookmarksModal({
               <input
                 type="text"
                 dir="rtl"
+                className="arabic-ui"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Cari kata atau akar Arab (mis. الحمد atau حمد)..."
-                style={{ flex: 1, padding: "0.5rem 0.75rem", borderRadius: 8, border: "1px solid #d6d3d1", fontSize: "1rem" }}
+                style={{ flex: 1, padding: "0.4rem 0.75rem", borderRadius: 8, border: "1px solid #d6d3d1", fontSize: "1.15rem" }}
               />
               <button
                 type="submit"
@@ -174,7 +175,7 @@ export default function SearchAndBookmarksModal({
                   }}
                 >
                   <div>
-                    <span style={{ fontSize: "1.2rem", marginRight: "0.5rem" }}>{h.arabic_text}</span>
+                    <span className="arabic-ui" style={{ fontSize: "1.4rem", marginRight: "0.5rem" }}>{h.arabic_text}</span>
                     <span style={{ fontSize: "0.9rem", fontWeight: 600 }}>{h.translation_id}</span>
                     <div style={{ fontSize: "0.76rem", color: "#57534e" }}>
                       {h.surah_name} ({h.surah_id}:{h.ayah_number}) · Hal. {h.page_number ?? "?"}
