@@ -487,10 +487,11 @@ func (h *QuranHandler) GetPage(c *fiber.Ctx) error {
 		SELECT l.line_number, COALESCE(l.line_type,''), l.is_centered,
 		       li.item_type, li.word_id, li.surah_id, li.ayah_id, li.position_in_line,
 		       COALESCE(li.display_text,''), COALESCE(li.source_glyph_code,''),
-		       a.ayah_number
+		       a.ayah_number, COALESCE(wt.translation,'')
 		FROM mushaf_lines l
 		JOIN mushaf_line_items li ON li.line_id = l.id
 		LEFT JOIN ayahs a ON a.id = li.ayah_id
+		LEFT JOIN word_translations wt ON wt.word_id = li.word_id AND wt.language_code = 'id'
 		WHERE l.page_id = $1
 		ORDER BY l.line_number, li.position_in_line
 	`, pageID)
@@ -510,11 +511,11 @@ func (h *QuranHandler) GetPage(c *fiber.Ctx) error {
 
 	for iRows.Next() {
 		var lineNum, pos int16
-		var lineType, itemType, dispTxt, glyphRaw string
+		var lineType, itemType, dispTxt, glyphRaw, transID string
 		var isCentered bool
 		var wordID, ayahID *int64
 		var surahID, ayahNum *int16
-		if err := iRows.Scan(&lineNum, &lineType, &isCentered, &itemType, &wordID, &surahID, &ayahID, &pos, &dispTxt, &glyphRaw, &ayahNum); err != nil {
+		if err := iRows.Scan(&lineNum, &lineType, &isCentered, &itemType, &wordID, &surahID, &ayahID, &pos, &dispTxt, &glyphRaw, &ayahNum, &transID); err != nil {
 			return err
 		}
 		la, ok := lineMap[lineNum]
@@ -533,6 +534,7 @@ func (h *QuranHandler) GetPage(c *fiber.Ctx) error {
 			"display_text":      dispTxt,
 			"source_glyph_code": glyphRaw,
 			"glyph_codes":       parseGlyphCodes(glyphRaw),
+			"translation_id":    transID,
 		})
 	}
 

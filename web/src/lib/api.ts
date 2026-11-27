@@ -20,6 +20,7 @@ export interface PageLineItem {
   display_text: string;
   source_glyph_code: string;
   glyph_codes: number[] | null;
+  translation_id?: string;
 }
 
 export interface PageLine {

@@ -26,7 +26,13 @@ function codesToString(codes: number[] | null): string {
   return codes.map((c) => String.fromCodePoint(c)).join("");
 }
 
-export default function MushafReader({ initialPage = 1 }: { initialPage?: number }) {
+export default function MushafReader({
+  initialPage = 1,
+  mode = "mushaf",
+}: {
+  initialPage?: number;
+  mode?: "mushaf" | "tarjim";
+}) {
   const [pageNumber, setPageNumber] = useState(initialPage);
   const [pageInput, setPageInput] = useState(String(initialPage));
   const [pageData, setPageData] = useState<MushafPageResponse | null>(null);
@@ -123,7 +129,9 @@ export default function MushafReader({ initialPage = 1 }: { initialPage?: number
         }}
       >
         <div>
-          <h1 style={{ margin: 0, fontSize: "1.2rem" }}>Digital Mushaf Madinah (604 Halaman)</h1>
+          <h1 style={{ margin: 0, fontSize: "1.2rem" }}>
+            {mode === "tarjim" ? "Tarjim — Mushaf Terjemah Per Kata" : "Digital Mushaf Madinah (604 Halaman)"}
+          </h1>
           {pageData && (
             <p style={{ margin: "0.2rem 0 0", color: "#57534e", fontSize: "0.85rem" }}>
               Hal. {pageData.page_number} / 604
@@ -137,6 +145,21 @@ export default function MushafReader({ initialPage = 1 }: { initialPage?: number
         </div>
 
         <div style={{ display: "flex", flexWrap: "wrap", gap: "0.45rem", alignItems: "center" }}>
+          <a
+            href={mode === "tarjim" ? "/mushaf" : "/tarjim"}
+            style={{
+              padding: "0.4rem 0.75rem",
+              borderRadius: 8,
+              border: "1px solid #d6cfc2",
+              background: "#fafaf9",
+              color: "#292524",
+              textDecoration: "none",
+              fontSize: "0.85rem",
+              fontWeight: 600,
+            }}
+          >
+            {mode === "tarjim" ? "Mode Mushaf" : "Mode Tarjim"}
+          </a>
           <button
             type="button"
             disabled={pageNumber <= 1}
@@ -220,7 +243,10 @@ export default function MushafReader({ initialPage = 1 }: { initialPage?: number
           )}
 
           {!pageLoading && !pageError && pageData && (
-            <div className="mushaf-lines">
+            <div
+              className="mushaf-lines"
+              style={mode === "tarjim" ? { width: "100%", maxWidth: 740, gap: "0.9rem" } : undefined}
+            >
               {pageData.lines.map((line) => {
                 if (line.line_type === "surah_name") {
                   const item = line.items[0];
@@ -242,6 +268,19 @@ export default function MushafReader({ initialPage = 1 }: { initialPage?: number
                   <p
                     key={line.line_number}
                     className={`mushaf-line ${line.is_centered ? "is-centered" : ""}`}
+                    style={
+                      mode === "tarjim"
+                        ? {
+                            flexWrap: "wrap",
+                            whiteSpace: "normal",
+                            justifyContent: line.is_centered ? "center" : "flex-start",
+                            gap: "0.75rem 1.05rem",
+                            lineHeight: 1.5,
+                            paddingBottom: "0.35rem",
+                            borderBottom: "1px dashed #ede9e0",
+                          }
+                        : undefined
+                    }
                   >
                     {line.items.map((item) => {
                       const glyphText =
@@ -262,6 +301,43 @@ export default function MushafReader({ initialPage = 1 }: { initialPage?: number
                       }
 
                       const isSelected = selectedWordId === item.word_id;
+                      if (mode === "tarjim") {
+                        return (
+                          <button
+                            key={item.word_id}
+                            type="button"
+                            className={`mushaf-word ${isSelected ? "is-selected" : ""}`}
+                            onClick={() => handleSelectWord(item.word_id!)}
+                            title={item.display_text}
+                            style={{
+                              display: "inline-flex",
+                              flexDirection: "column",
+                              alignItems: "center",
+                              gap: "0.2rem",
+                              padding: "0.25rem 0.4rem",
+                            }}
+                          >
+                            <span style={{ ...style, fontSize: "1.65rem", lineHeight: 1.4 }}>
+                              {glyphText}
+                            </span>
+                            <span
+                              style={{
+                                fontFamily: "system-ui, sans-serif",
+                                fontSize: "0.76rem",
+                                fontWeight: 500,
+                                color: "#1e3a5f",
+                                lineHeight: 1.25,
+                                direction: "ltr",
+                                textAlign: "center",
+                                maxWidth: 130,
+                              }}
+                            >
+                              {item.translation_id || "—"}
+                            </span>
+                          </button>
+                        );
+                      }
+
                       return (
                         <button
                           key={item.word_id}

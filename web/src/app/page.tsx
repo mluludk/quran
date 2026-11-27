@@ -25,6 +25,20 @@ export default function HomePage() {
         >
           Buka Mushaf Reader (604 Halaman) →
         </a>
+        <a
+          href="/tarjim"
+          style={{
+            padding: "0.55rem 1rem",
+            borderRadius: 8,
+            border: "1px solid #7c5c32",
+            background: "#fffdf7",
+            color: "#7c5c32",
+            textDecoration: "none",
+            fontWeight: 600,
+          }}
+        >
+          Buka Tarjim (Terjemah Per Kata) →
+        </a>
         <a href="/m0-proof" style={{ padding: "0.55rem 0.5rem", fontWeight: 600, color: "#7c5c32" }}>
           M0 Renderer Proof (Halaman 1–3)
         </a>
