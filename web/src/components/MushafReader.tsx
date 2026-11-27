@@ -349,33 +349,63 @@ export default function MushafReader({
       <div className="mushaf-shell">
         <section className="mushaf-page-frame" aria-label={`Mushaf page ${pageNumber}`}>
           {grammarMode && (
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "0.35rem", marginBottom: "0.9rem", paddingBottom: "0.65rem", borderBottom: "1px solid #ede9e0" }}>
-              {GRAMMAR_FILTERS.map((gf) => {
-                const active = activeGrammarKeys.includes(gf.key);
-                return (
+            <div style={{ display: "flex", flexDirection: "column", gap: "0.45rem", marginBottom: "0.9rem", paddingBottom: "0.65rem", borderBottom: "1px solid #ede9e0" }}>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "0.35rem", alignItems: "center" }}>
+                <span style={{ fontSize: "0.74rem", color: "#78716c", fontWeight: 600 }}>Preset cepat:</span>
+                {[
+                  { label: "Semua", keys: GRAMMAR_FILTERS.map((g) => g.key) },
+                  { label: "Kosongkan", keys: [] },
+                  { label: "Mubtada' + Khabar", keys: ["mubtada", "khabar"] },
+                  { label: "Huruf Jar + Ism Majrur", keys: ["harf_jar", "ism_majrur"] },
+                  { label: "Fi'il + Fa'il + Maf'ul", keys: ["amil", "fail", "maful"] },
+                ].map((preset) => (
                   <button
-                    key={gf.key}
+                    key={preset.label}
                     type="button"
-                    onClick={() =>
-                      setActiveGrammarKeys((prev) =>
-                        prev.includes(gf.key) ? prev.filter((k) => k !== gf.key) : [...prev, gf.key]
-                      )
-                    }
+                    onClick={() => setActiveGrammarKeys([...preset.keys])}
                     style={{
-                      padding: "0.2rem 0.55rem",
-                      borderRadius: 999,
-                      border: `1.5px solid ${active ? gf.border : "#d6d3d1"}`,
-                      background: active ? gf.bg : "#fafaf9",
-                      color: active ? gf.fg : "#78716c",
-                      fontSize: "0.76rem",
+                      padding: "0.16rem 0.5rem",
+                      borderRadius: 6,
+                      border: "1px solid #d6cfc2",
+                      background: "#fff",
+                      color: "#44403c",
+                      fontSize: "0.74rem",
                       fontWeight: 600,
                       cursor: "pointer",
                     }}
                   >
-                    {gf.label}
+                    {preset.label}
                   </button>
-                );
-              })}
+                ))}
+              </div>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "0.35rem" }}>
+                {GRAMMAR_FILTERS.map((gf) => {
+                  const active = activeGrammarKeys.includes(gf.key);
+                  return (
+                    <button
+                      key={gf.key}
+                      type="button"
+                      onClick={() =>
+                        setActiveGrammarKeys((prev) =>
+                          prev.includes(gf.key) ? prev.filter((k) => k !== gf.key) : [...prev, gf.key]
+                        )
+                      }
+                      style={{
+                        padding: "0.2rem 0.55rem",
+                        borderRadius: 999,
+                        border: `1.5px solid ${active ? gf.border : "#d6d3d1"}`,
+                        background: active ? gf.bg : "#fafaf9",
+                        color: active ? gf.fg : "#78716c",
+                        fontSize: "0.76rem",
+                        fontWeight: 600,
+                        cursor: "pointer",
+                      }}
+                    >
+                      {active ? "✓ " : ""}{gf.label}
+                    </button>
+                  );
+                })}
+              </div>
             </div>
           )}
           {pageLoading && <p style={{ textAlign: "center", color: "#57534e" }}>Memuat halaman {pageNumber}...</p>}

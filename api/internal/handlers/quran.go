@@ -540,8 +540,9 @@ func (h *QuranHandler) GetPage(c *fiber.Ctx) error {
 		         )
 		       END AS first_occurrence_page,
 		       COALESCE((
-		         SELECT string_agg(DISTINCT
-		           CASE
+		         SELECT string_agg(DISTINCT role_tag, ',')
+		         FROM (
+		           SELECT CASE
 		             WHEN n.role_latin = 'Mubtada''' THEN 'mubtada'
 		             WHEN n.role_latin LIKE '%Khabar%' THEN 'khabar'
 		             WHEN n.role_latin LIKE '%Fa''il%' THEN 'fail'
@@ -550,10 +551,15 @@ func (h *QuranHandler) GetPage(c *fiber.Ctx) error {
 		             WHEN n.role_latin = 'Ism Majrur' THEN 'ism_majrur'
 		             WHEN n.role_latin IN ('Harf Nasikh','Fi''il Madhi','Fi''il Mudhari''','Fi''il Amr','Fi''il Naqish','Fi''il Madhi Majhul','Fi''il Mudhari'' Majhul') THEN 'amil'
 		             ELSE ''
-		           END, ','
-		         )
-		         FROM irab_word_nodes n
-		         WHERE n.word_id = li.word_id
+		           END AS role_tag
+		           FROM irab_word_nodes n
+		           WHERE n.word_id = li.word_id
+		           UNION ALL
+		           SELECT 'khabar' AS role_tag
+		           FROM irab_word_nodes n2
+		           WHERE n2.word_id = li.word_id AND n2.explanation LIKE '%sebagai khabar%'
+		         ) t
+		         WHERE role_tag <> ''
 		       ), '') AS grammar_roles_raw
 		FROM mushaf_lines l
 		JOIN mushaf_line_items li ON li.line_id = l.id

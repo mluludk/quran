@@ -151,7 +151,7 @@ export async function fetchJuzList(): Promise<JuzSummary[]> {
 }
 
 export async function fetchPage(page: number): Promise<MushafPageResponse> {
-  return apiFetch<MushafPageResponse>(`/pages/${page}?v=5`);
+  return apiFetch<MushafPageResponse>(`/pages/${page}?v=6`);
 }
 
 export interface AyahIrabNode {
