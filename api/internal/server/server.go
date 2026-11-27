@@ -32,7 +32,7 @@ func NewApp(pool *pgxpool.Pool, manifestPath string, corsOrigins string) *fiber.
 	app.Use(logger.New())
 	app.Use(cors.New(cors.Config{
 		AllowOrigins: strings.TrimSpace(corsOrigins),
-		AllowMethods: "GET,POST,PUT,DELETE,OPTIONS",
+		AllowMethods: "GET,POST,PUT,PATCH,DELETE,OPTIONS",
 		AllowHeaders: "Origin, Content-Type, Accept, Authorization",
 	}))
 
