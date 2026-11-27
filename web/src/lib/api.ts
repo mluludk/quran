@@ -137,7 +137,7 @@ export async function fetchSurahs(): Promise<SurahSummary[]> {
 }
 
 export async function fetchPage(page: number): Promise<MushafPageResponse> {
-  return apiFetch<MushafPageResponse>(`/pages/${page}`);
+  return apiFetch<MushafPageResponse>(`/pages/${page}?v=2`);
 }
 
 export interface AyahIrabNode {
