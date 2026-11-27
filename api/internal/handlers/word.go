@@ -56,6 +56,10 @@ func (h *WordHandler) GetWord(c *fiber.Ctx) error {
 	if err != nil {
 		return err
 	}
+	relations, err := h.fetchWordRelations(c, id)
+	if err != nil {
+		return err
+	}
 
 	return c.JSON(fiber.Map{
 		"word_id":        wid,
@@ -69,6 +73,7 @@ func (h *WordHandler) GetWord(c *fiber.Ctx) error {
 		"translation_id": transID,
 		"morphology":     morphSegs,
 		"irab":           irabNodes,
+		"relations":      relations,
 	})
 }
 
@@ -206,6 +211,44 @@ func (h *WordHandler) fetchWordIrab(c *fiber.Ctx, wordID int) ([]fiber.Map, erro
 		})
 	}
 	return nodes, nil
+}
+
+func (h *WordHandler) fetchWordRelations(c *fiber.Ctx, wordID int) ([]fiber.Map, error) {
+	rows, err := h.Pool.Query(c.Context(), `
+		SELECT r.id, r.relation_type, COALESCE(r.description,''),
+		       sn.word_id, sw.arabic_text,
+		       tn.word_id, tw.arabic_text
+		FROM irab_relations r
+		JOIN irab_word_nodes sn ON sn.id = r.source_node_id
+		JOIN quran_words sw ON sw.id = sn.word_id
+		JOIN irab_word_nodes tn ON tn.id = r.target_node_id
+		JOIN quran_words tw ON tw.id = tn.word_id
+		WHERE sn.word_id = $1 OR tn.word_id = $1
+		ORDER BY r.id
+	`, wordID)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+
+	var out []fiber.Map
+	for rows.Next() {
+		var rid, srcWid, tgtWid int64
+		var relType, desc, srcAr, tgtAr string
+		if err := rows.Scan(&rid, &relType, &desc, &srcWid, &srcAr, &tgtWid, &tgtAr); err != nil {
+			return nil, err
+		}
+		out = append(out, fiber.Map{
+			"id":             rid,
+			"relation_type":  relType,
+			"description":    desc,
+			"source_word_id": srcWid,
+			"source_arabic":  srcAr,
+			"target_word_id": tgtWid,
+			"target_arabic":  tgtAr,
+		})
+	}
+	return out, nil
 }
 
 func (h *WordHandler) GetWordIrab(c *fiber.Ctx) error {

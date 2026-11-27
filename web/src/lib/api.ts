@@ -69,6 +69,16 @@ export interface IrabNode {
   source: string;
 }
 
+export interface IrabRelation {
+  id: number;
+  relation_type: string;
+  description: string;
+  source_word_id: number;
+  source_arabic: string;
+  target_word_id: number;
+  target_arabic: string;
+}
+
 export interface WordDetailResponse {
   word_id: number;
   word_number: number;
@@ -81,6 +91,7 @@ export interface WordDetailResponse {
   translation_id: string;
   morphology: MorphSegment[] | null;
   irab: IrabNode[] | null;
+  relations?: IrabRelation[] | null;
 }
 
 export interface SearchWordHit {

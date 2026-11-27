@@ -74,6 +74,12 @@ Backlog ini diturunkan dari [PRD.md](../PRD.md) dan [development-roadmap.md](./d
     - Terapkan `migrations/002_irab_schema.sql`, pipeline ETL i‘rab (mendukung multi-pendapat per ayat), serta endpoint `/words/{id}/irab` dan `/ayahs/{surah}/{ayah}/irab`.
 23. **[M4] UI Quran I‘rab Explorer & Relasi Nahwu (Web & Mobile)** (`area:web`, `area:mobile`, `P1`) — *Dep: #14, #17, #22*
     - Integrasikan tab I‘rab (kedudukan, status, tanda i‘rab, amil, hubungan nahwu, penjelasan, referensi sumber) ke Word Explorer di Next.js dan Flutter.
+24. **[M4] Mapping lengkap tag MASAQ v6 & kamus penjelasan Nahwu ID** (`area:etl`, `area:data`, `P1`) — *Dep: #22*
+    - Petakan seluruh tag `Syntactic_Role`, `Case_Mood`, dan `Case_Mood_Marker` MASAQ ke istilah Arab/Latin serta template penjelasan gramatikal bahasa Indonesia.
+25. **[M4] ETL relasi nahwu (`irab_relations`) & API relasi kata** (`area:etl`, `area:api`, `P1`) — *Dep: #22*
+    - Impor relasi sintaksis antarkata (dari `NoorBayan/Quranic` / sumber treebank) ke `irab_relations` dan ekspos di `GET /words/{id}` serta `GET /ayahs/{surah}/{ayah}/irab`.
+26. **[M3-Web] Redesign Word & I‘rab Explorer UI sesuai mockup** (`area:web`, `P1`) — *Dep: #24, #25*
+    - Tampilkan 3 badge ringkas (`Kedudukan`, `Jenis Kata`, `Status I‘rab`), format root berspasi (`ح م د`), penjelasan nahwu, dan diagram panah Hubungan Nahwu.
 
 ### M5: QA & Release
 20. **[M5] Visual QA, offline QA, dan verifikasi atribusi lisensi final** (`area:data`, `area:legal`, `P0`) — *Dep: #15, #18*
