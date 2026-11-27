@@ -295,6 +295,151 @@ func (h *WordHandler) GetRoot(c *fiber.Ctx) error {
 	})
 }
 
+func classifyMorphPattern(pos string, tags string) (category string, label string) {
+	has := func(tok string) bool { return strings.Contains(tags, tok) }
+	wazan := ""
+	for _, part := range strings.Split(tags, "|") {
+		if strings.HasPrefix(part, "VF:") {
+			wazan = "Wazan " + strings.TrimPrefix(part, "VF:")
+			break
+		}
+	}
+
+	switch {
+	case has("VN"):
+		category = "Masdar"
+		label = "Masdar"
+	case pos == "V":
+		category = "Fi'il"
+		switch {
+		case has("PERF"):
+			label = "Fi'il Madhi"
+		case has("IMPF"):
+			label = "Fi'il Mudhari'"
+		case has("IMPV"):
+			label = "Fi'il Amr"
+		default:
+			label = "Fi'il"
+		}
+	case has("ACT_PCPL"):
+		category = "Isim"
+		label = "Isim Fa'il"
+	case has("PASS_PCPL"):
+		category = "Isim"
+		label = "Isim Maf'ul"
+	case pos == "N":
+		category = "Isim"
+		if has("ADJ") {
+			label = "Isim Shifah"
+		} else {
+			label = "Isim"
+		}
+	default:
+		category = "Harf"
+		label = pos
+	}
+	if wazan != "" {
+		label = label + " · " + wazan
+	}
+	return category, label
+}
+
+func (h *WordHandler) GetRootFamily(c *fiber.Ctx) error {
+	setImmutableCache(c)
+	id, err := parsePositiveInt(c.Params("id"), "root id")
+	if err != nil {
+		return err
+	}
+
+	var rootAr string
+	var totalOcc int
+	err = h.Pool.QueryRow(c.Context(), `
+		SELECT r.arabic_text, count(DISTINCT wm.word_id)
+		FROM roots r
+		LEFT JOIN word_morphology wm ON wm.root_id = r.id
+		WHERE r.id = $1
+		GROUP BY r.id, r.arabic_text
+	`, id).Scan(&rootAr, &totalOcc)
+	if err == pgx.ErrNoRows {
+		return fiber.NewError(fiber.StatusNotFound, "root not found")
+	}
+	if err != nil {
+		return err
+	}
+
+	rows, err := h.Pool.Query(c.Context(), `
+		WITH grouped AS (
+			SELECT COALESCE(wm.lemma_id, 0) AS lemma_id,
+			       COALESCE(l.arabic_text, '') AS lemma_text,
+			       COALESCE(wm.pos, '') AS pos,
+			       COALESCE(MAX(wm.morphology_data->>'tags'), '') AS sample_tags,
+			       count(DISTINCT wm.word_id) AS occ_count,
+			       MIN(w.id) AS sample_word_id
+			FROM word_morphology wm
+			JOIN quran_words w ON w.id = wm.word_id
+			LEFT JOIN lemmas l ON l.id = wm.lemma_id
+			WHERE wm.root_id = $1
+			GROUP BY wm.lemma_id, l.arabic_text, wm.pos
+		)
+		SELECT g.lemma_id, g.lemma_text, g.pos, g.sample_tags, g.occ_count,
+		       sw.id, sw.arabic_text, a.surah_id, s.name_arabic, a.ayah_number,
+		       COALESCE(wt.translation, ''),
+		       (SELECT mp.page_number
+		        FROM mushaf_line_items li
+		        JOIN mushaf_lines ml ON ml.id = li.line_id
+		        JOIN mushaf_pages mp ON mp.id = ml.page_id
+		        WHERE li.word_id = sw.id LIMIT 1) AS page_number
+		FROM grouped g
+		JOIN quran_words sw ON sw.id = g.sample_word_id
+		JOIN ayahs a ON a.id = sw.ayah_id
+		JOIN surahs s ON s.id = a.surah_id
+		LEFT JOIN word_translations wt ON wt.word_id = sw.id AND wt.language_code = 'id'
+		ORDER BY g.occ_count DESC, g.lemma_text
+	`, id)
+	if err != nil {
+		return err
+	}
+	defer rows.Close()
+
+	var family []fiber.Map
+	for rows.Next() {
+		var lemID, sampleWID int64
+		var surahID, ayahNum int16
+		var pageNum *int16
+		var lemTxt, pos, tags, sampleAr, sName, tr string
+		var occ int
+		if err := rows.Scan(&lemID, &lemTxt, &pos, &tags, &occ, &sampleWID, &sampleAr, &surahID, &sName, &ayahNum, &tr, &pageNum); err != nil {
+			return err
+		}
+		cat, pat := classifyMorphPattern(pos, tags)
+		family = append(family, fiber.Map{
+			"lemma_id":           lemID,
+			"lemma":              lemTxt,
+			"pos":                pos,
+			"category":           cat,
+			"pattern_label":      pat,
+			"occurrence_count":   occ,
+			"sample_word_id":     sampleWID,
+			"sample_arabic":      sampleAr,
+			"sample_translation": tr,
+			"sample_surah_id":    surahID,
+			"sample_surah_name":  sName,
+			"sample_ayah_number": ayahNum,
+			"sample_page":        pageNum,
+		})
+	}
+
+	return c.JSON(fiber.Map{
+		"root": fiber.Map{
+			"id":               id,
+			"arabic_text":      rootAr,
+			"occurrence_count": totalOcc,
+			"lemma_count":      len(family),
+		},
+		"family": family,
+	})
+}
+
 func (h *WordHandler) GetRootOccurrences(c *fiber.Ctx) error {
 	setImmutableCache(c)
 	id, err := parsePositiveInt(c.Params("id"), "root id")

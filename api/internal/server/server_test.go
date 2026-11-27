@@ -145,4 +145,20 @@ func TestCoreAndIrabEndpoints(t *testing.T) {
 		t.Fatalf("expected words and relations for 1:2, got words=%d analyses=%d",
 			len(irabResp.Words), len(irabResp.Analyses))
 	}
+
+	// 8. /api/v1/roots/1/family -> root + family
+	rec = httptest.NewRecorder()
+	h.ServeHTTP(rec, httptest.NewRequest("GET", "/api/v1/roots/1/family", nil))
+	if rec.Code != 200 {
+		t.Fatalf("/roots/1/family status = %d: %s", rec.Code, rec.Body.String())
+	}
+	var famResp struct {
+		Family []map[string]any `json:"family"`
+	}
+	if err := json.Unmarshal(rec.Body.Bytes(), &famResp); err != nil {
+		t.Fatal(err)
+	}
+	if len(famResp.Family) == 0 {
+		t.Fatalf("expected non-empty root family for root 1")
+	}
 }

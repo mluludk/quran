@@ -84,6 +84,10 @@ Backlog ini diturunkan dari [PRD.md](../PRD.md) dan [development-roadmap.md](./d
     - Sertakan daftar kata ayat beserta graf `nodes` dan `relations` pada endpoint i‘rab per-ayat untuk kebutuhan visualisasi diagram sintaksis.
 28. **[M3-Web] Komponen SVG Dependency Arc Diagram I‘rab per-ayat** (`area:web`, `P1`) — *Dep: #27*
     - Render diagram lengkungan sintaksis RTL berbasis SVG (urutan kata kanan-ke-kiri, label peran, dan kurva Bezier relasi nahwu) yang dapat dibuka dari Word Explorer.
+29. **[M2] Endpoint `GET /roots/{id}/family` untuk keluarga kata** (`area:api`, `P1`) — *Dep: #10*
+    - Kelompokkan derivasi dari satu akar berdasarkan lemma, kategori (`Fi'il`, `Isim`, `Masdar`), wazan, jumlah kemunculan, arti Indonesia, dan lokasi ayat/halaman.
+30. **[M3-Web] Root & Word Family Explorer UI** (`area:web`, `P1`) — *Dep: #29*
+    - Perbarui `RootExplorerModal.tsx` dengan tab Keluarga Kata, filter `Fi'il / Isim / Masdar`, dan pewarnaan huruf akar vs huruf imbuhan (ziyadah).
 
 ### M5: QA & Release
 20. **[M5] Visual QA, offline QA, dan verifikasi atribusi lisensi final** (`area:data`, `area:legal`, `P0`) — *Dep: #15, #18*

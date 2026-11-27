@@ -64,6 +64,7 @@ func NewApp(pool *pgxpool.Pool, manifestPath string, corsOrigins string) *fiber.
 	v1.Get("/words/:id/morphology", wh.GetWordMorphology)
 	v1.Get("/words/:id/irab", wh.GetWordIrab)
 	v1.Get("/roots/:id", wh.GetRoot)
+	v1.Get("/roots/:id/family", wh.GetRootFamily)
 	v1.Get("/roots/:id/occurrences", wh.GetRootOccurrences)
 	v1.Get("/search/arabic", wh.SearchArabic)
 	v1.Get("/search/roots", wh.SearchRoots)

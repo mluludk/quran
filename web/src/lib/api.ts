@@ -192,6 +192,36 @@ export async function fetchAyahIrab(surah: number, ayah: number): Promise<AyahIr
   return apiFetch<AyahIrabResponse>(`/ayahs/${surah}/${ayah}/irab`);
 }
 
+export interface RootFamilyMember {
+  lemma_id: number;
+  lemma: string;
+  pos: string;
+  category: "Fi'il" | "Isim" | "Masdar" | "Harf" | string;
+  pattern_label: string;
+  occurrence_count: number;
+  sample_word_id: number;
+  sample_arabic: string;
+  sample_translation: string;
+  sample_surah_id: number;
+  sample_surah_name: string;
+  sample_ayah_number: number;
+  sample_page: number | null;
+}
+
+export interface RootFamilyResponse {
+  root: {
+    id: number;
+    arabic_text: string;
+    occurrence_count: number;
+    lemma_count: number;
+  };
+  family: RootFamilyMember[] | null;
+}
+
+export async function fetchRootFamily(rootId: number): Promise<RootFamilyResponse> {
+  return apiFetch<RootFamilyResponse>(`/roots/${rootId}/family`);
+}
+
 export async function fetchRootOccurrences(rootId: number, limit = 20, offset = 0) {
   return apiFetch<{
     data: SearchWordHit[] | null;

@@ -25,6 +25,7 @@ Base path: `/api/v1`. JSON. Authentication requirements for user-state endpoints
 | GET | `/words/{id}/occurrences` | Occurrences for word/lemma as supported |
 | GET | `/ayahs/{surah}/{ayah}/irab` | Full ayah i‘rab analyses (supports multiple opinions) and word relations |
 | GET | `/roots/{id}` | Root detail |
+| GET | `/roots/{id}/family` | Root word family grouped by lemma, POS, and morphological pattern |
 | GET | `/roots/{id}/words` | Word forms related to root |
 | GET | `/roots/{id}/occurrences` | Root occurrence list |
 | GET | `/search/arabic?q=` | Search Arabic text |
