@@ -164,6 +164,17 @@ export interface AyahIrabRelation {
   description: string;
 }
 
+export interface AyahIrabPhrase {
+  id: number;
+  phrase_type: string;
+  phrase_arabic: string;
+  phrase_latin: string;
+  start_word_id: number;
+  end_word_id: number;
+  mahal_irab: string;
+  explanation: string;
+}
+
 export interface AyahIrabResponse {
   ayah_id: number;
   surah_id: number;
@@ -181,6 +192,7 @@ export interface AyahIrabResponse {
     source: { name: string; author: string };
     nodes: AyahIrabNode[];
     relations: AyahIrabRelation[] | null;
+    phrases: AyahIrabPhrase[] | null;
   }[];
 }
 

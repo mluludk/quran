@@ -88,6 +88,12 @@ Backlog ini diturunkan dari [PRD.md](../PRD.md) dan [development-roadmap.md](./d
     - Kelompokkan derivasi dari satu akar berdasarkan lemma, kategori (`Fi'il`, `Isim`, `Masdar`), wazan, jumlah kemunculan, arti Indonesia, dan lokasi ayat/halaman.
 30. **[M3-Web] Root & Word Family Explorer UI** (`area:web`, `P1`) — *Dep: #29*
     - Perbarui `RootExplorerModal.tsx` dengan tab Keluarga Kata, filter `Fi'il / Isim / Masdar`, dan pewarnaan huruf akar vs huruf imbuhan (ziyadah).
+31. **[M4] Schema & ETL Frasa/Klausa (`irab_phrases`)** (`area:data`, `area:etl`, `P1`) — *Dep: #22*
+    - Terapkan `migrations/003_phrase_schema.sql` dan ekstrak frasa/klausa (*Jar-Majrur*, *Idhafah*, *Jumlah Ismiyah*, *Jumlah Fi'liyah*, *Shilah Maushul*, *Klausa Syarat*) dari MASAQ v6.
+32. **[M2] Ekspos `phrases` di `GET /ayahs/{surah}/{ayah}/irab`** (`area:api`, `P1`) — *Dep: #31*
+    - Sertakan daftar `phrases` (rentang kata, jenis frasa, dan *mahal i‘rab*) pada endpoint i‘rab per-ayat.
+33. **[M3-Web] UI Quran Phrase & Sentence Explorer di Diagram Ayat** (`area:web`, `P1`) — *Dep: #32*
+    - Render garis rentang frasa/klausa (`PP`, `NS`, `VS`, `Idhafah`, `Shilah`, `Syarth`) pada diagram SVG RTL dan daftar penjelasan frasa di bawah diagram.
 
 ### M5: QA & Release
 20. **[M5] Visual QA, offline QA, dan verifikasi atribusi lisensi final** (`area:data`, `area:legal`, `P0`) — *Dep: #15, #18*

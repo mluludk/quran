@@ -187,6 +187,20 @@ CREATE TABLE irab_relations (
   description TEXT,
   UNIQUE (analysis_id, source_node_id, target_node_id, relation_type)
 );
+
+CREATE TABLE irab_phrases (
+  id BIGSERIAL PRIMARY KEY,
+  analysis_id BIGINT NOT NULL REFERENCES irab_analyses(id) ON DELETE CASCADE,
+  phrase_type TEXT NOT NULL,        -- 'jar_majrur', 'idhafah', 'jumlah_ismiyah', 'jumlah_filiyah', 'shilah_maushul', 'klausa_syarat'
+  phrase_arabic TEXT NOT NULL,
+  phrase_latin TEXT NOT NULL,
+  start_word_id BIGINT NOT NULL REFERENCES quran_words(id),
+  end_word_id BIGINT NOT NULL REFERENCES quran_words(id),
+  mahal_irab TEXT,
+  explanation TEXT,
+  parent_phrase_id BIGINT REFERENCES irab_phrases(id) ON DELETE SET NULL,
+  UNIQUE (analysis_id, phrase_type, start_word_id, end_word_id)
+);
 ```
 
 Separating `word_morphology` (Sharaf) from `irab_word_nodes` / `irab_relations` (Nahwu) allows a single ayah to store multiple valid scholarly i‘rab opinions without polluting word-level morphological records.

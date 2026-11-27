@@ -333,6 +333,37 @@ func (h *QuranHandler) GetAyahIrab(c *fiber.Ctx) error {
 		}
 		rRows.Close()
 
+		pRows, err := h.Pool.Query(c.Context(), `
+			SELECT id, phrase_type, phrase_arabic, phrase_latin, start_word_id, end_word_id,
+			       COALESCE(mahal_irab,''), COALESCE(explanation,'')
+			FROM irab_phrases
+			WHERE analysis_id = $1
+			ORDER BY start_word_id, end_word_id, id
+		`, aid)
+		if err != nil {
+			return err
+		}
+		var phrases []fiber.Map
+		for pRows.Next() {
+			var pid, swid, ewid int64
+			var ptype, par, plat, mahal, expl string
+			if err := pRows.Scan(&pid, &ptype, &par, &plat, &swid, &ewid, &mahal, &expl); err != nil {
+				pRows.Close()
+				return err
+			}
+			phrases = append(phrases, fiber.Map{
+				"id":            pid,
+				"phrase_type":   ptype,
+				"phrase_arabic": par,
+				"phrase_latin":  plat,
+				"start_word_id": swid,
+				"end_word_id":   ewid,
+				"mahal_irab":    mahal,
+				"explanation":   expl,
+			})
+		}
+		pRows.Close()
+
 		analyses = append(analyses, fiber.Map{
 			"analysis_id":   aid,
 			"opinion_label": label,
@@ -340,6 +371,7 @@ func (h *QuranHandler) GetAyahIrab(c *fiber.Ctx) error {
 			"source":        fiber.Map{"name": srcName, "author": author},
 			"nodes":         nodes,
 			"relations":     relations,
+			"phrases":       phrases,
 		})
 	}
 

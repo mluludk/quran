@@ -136,13 +136,14 @@ func TestCoreAndIrabEndpoints(t *testing.T) {
 		Words    []map[string]any `json:"words"`
 		Analyses []struct {
 			Relations []map[string]any `json:"relations"`
+			Phrases   []map[string]any `json:"phrases"`
 		} `json:"analyses"`
 	}
 	if err := json.Unmarshal(rec.Body.Bytes(), &irabResp); err != nil {
 		t.Fatal(err)
 	}
-	if len(irabResp.Words) == 0 || len(irabResp.Analyses) == 0 || len(irabResp.Analyses[0].Relations) == 0 {
-		t.Fatalf("expected words and relations for 1:2, got words=%d analyses=%d",
+	if len(irabResp.Words) == 0 || len(irabResp.Analyses) == 0 || len(irabResp.Analyses[0].Relations) == 0 || len(irabResp.Analyses[0].Phrases) == 0 {
+		t.Fatalf("expected words, relations, and phrases for 1:2, got words=%d analyses=%d",
 			len(irabResp.Words), len(irabResp.Analyses))
 	}
 
