@@ -94,10 +94,14 @@ func NewApp(pool *pgxpool.Pool, manifestPath string, corsOrigins string) *fiber.
 	v1.Delete("/vocab/items/:id", vh.DeleteItem)
 	v1.Get("/vocab/progress", vh.GetProgress)
 
-	// Word-by-Word Learning Module
+	// Word-by-Word Learning Module & Learning Engine
 	v1.Get("/learn/summary", lh.GetSummary)
 	v1.Get("/learn/deck", lh.GetDeck)
 	v1.Post("/learn/answer", lh.SubmitAnswer)
+	v1.Get("/learn/goals", lh.GetGoals)
+	v1.Put("/learn/goals", lh.UpdateGoals)
+	v1.Get("/learn/grammar-quiz", lh.GetGrammarQuiz)
+	v1.Post("/learn/quiz-log", lh.SubmitQuizLog)
 
 	// Vocabulary Frequency & Context Explorer
 	v1.Get("/words/:id/frequency", fh.GetWordFrequency)

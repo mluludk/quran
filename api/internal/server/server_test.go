@@ -244,4 +244,26 @@ func TestCoreAndIrabEndpoints(t *testing.T) {
 	if rec.Code != 200 {
 		t.Fatalf("/sarf/explore status = %d: %s", rec.Code, rec.Body.String())
 	}
+
+	// 16. Learning Engine: /learn/goals, /learn/deck?mode=adaptive, /learn/grammar-quiz
+	rec = httptest.NewRecorder()
+	h.ServeHTTP(rec, httptest.NewRequest("GET", "/api/v1/learn/goals", nil))
+	if rec.Code != 200 {
+		t.Fatalf("/learn/goals status = %d: %s", rec.Code, rec.Body.String())
+	}
+	rec = httptest.NewRecorder()
+	h.ServeHTTP(rec, httptest.NewRequest("GET", "/api/v1/learn/deck?mode=adaptive&limit=5", nil))
+	if rec.Code != 200 {
+		t.Fatalf("/learn/deck?mode=adaptive status = %d: %s", rec.Code, rec.Body.String())
+	}
+	rec = httptest.NewRecorder()
+	h.ServeHTTP(rec, httptest.NewRequest("GET", "/api/v1/learn/grammar-quiz?topic=nahwu&limit=5", nil))
+	if rec.Code != 200 {
+		t.Fatalf("/learn/grammar-quiz?topic=nahwu status = %d: %s", rec.Code, rec.Body.String())
+	}
+	rec = httptest.NewRecorder()
+	h.ServeHTTP(rec, httptest.NewRequest("GET", "/api/v1/learn/grammar-quiz?topic=sarf&limit=5", nil))
+	if rec.Code != 200 {
+		t.Fatalf("/learn/grammar-quiz?topic=sarf status = %d: %s", rec.Code, rec.Body.String())
+	}
 }

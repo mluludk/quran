@@ -15,15 +15,16 @@ type LearnHandler struct {
 const defaultLearnUserID = "00000000-0000-0000-0000-000000000001"
 
 func (h *LearnHandler) GetSummary(c *fiber.Ctx) error {
-	var totalUnique, mastered, learning, totalCorrect, totalWrong int
+	var totalUnique, mastered, learning, dueReview, totalCorrect, totalWrong int
 	err := h.Pool.QueryRow(c.Context(), `
 		SELECT
 		  (SELECT count(DISTINCT normalized_search_text) FROM quran_words WHERE normalized_search_text <> ''),
 		  (SELECT count(*) FROM learning_word_progress WHERE user_id = $1 AND mastery_level >= 2),
 		  (SELECT count(*) FROM learning_word_progress WHERE user_id = $1 AND mastery_level = 1),
+		  (SELECT count(*) FROM learning_word_progress WHERE user_id = $1 AND next_review_at IS NOT NULL AND next_review_at <= now()),
 		  COALESCE((SELECT sum(correct_count) FROM learning_word_progress WHERE user_id = $1), 0),
 		  COALESCE((SELECT sum(wrong_count) FROM learning_word_progress WHERE user_id = $1), 0)
-	`, defaultLearnUserID).Scan(&totalUnique, &mastered, &learning, &totalCorrect, &totalWrong)
+	`, defaultLearnUserID).Scan(&totalUnique, &mastered, &learning, &dueReview, &totalCorrect, &totalWrong)
 	if err != nil {
 		return err
 	}
@@ -46,12 +47,14 @@ func (h *LearnHandler) GetSummary(c *fiber.Ctx) error {
 	defer rows.Close()
 
 	var juzStats []fiber.Map
+	juzMap := map[int16][2]int{}
 	for rows.Next() {
 		var juz int16
 		var uniq, mast int
 		if err := rows.Scan(&juz, &uniq, &mast); err != nil {
 			return err
 		}
+		juzMap[juz] = [2]int{uniq, mast}
 		juzStats = append(juzStats, fiber.Map{
 			"juz_number":     juz,
 			"unique_words":   uniq,
@@ -59,13 +62,17 @@ func (h *LearnHandler) GetSummary(c *fiber.Ctx) error {
 		})
 	}
 
+	learningPath := buildTadrijLearningPath(mastered, juzMap)
+
 	return c.JSON(fiber.Map{
 		"total_unique_words": totalUnique,
 		"mastered_words":     mastered,
 		"learning_words":     learning,
+		"due_review_count":   dueReview,
 		"total_correct":      totalCorrect,
 		"total_wrong":        totalWrong,
 		"juz_progress":       juzStats,
+		"learning_path":      learningPath,
 	})
 }
 
@@ -138,6 +145,60 @@ func (h *LearnHandler) GetDeck(c *fiber.Ctx) error {
 			`
 		}
 		args = []any{juz, defaultLearnUserID, limit, offset}
+
+	case "due":
+		query = `
+			WITH freq_words AS (
+				SELECT normalized_search_text, MIN(id) AS sample_word_id, count(*) AS freq
+				FROM quran_words
+				WHERE normalized_search_text <> ''
+				GROUP BY normalized_search_text
+			)
+			SELECT sw.id, fw.normalized_search_text, sw.arabic_text, wt.translation,
+			       COALESCE((SELECT r.arabic_text FROM word_morphology wm JOIN roots r ON r.id = wm.root_id WHERE wm.word_id = sw.id AND wm.root_id IS NOT NULL ORDER BY wm.segment_number LIMIT 1), '') AS root_text,
+			       a.surah_id, s.name_arabic, a.ayah_number,
+			       (SELECT mp.page_number FROM mushaf_line_items li JOIN mushaf_lines ml ON ml.id = li.line_id JOIN mushaf_pages mp ON mp.id = ml.page_id WHERE li.word_id = sw.id LIMIT 1) AS page_number,
+			       fw.freq, lp.mastery_level
+			FROM learning_word_progress lp
+			JOIN freq_words fw ON fw.normalized_search_text = lp.normalized_word
+			JOIN quran_words sw ON sw.id = fw.sample_word_id
+			JOIN ayahs a ON a.id = sw.ayah_id
+			JOIN surahs s ON s.id = a.surah_id
+			JOIN word_translations wt ON wt.word_id = sw.id AND wt.language_code = 'id'
+			WHERE lp.user_id = $1 AND lp.next_review_at IS NOT NULL AND lp.next_review_at <= now() AND wt.translation <> ''
+			ORDER BY lp.next_review_at ASC, lp.wrong_count DESC
+			LIMIT $2 OFFSET $3
+		`
+		args = []any{defaultLearnUserID, limit, offset}
+
+	case "adaptive":
+		query = `
+			WITH freq_words AS (
+				SELECT normalized_search_text, MIN(id) AS sample_word_id, count(*) AS freq
+				FROM quran_words
+				WHERE normalized_search_text <> ''
+				GROUP BY normalized_search_text
+			)
+			SELECT sw.id, fw.normalized_search_text, sw.arabic_text, wt.translation,
+			       COALESCE((SELECT r.arabic_text FROM word_morphology wm JOIN roots r ON r.id = wm.root_id WHERE wm.word_id = sw.id AND wm.root_id IS NOT NULL ORDER BY wm.segment_number LIMIT 1), '') AS root_text,
+			       a.surah_id, s.name_arabic, a.ayah_number,
+			       (SELECT mp.page_number FROM mushaf_line_items li JOIN mushaf_lines ml ON ml.id = li.line_id JOIN mushaf_pages mp ON mp.id = ml.page_id WHERE li.word_id = sw.id LIMIT 1) AS page_number,
+			       fw.freq, COALESCE(lp.mastery_level, 0) AS mastery_level
+			FROM freq_words fw
+			JOIN quran_words sw ON sw.id = fw.sample_word_id
+			JOIN ayahs a ON a.id = sw.ayah_id
+			JOIN surahs s ON s.id = a.surah_id
+			JOIN word_translations wt ON wt.word_id = sw.id AND wt.language_code = 'id'
+			LEFT JOIN learning_word_progress lp ON lp.normalized_word = fw.normalized_search_text AND lp.user_id = $1
+			WHERE wt.translation <> ''
+			ORDER BY
+			  CASE WHEN lp.next_review_at IS NOT NULL AND lp.next_review_at <= now() THEN 0 ELSE 1 END ASC,
+			  COALESCE(lp.wrong_count - lp.correct_count, 0) DESC,
+			  COALESCE(lp.mastery_level, 0) ASC,
+			  fw.freq DESC
+			LIMIT $2 OFFSET $3
+		`
+		args = []any{defaultLearnUserID, limit, offset}
 
 	case "page":
 		query = `
@@ -280,34 +341,64 @@ func (h *LearnHandler) SubmitAnswer(c *fiber.Ctx) error {
 	}
 
 	var mastery int16
-	var correctCnt, wrongCnt int
+	var correctCnt, wrongCnt, intervalDays int
+	var easeFactor float64
 	err := h.Pool.QueryRow(c.Context(), `
-		INSERT INTO learning_word_progress (user_id, normalized_word, mastery_level, correct_count, wrong_count, last_practiced_at)
+		INSERT INTO learning_word_progress (
+			user_id, normalized_word, mastery_level, correct_count, wrong_count,
+			interval_days, ease_factor, next_review_at, last_practiced_at
+		)
 		VALUES (
 			$1, $2,
 			CASE WHEN $3 THEN 1 ELSE 0 END,
 			CASE WHEN $3 THEN 1 ELSE 0 END,
 			CASE WHEN $3 THEN 0 ELSE 1 END,
+			1,
+			CASE WHEN $3 THEN 2.50 ELSE 2.30 END,
+			now() + interval '1 day',
 			now()
 		)
 		ON CONFLICT (user_id, normalized_word) DO UPDATE
 		SET correct_count = learning_word_progress.correct_count + CASE WHEN $3 THEN 1 ELSE 0 END,
 		    wrong_count = learning_word_progress.wrong_count + CASE WHEN $3 THEN 0 ELSE 1 END,
+		    interval_days = CASE
+		      WHEN NOT $3 THEN 1
+		      WHEN learning_word_progress.interval_days <= 1 THEN 3
+		      WHEN learning_word_progress.interval_days <= 3 THEN 6
+		      ELSE LEAST(180, ROUND(learning_word_progress.interval_days * learning_word_progress.ease_factor)::int)
+		    END,
+		    ease_factor = CASE
+		      WHEN $3 THEN LEAST(3.00, learning_word_progress.ease_factor + 0.05)
+		      ELSE GREATEST(1.30, learning_word_progress.ease_factor - 0.20)
+		    END,
 		    mastery_level = CASE
 		      WHEN $3 THEN LEAST(2, learning_word_progress.mastery_level + 1)
 		      ELSE 1
 		    END,
+		    next_review_at = now() + (
+		      CASE
+		        WHEN NOT $3 THEN 1
+		        WHEN learning_word_progress.interval_days <= 1 THEN 3
+		        WHEN learning_word_progress.interval_days <= 3 THEN 6
+		        ELSE LEAST(180, ROUND(learning_word_progress.interval_days * learning_word_progress.ease_factor)::int)
+		      END || ' days'
+		    )::interval,
 		    last_practiced_at = now(),
 		    updated_at = now()
-		RETURNING mastery_level, correct_count, wrong_count
-	`, defaultLearnUserID, strings.TrimSpace(body.NormalizedWord), body.IsCorrect).Scan(&mastery, &correctCnt, &wrongCnt)
+		RETURNING mastery_level, correct_count, wrong_count, interval_days, ease_factor::float8
+	`, defaultLearnUserID, strings.TrimSpace(body.NormalizedWord), body.IsCorrect).Scan(&mastery, &correctCnt, &wrongCnt, &intervalDays, &easeFactor)
 	if err != nil {
 		return err
 	}
+
+	_ = h.recordDailyStudy(c.Context(), body.IsCorrect)
+
 	return c.JSON(fiber.Map{
 		"normalized_word": body.NormalizedWord,
 		"mastery_level":   mastery,
 		"correct_count":   correctCnt,
 		"wrong_count":     wrongCnt,
+		"interval_days":   intervalDays,
+		"ease_factor":     easeFactor,
 	})
 }

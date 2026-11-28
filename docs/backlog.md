@@ -132,6 +132,14 @@ Backlog ini diturunkan dari [PRD.md](../PRD.md) dan [development-roadmap.md](./d
     - Perbarui `AyahIrabDiagramModal.tsx` dengan tab **Grammar / Syntax Tree**, badge **Source, Confidence & Validation Status**, serta switcher **Alternatif Analisis I'rab**.
 52. **[M3-Web] Halaman `/sarf` (Sarf Explorer)** (`area:web`, `P1`) — *Dep: #50*
     - Bangun antarmuka `/sarf` untuk menelusuri bentuk kata/wazan (`VF:1..12`), POS, fitur morfologi, akar kata, dan contoh penggunaannya dalam Al-Qur'an.
+53. **[M4] Schema & Migrasi Quran Learning Engine (`008_learning_engine.sql`)** (`area:data`, `P1`) — *Dep: #37*
+    - Tambah kolom SM-2 Spaced Repetition (`interval_days`, `ease_factor`, `next_review_at`) pada `learning_word_progress`, serta tabel `learning_user_goals` dan `learning_daily_logs`.
+54. **[M2] API SRS, Adaptive Deck, Learning Path & Daily Goals** (`area:api`, `P1`) — *Dep: #53*
+    - Perbarui `/learn/summary`, `/learn/deck`, dan `/learn/answer` dengan SM-2, mode `due`/`adaptive`, tahap Learning Path Tadrij, serta tambah `GET/PUT /learn/goals`.
+55. **[M2] API Quiz Nahwu & Sharaf (`/learn/grammar-quiz`)** (`area:api`, `P1`) — *Dep: #53*
+    - Sajikan soal pilihan ganda interaktif untuk kedudukan nahwu/amil dan wazan/akar kata sharaf dari data tervalidasi.
+56. **[M3-Web] UI Learning Engine di `/learn` (SRS, Goals, Path & Quiz Nahwu/Sharaf)** (`area:web`, `P1`) — *Dep: #54, #55*
+    - Lengkapi halaman `/learn` dengan target harian & streak, mode Due/Adaptive, kartu Learning Path bertahap, serta tab Kuis Nahwu dan Kuis Sharaf.
 
 ### M5: QA & Release
 20. **[M5] Visual QA, offline QA, dan verifikasi atribusi lisensi final** (`area:data`, `area:legal`, `P0`) — *Dep: #15, #18*

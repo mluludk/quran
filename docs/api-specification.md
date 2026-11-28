@@ -55,9 +55,12 @@ Base path: `/api/v1`. JSON. Authentication requirements for user-state endpoints
 | PATCH | `/vocab/items/{id}` | Update note, theme, or flashcard mastery |
 | DELETE | `/vocab/items/{id}` | Remove saved item |
 | GET | `/vocab/progress` | Vocabulary learning progress summary |
-| GET | `/learn/summary` | Global & per-Juz word mastery summary |
-| GET | `/learn/deck` | Practice deck (`mode=frequency\|juz\|page`) with quiz choices |
-| POST | `/learn/answer` | Record quiz/flashcard answer and update word mastery |
+| GET | `/learn/summary` | Global, per-Juz, due-review & Tadrij learning path summary |
+| GET | `/learn/deck` | Adaptive/SRS practice deck (`mode=due\|adaptive\|frequency\|juz\|page`) |
+| POST | `/learn/answer` | Record quiz/flashcard answer, update SM-2 SRS & daily goal logs |
+| GET | `/learn/goals` | Daily learning target, today's progress & streak |
+| PUT | `/learn/goals` | Update daily learning target |
+| GET | `/learn/grammar-quiz` | Interactive Nahwu & Sharaf quiz (`topic=nahwu\|sarf`) |
 | GET | `/words/{id}/frequency` | Word frequency, variations, Makkiyah/Madaniyah & ayah context |
 | GET | `/words/{id}/context` | Co-occurring roots, contextual translation nuances & filtered ayahs |
 | GET | `/frequency/top` | Top most-frequent words and roots across the Quran |

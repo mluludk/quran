@@ -446,13 +446,49 @@ export interface LearnJuzProgress {
   mastered_words: number;
 }
 
+export interface LearnPathStage {
+  stage: number;
+  title: string;
+  subtitle: string;
+  mode: "frequency" | "juz";
+  juz_number: number;
+  total_words: number;
+  mastered_words: number;
+  progress_pct: number;
+  status: "completed" | "active" | "locked";
+}
+
 export interface LearnSummaryResponse {
   total_unique_words: number;
   mastered_words: number;
   learning_words: number;
+  due_review_count?: number;
   total_correct: number;
   total_wrong: number;
   juz_progress: LearnJuzProgress[] | null;
+  learning_path?: LearnPathStage[] | null;
+}
+
+export interface LearnGoalsResponse {
+  daily_target: number;
+  today_reviewed: number;
+  today_correct: number;
+  current_streak: number;
+  longest_streak: number;
+}
+
+export interface GrammarQuizQuestion {
+  topic: "nahwu" | "sarf";
+  word_id: number;
+  arabic_text: string;
+  translation_id: string;
+  prompt: string;
+  correct_answer: string;
+  choices: string[];
+  explanation: string;
+  surah_id: number;
+  surah_name: string;
+  ayah_number: number;
 }
 
 export interface LearnCard {
@@ -475,7 +511,7 @@ export async function fetchLearnSummary(): Promise<LearnSummaryResponse> {
 }
 
 export async function fetchLearnDeck(params: {
-  mode: "frequency" | "juz" | "page";
+  mode: "due" | "adaptive" | "frequency" | "juz" | "page";
   juz?: number;
   page?: number;
   onlyNew?: boolean;
@@ -494,10 +530,36 @@ export async function fetchLearnDeck(params: {
   return res.cards ?? [];
 }
 
-export async function submitLearnAnswer(normalizedWord: string, isCorrect: boolean): Promise<{ mastery_level: number }> {
-  return apiFetch<{ mastery_level: number }>("/learn/answer", {
+export async function submitLearnAnswer(
+  normalizedWord: string,
+  isCorrect: boolean
+): Promise<{ mastery_level: number; interval_days?: number; ease_factor?: number }> {
+  return apiFetch<{ mastery_level: number; interval_days?: number; ease_factor?: number }>("/learn/answer", {
     method: "POST",
     body: JSON.stringify({ normalized_word: normalizedWord, is_correct: isCorrect }),
+  });
+}
+
+export async function fetchLearnGoals(): Promise<LearnGoalsResponse> {
+  return apiFetch<LearnGoalsResponse>("/learn/goals");
+}
+
+export async function updateLearnGoals(dailyTarget: number): Promise<LearnGoalsResponse> {
+  return apiFetch<LearnGoalsResponse>("/learn/goals", {
+    method: "PUT",
+    body: JSON.stringify({ daily_target: dailyTarget }),
+  });
+}
+
+export async function fetchGrammarQuiz(topic: "nahwu" | "sarf", limit = 10): Promise<GrammarQuizQuestion[]> {
+  const res = await apiFetch<{ questions: GrammarQuizQuestion[] | null }>(`/learn/grammar-quiz?topic=${topic}&limit=${limit}`);
+  return res.questions ?? [];
+}
+
+export async function submitGrammarQuizLog(isCorrect: boolean): Promise<LearnGoalsResponse> {
+  return apiFetch<LearnGoalsResponse>("/learn/quiz-log", {
+    method: "POST",
+    body: JSON.stringify({ is_correct: isCorrect }),
   });
 }
 

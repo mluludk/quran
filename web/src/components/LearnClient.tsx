@@ -3,16 +3,24 @@
 import { useCallback, useEffect, useState } from "react";
 import {
   createVocabItem,
+  fetchGrammarQuiz,
   fetchLearnDeck,
+  fetchLearnGoals,
   fetchLearnSummary,
+  submitGrammarQuizLog,
   submitLearnAnswer,
+  updateLearnGoals,
+  type GrammarQuizQuestion,
   type LearnCard,
+  type LearnGoalsResponse,
   type LearnSummaryResponse,
 } from "@/lib/api";
 
 export default function LearnClient() {
   const [summary, setSummary] = useState<LearnSummaryResponse | null>(null);
-  const [track, setTrack] = useState<"frequency" | "juz" | "page">("frequency");
+  const [goals, setGoals] = useState<LearnGoalsResponse | null>(null);
+  const [engineTab, setEngineTab] = useState<"vocab" | "nahwu" | "sarf">("vocab");
+  const [track, setTrack] = useState<"due" | "adaptive" | "frequency" | "juz" | "page">("adaptive");
   const [juz, setJuz] = useState(30);
   const [page, setPage] = useState(1);
   const [onlyNew, setOnlyNew] = useState(true);
@@ -22,12 +30,18 @@ export default function LearnClient() {
   const [cardIdx, setCardIdx] = useState(0);
   const [loading, setLoading] = useState(true);
 
+  const [grammarQs, setGrammarQs] = useState<GrammarQuizQuestion[]>([]);
+  const [grammarIdx, setGrammarIdx] = useState(0);
+  const [grammarChoice, setGrammarChoice] = useState<string | null>(null);
+  const [grammarLoading, setGrammarLoading] = useState(false);
+
   const [selectedChoice, setSelectedChoice] = useState<string | null>(null);
   const [flipped, setFlipped] = useState(false);
   const [savedToast, setSavedToast] = useState<string | null>(null);
 
   const loadSummary = useCallback(() => {
     fetchLearnSummary().then(setSummary).catch(() => {});
+    fetchLearnGoals().then(setGoals).catch(() => {});
   }, []);
 
   const loadDeck = useCallback(async () => {
@@ -54,8 +68,17 @@ export default function LearnClient() {
   }, [loadSummary]);
 
   useEffect(() => {
-    loadDeck();
-  }, [loadDeck]);
+    if (engineTab === "vocab") {
+      loadDeck();
+    } else {
+      setGrammarLoading(true);
+      setGrammarIdx(0);
+      setGrammarChoice(null);
+      fetchGrammarQuiz(engineTab, 10)
+        .then(setGrammarQs)
+        .finally(() => setGrammarLoading(false));
+    }
+  }, [engineTab, loadDeck]);
 
   const card = cards[cardIdx];
 
@@ -128,10 +151,155 @@ export default function LearnClient() {
         </div>
       </header>
 
+      {/* Daily Learning Goal & Streak */}
+      {goals && (
+        <section style={{ background: "#fff", border: "1px solid #e7e5e4", borderRadius: 12, padding: "0.9rem 1rem", marginBottom: "1rem", display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", gap: "0.75rem" }}>
+          <div style={{ flex: 1, minWidth: 220 }}>
+            <div style={{ display: "flex", justifyContent: "space-between", fontSize: "0.86rem", fontWeight: 700, marginBottom: "0.3rem" }}>
+              <span>Target Harian: {goals.today_reviewed} / {goals.daily_target} soal</span>
+              <span style={{ color: "#b45309" }}>🔥 Streak: {goals.current_streak} hari (Terbaik: {goals.longest_streak})</span>
+            </div>
+            <div style={{ height: 7, background: "#f5f5f4", borderRadius: 999, overflow: "hidden" }}>
+              <div style={{ width: `${Math.min(100, Math.round((goals.today_reviewed * 100) / Math.max(1, goals.daily_target)))}%`, height: "100%", background: goals.today_reviewed >= goals.daily_target ? "#16a34a" : "#d97706" }} />
+            </div>
+          </div>
+          <div style={{ display: "flex", gap: "0.35rem", alignItems: "center" }}>
+            <span style={{ fontSize: "0.76rem", color: "#57534e" }}>Target:</span>
+            {[10, 15, 25, 40].map((t) => (
+              <button
+                key={t}
+                type="button"
+                onClick={() => updateLearnGoals(t).then(setGoals).catch(() => {})}
+                style={{
+                  padding: "0.22rem 0.5rem",
+                  borderRadius: 6,
+                  border: "1px solid #d6cfc2",
+                  background: goals.daily_target === t ? "#0f766e" : "#fff",
+                  color: goals.daily_target === t ? "#fff" : "#292524",
+                  fontSize: "0.76rem",
+                  fontWeight: 600,
+                  cursor: "pointer",
+                }}
+              >
+                {t}
+              </button>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Engine Tabs: Vocab vs Nahwu Quiz vs Sharaf Quiz */}
+      <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap", marginBottom: "1rem" }}>
+        {[
+          { id: "vocab", label: "Kosakata (SRS & Adaptif)" },
+          { id: "nahwu", label: "Kuis Nahwu (I‘rab)" },
+          { id: "sarf", label: "Kuis Sharaf (Akar Kata)" },
+        ].map((tb) => (
+          <button
+            key={tb.id}
+            type="button"
+            onClick={() => setEngineTab(tb.id as "vocab" | "nahwu" | "sarf")}
+            style={{
+              padding: "0.45rem 0.9rem",
+              borderRadius: 8,
+              border: "1px solid #d6cfc2",
+              background: engineTab === tb.id ? "#0f766e" : "#fff",
+              color: engineTab === tb.id ? "#fff" : "#292524",
+              fontWeight: 700,
+              fontSize: "0.86rem",
+              cursor: "pointer",
+            }}
+          >
+            {tb.label}
+          </button>
+        ))}
+      </div>
+
+      {engineTab !== "vocab" && (
+        <section style={{ background: "#fff", border: "1px solid #e7e5e4", borderRadius: 14, padding: "1.5rem", minHeight: 280, marginBottom: "1.25rem" }}>
+          {grammarLoading ? (
+            <p style={{ textAlign: "center", color: "#57534e" }}>Menyiapkan soal {engineTab === "nahwu" ? "Nahwu" : "Sharaf"}...</p>
+          ) : !grammarQs[grammarIdx] ? (
+            <p style={{ textAlign: "center", color: "#57534e" }}>Tidak ada soal tersedia.</p>
+          ) : (
+            (() => {
+              const gq = grammarQs[grammarIdx];
+              return (
+                <div>
+                  <div style={{ display: "flex", justifyContent: "space-between", fontSize: "0.8rem", color: "#78716c", marginBottom: "0.75rem" }}>
+                    <span>Soal {grammarIdx + 1} / {grammarQs.length} · {engineTab.toUpperCase()}</span>
+                    <span>QS. {gq.surah_name} ({gq.surah_id}:{gq.ayah_number})</span>
+                  </div>
+                  <div style={{ textAlign: "center", padding: "0.75rem 0" }}>
+                    <div className="arabic-ui" style={{ fontSize: "2.4rem", color: "#1c1917" }}>{gq.arabic_text}</div>
+                    <div style={{ fontSize: "0.85rem", color: "#57534e", marginBottom: "0.4rem" }}>Arti: {gq.translation_id || "—"}</div>
+                    <div style={{ fontSize: "0.95rem", fontWeight: 700, color: "#0f766e" }}>{gq.prompt}</div>
+                  </div>
+                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.6rem", maxWidth: 540, margin: "0.75rem auto 0" }}>
+                    {gq.choices.map((ch) => {
+                      const picked = grammarChoice === ch;
+                      const isCorrect = ch === gq.correct_answer;
+                      let bg = "#fafaf9";
+                      let border = "1px solid #d6d3d1";
+                      if (grammarChoice !== null) {
+                        if (isCorrect) { bg = "#dcfce7"; border = "1.5px solid #16a34a"; }
+                        else if (picked) { bg = "#fee2e2"; border = "1.5px solid #dc2626"; }
+                      }
+                      return (
+                        <button
+                          key={ch}
+                          type="button"
+                          onClick={async () => {
+                            if (grammarChoice !== null) return;
+                            setGrammarChoice(ch);
+                            const updated = await submitGrammarQuizLog(ch === gq.correct_answer).catch(() => null);
+                            if (updated) setGoals(updated);
+                          }}
+                          className={engineTab === "sarf" ? "arabic-ui" : undefined}
+                          style={{ padding: "0.65rem 0.85rem", borderRadius: 10, border, background: bg, cursor: grammarChoice ? "default" : "pointer", fontWeight: 600, fontSize: engineTab === "sarf" ? "1.15rem" : "0.88rem" }}
+                        >
+                          {ch}
+                        </button>
+                      );
+                    })}
+                  </div>
+                  {grammarChoice !== null && (
+                    <div style={{ marginTop: "1rem", textAlign: "center" }}>
+                      <div style={{ fontSize: "0.82rem", color: "#44403c", background: "#f5f5f4", padding: "0.5rem 0.75rem", borderRadius: 8, maxWidth: 540, margin: "0 auto 0.75rem" }}>
+                        {gq.explanation}
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setGrammarChoice(null);
+                          if (grammarIdx + 1 < grammarQs.length) setGrammarIdx((i) => i + 1);
+                          else {
+                            setGrammarLoading(true);
+                            setGrammarIdx(0);
+                            fetchGrammarQuiz(engineTab, 10).then(setGrammarQs).finally(() => setGrammarLoading(false));
+                          }
+                        }}
+                        style={{ padding: "0.5rem 1.25rem", borderRadius: 8, border: "none", background: "#0f766e", color: "#fff", fontWeight: 600, cursor: "pointer" }}
+                      >
+                        Soal Berikutnya →
+                      </button>
+                    </div>
+                  )}
+                </div>
+              );
+            })()
+          )}
+        </section>
+      )}
+
+      {engineTab === "vocab" && (
+      <>
       {/* Track & Mode Controls */}
       <section style={{ background: "#fff", border: "1px solid #e7e5e4", borderRadius: 12, padding: "1rem", marginBottom: "1.25rem", display: "flex", flexWrap: "wrap", gap: "0.75rem", alignItems: "center", justifyContent: "space-between" }}>
         <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem", alignItems: "center" }}>
           {[
+            { id: "adaptive", label: "Adaptif" },
+            { id: "due", label: `Due Review (${summary?.due_review_count ?? 0})` },
             { id: "frequency", label: "Frekuensi (80/20)" },
             { id: "juz", label: "Per Juz (1–30)" },
             { id: "page", label: "Per Halaman (1–604)" },
@@ -139,7 +307,7 @@ export default function LearnClient() {
             <button
               key={t.id}
               type="button"
-              onClick={() => setTrack(t.id as "frequency" | "juz" | "page")}
+              onClick={() => setTrack(t.id as "due" | "adaptive" | "frequency" | "juz" | "page")}
               style={{
                 padding: "0.4rem 0.8rem",
                 borderRadius: 8,
@@ -348,6 +516,51 @@ export default function LearnClient() {
           </>
         )}
       </section>
+      </>
+      )}
+
+      {/* Tadrij Learning Path */}
+      {summary?.learning_path && (
+        <section style={{ marginTop: "1.5rem" }}>
+          <h2 style={{ fontSize: "1rem", marginBottom: "0.65rem" }}>Learning Path Bertahap (Metode Tadrij)</h2>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: "0.65rem" }}>
+            {summary.learning_path.map((st) => (
+              <div
+                key={st.stage}
+                style={{
+                  padding: "0.75rem",
+                  borderRadius: 10,
+                  border: st.status === "completed" ? "1.5px solid #16a34a" : st.status === "active" ? "1.5px solid #0f766e" : "1px solid #e7e5e4",
+                  background: "#fff",
+                  opacity: st.status === "locked" ? 0.72 : 1,
+                }}
+              >
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: "0.84rem", fontWeight: 700 }}>
+                  <span>{st.title}</span>
+                  <span style={{ fontSize: "0.74rem", color: st.status === "completed" ? "#16a34a" : "#0f766e" }}>
+                    {st.progress_pct.toFixed(0)}%
+                  </span>
+                </div>
+                <div style={{ fontSize: "0.75rem", color: "#57534e", margin: "0.2rem 0 0.45rem" }}>{st.subtitle}</div>
+                <div style={{ height: 5, background: "#f5f5f4", borderRadius: 999, overflow: "hidden", marginBottom: "0.5rem" }}>
+                  <div style={{ width: `${Math.min(100, st.progress_pct)}%`, height: "100%", background: "#0f766e" }} />
+                </div>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setEngineTab("vocab");
+                    setTrack(st.mode);
+                    if (st.juz_number > 0) setJuz(st.juz_number);
+                  }}
+                  style={{ width: "100%", padding: "0.35rem", borderRadius: 6, border: "1px solid #d6cfc2", background: "#fafaf9", fontWeight: 600, fontSize: "0.78rem", cursor: "pointer" }}
+                >
+                  Latih Tahap Ini →
+                </button>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Juz 1-30 Progress Grid */}
       {summary?.juz_progress && (

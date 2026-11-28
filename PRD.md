@@ -105,6 +105,11 @@ Build an offline-first digital Mushaf for Mushaf Madinah, riwayah Hafs, with a 6
 - **Grammar / Syntax Tree & Alternative Opinions:** Visualizes hierarchical phrase/clause trees (`parent_phrase_id`) alongside arc relations in the Ayah I'rab modal, with multi-opinion switching (`opinion_label`).
 - **Sarf Explorer (`/sarf`):** Interactive morphological explorer grouping Quranic words by POS, verb form/wazan (`VF:1..12`), grammatical mood/case/gender/number tags, lemma, and root.
 
+### Quran Learning Engine (`/learn`)
+- **Spaced Repetition & Adaptive Deck:** Tracks `interval_days`, `ease_factor`, and `next_review_at` (SM-2) per normalized word; prioritizes due reviews, high-error words, and high-frequency words (`mode=due|adaptive|frequency|juz|page`).
+- **Learning Path & Daily Goals:** Structured Tadrij-aligned 6-stage learning path with mastery gates, configurable daily word targets, daily logs, and streak tracking (`GET/PUT /api/v1/learn/goals`).
+- **Nahwu & Sarf Quizzes:** Interactive grammar & morphology quizzes testing grammatical roles/amil (*Nahwu*) and roots/verb forms/POS (*Sarf*) via `GET /api/v1/learn/grammar-quiz`.
+
 ## 8. Data and architecture principles
 
 - Preserve original source records and identifiers.
