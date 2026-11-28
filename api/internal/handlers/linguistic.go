@@ -199,7 +199,10 @@ func (h *LinguisticHandler) ExploreSarf(c *fiber.Ctx) error {
 		SELECT wm.word_id, qw.arabic_text, COALESCE(wt.translation,''), COALESCE(wm.pos,''),
 		       COALESCE(l.arabic_text,''), COALESCE(r.arabic_text,''),
 		       COALESCE(wm.morphology_data->>'tags',''),
-		       a.surah_id, s.name_transliteration, a.ayah_number, qw.word_number
+		       a.surah_id, s.name_transliteration, a.ayah_number, qw.word_number,
+		       wm.segment_number, COALESCE(wm.segment_arabic,''),
+		       COALESCE((SELECT string_agg(COALESCE(wm2.segment_arabic,''), '|' ORDER BY wm2.segment_number)
+		                 FROM word_morphology wm2 WHERE wm2.word_id = wm.word_id), '')
 		FROM word_morphology wm
 		JOIN quran_words qw ON qw.id = wm.word_id
 		JOIN ayahs a ON a.id = qw.ayah_id
@@ -221,9 +224,9 @@ func (h *LinguisticHandler) ExploreSarf(c *fiber.Ctx) error {
 	var items []fiber.Map
 	for rows.Next() {
 		var wid int64
-		var ar, tr, pos, lem, rt, tags, sName string
-		var sid, anum, wnum int16
-		if err := rows.Scan(&wid, &ar, &tr, &pos, &lem, &rt, &tags, &sid, &sName, &anum, &wnum); err != nil {
+		var ar, tr, pos, lem, rt, tags, sName, segAr, allSegs string
+		var sid, anum, wnum, segNum int16
+		if err := rows.Scan(&wid, &ar, &tr, &pos, &lem, &rt, &tags, &sid, &sName, &anum, &wnum, &segNum, &segAr, &allSegs); err != nil {
 			return err
 		}
 		items = append(items, fiber.Map{
@@ -238,6 +241,9 @@ func (h *LinguisticHandler) ExploreSarf(c *fiber.Ctx) error {
 			"surah_name":     sName,
 			"ayah_number":    anum,
 			"word_number":    wnum,
+			"segment_number": segNum,
+			"segment_arabic": segAr,
+			"all_segments":   allSegs,
 		})
 	}
 

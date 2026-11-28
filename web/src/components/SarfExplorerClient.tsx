@@ -32,6 +32,82 @@ const QUICK_TAGS = [
   { key: "ADJ", label: "Sifat / Musyabbahah (ADJ)" },
 ];
 
+function isArabicBaseLetter(ch: string): boolean {
+  const cp = ch.codePointAt(0) ?? 0;
+  // Exclude Arabic combining marks / harakat (064B..065F, 0670, 06D6..06ED)
+  if ((cp >= 0x064b && cp <= 0x065f) || cp === 0x0670 || (cp >= 0x06d6 && cp <= 0x06ed)) {
+    return false;
+  }
+  return cp >= 0x0621 && cp <= 0x064a || cp === 0x0671;
+}
+
+function countBaseLetters(s: string): number {
+  let n = 0;
+  for (const ch of s) {
+    if (isArabicBaseLetter(ch)) n++;
+  }
+  return n;
+}
+
+function renderHighlightedArabic(arabicText: string, segmentNumber?: number, allSegments?: string) {
+  if (!segmentNumber || !allSegments) {
+    return <span style={{ color: "#dc2626" }}>{arabicText}</span>;
+  }
+  const segs = allSegments.split("|");
+  if (segs.length <= 1 || segmentNumber < 1 || segmentNumber > segs.length) {
+    return <span style={{ color: "#dc2626" }}>{arabicText}</span>;
+  }
+
+  let skipBase = 0;
+  for (let i = 0; i < segmentNumber - 1; i++) {
+    skipBase += countBaseLetters(segs[i]);
+  }
+  const targetBase = countBaseLetters(segs[segmentNumber - 1]);
+  if (targetBase === 0) {
+    return <span style={{ color: "#dc2626" }}>{arabicText}</span>;
+  }
+
+  const chars = Array.from(arabicText);
+  let baseSeen = 0;
+  let startIdx = chars.length;
+  let endIdx = chars.length;
+
+  for (let idx = 0; idx < chars.length; idx++) {
+    if (isArabicBaseLetter(chars[idx])) {
+      if (baseSeen === skipBase && startIdx === chars.length) {
+        startIdx = idx;
+      }
+      baseSeen++;
+      if (baseSeen === skipBase + targetBase) {
+        // Include trailing harakat attached to the last base letter of this segment
+        let j = idx + 1;
+        while (j < chars.length && !isArabicBaseLetter(chars[j])) {
+          j++;
+        }
+        endIdx = j;
+        break;
+      }
+    }
+  }
+
+  // If this is the last segment, extend to the end of word
+  if (segmentNumber === segs.length) {
+    endIdx = chars.length;
+  }
+
+  const before = chars.slice(0, startIdx).join("");
+  const mid = chars.slice(startIdx, endIdx).join("");
+  const after = chars.slice(endIdx).join("");
+
+  return (
+    <>
+      {before && <span style={{ color: "#1c1917" }}>{before}</span>}
+      {mid && <span style={{ color: "#dc2626" }}>{mid}</span>}
+      {after && <span style={{ color: "#1c1917" }}>{after}</span>}
+    </>
+  );
+}
+
 export default function SarfExplorerClient() {
   const [pos, setPos] = useState("");
   const [tag, setTag] = useState("");
@@ -224,7 +300,7 @@ export default function SarfExplorerClient() {
                   {it.pos}
                 </span>
                 <span className="arabic-ui" style={{ fontSize: "1.65rem", lineHeight: 1.4, color: "#1c1917" }}>
-                  {it.arabic_text}
+                  {renderHighlightedArabic(it.arabic_text, it.segment_number, it.all_segments)}
                 </span>
               </div>
               <div style={{ fontSize: "0.85rem", fontWeight: 600, color: "#065f46", marginTop: "0.25rem" }}>

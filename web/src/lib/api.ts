@@ -246,6 +246,9 @@ export interface SarfExploreItem {
   surah_name: string;
   ayah_number: number;
   word_number: number;
+  segment_number?: number;
+  segment_arabic?: string;
+  all_segments?: string;
 }
 
 export interface SarfExploreResponse {
