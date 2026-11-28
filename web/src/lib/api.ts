@@ -277,6 +277,7 @@ export async function fetchSarfExplore(params?: {
   if (params?.q) sp.set("q", params.q);
   if (params?.limit) sp.set("limit", String(params.limit));
   if (params?.offset) sp.set("offset", String(params.offset));
+  sp.set("v", "2");
   const qs = sp.toString();
   return apiFetch<SarfExploreResponse>(`/sarf/explore${qs ? `?${qs}` : ""}`);
 }
