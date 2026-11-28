@@ -216,9 +216,9 @@ export default function SarfExplorerClient() {
           </div>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))", gap: "0.75rem" }}>
+        <div dir="rtl" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))", gap: "0.75rem" }}>
           {items.map((it, idx) => (
-            <div key={`${it.word_id}-${idx}`} style={{ background: "#fff", border: "1px solid #e7e5e4", borderRadius: 10, padding: "0.8rem" }}>
+            <div key={`${it.word_id}-${idx}`} dir="ltr" style={{ background: "#fff", border: "1px solid #e7e5e4", borderRadius: 10, padding: "0.8rem" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
                 <span style={{ fontSize: "0.72rem", fontWeight: 700, padding: "0.15rem 0.45rem", borderRadius: 6, background: "#f5f5f4", color: "#44403c" }}>
                   {it.pos}
