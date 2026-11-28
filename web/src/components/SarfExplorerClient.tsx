@@ -299,7 +299,7 @@ export default function SarfExplorerClient() {
                 <span style={{ fontSize: "0.72rem", fontWeight: 700, padding: "0.15rem 0.45rem", borderRadius: 6, background: "#f5f5f4", color: "#44403c" }}>
                   {it.pos}
                 </span>
-                <span className="arabic-ui" style={{ fontSize: "1.65rem", lineHeight: 1.4, color: "#1c1917" }}>
+                <span dir="rtl" className="arabic-ui" style={{ fontSize: "1.65rem", lineHeight: 1.4, color: "#1c1917", unicodeBidi: "embed" }}>
                   {renderHighlightedArabic(it.arabic_text, it.segment_number, it.all_segments)}
                 </span>
               </div>
