@@ -137,7 +137,13 @@ async function apiFetch<T>(path: string, init?: RequestInit): Promise<T> {
   if (res.status === 204) {
     return undefined as T;
   }
-  return res.json() as Promise<T>;
+  const raw = await res.text();
+  // Normalize legacy QPC open-tanwin codepoints (U+0656/U+0657/U+065E) for web Arabic fonts
+  const normalized = raw
+    .replace(/\u065e|\\u065e/gi, "\u064c")
+    .replace(/\u0657|\\u0657/gi, "\u064b")
+    .replace(/\u0656|\\u0656/gi, "\u064d");
+  return JSON.parse(normalized) as T;
 }
 
 export async function fetchSurahs(): Promise<SurahSummary[]> {
