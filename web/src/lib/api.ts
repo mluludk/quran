@@ -204,11 +204,72 @@ export interface AyahIrabResponse {
     analysis_id: number;
     opinion_label: string;
     summary: string;
-    source: { name: string; author: string };
+    validation_status?: string;
+    confidence_score?: number;
+    validation_notes?: string;
+    source: { name: string; author: string; version?: string; source_url?: string };
     nodes: AyahIrabNode[];
     relations: AyahIrabRelation[] | null;
-    phrases: AyahIrabPhrase[] | null;
+    phrases: (AyahIrabPhrase & { parent_phrase_id?: number | null })[] | null;
   }[];
+}
+
+export interface IrabValidationSummaryResponse {
+  total_analyses: number;
+  alternative_opinions: number;
+  avg_confidence: number;
+  by_status: { status: string; count: number; avg_confidence: number }[] | null;
+  needs_review_sample: {
+    surah_id: number;
+    surah_name: string;
+    ayah_number: number;
+    confidence_score: number;
+    notes: string;
+  }[] | null;
+}
+
+export interface SarfExploreItem {
+  word_id: number;
+  arabic_text: string;
+  translation_id: string;
+  pos: string;
+  lemma: string;
+  root: string;
+  tags: string;
+  surah_id: number;
+  surah_name: string;
+  ayah_number: number;
+  word_number: number;
+}
+
+export interface SarfExploreResponse {
+  summary: {
+    pos_counts: { pos: string; count: number }[] | null;
+    verb_form_counts: { tag: string; count: number }[] | null;
+  };
+  items: SarfExploreItem[] | null;
+  pagination: { total: number; limit: number; offset: number };
+}
+
+export async function fetchIrabValidationSummary(): Promise<IrabValidationSummaryResponse> {
+  return apiFetch<IrabValidationSummaryResponse>("/irab/validation-summary");
+}
+
+export async function fetchSarfExplore(params?: {
+  pos?: string;
+  tag?: string;
+  q?: string;
+  limit?: number;
+  offset?: number;
+}): Promise<SarfExploreResponse> {
+  const sp = new URLSearchParams();
+  if (params?.pos) sp.set("pos", params.pos);
+  if (params?.tag) sp.set("tag", params.tag);
+  if (params?.q) sp.set("q", params.q);
+  if (params?.limit) sp.set("limit", String(params.limit));
+  if (params?.offset) sp.set("offset", String(params.offset));
+  const qs = sp.toString();
+  return apiFetch<SarfExploreResponse>(`/sarf/explore${qs ? `?${qs}` : ""}`);
 }
 
 export async function fetchWordDetail(wordId: number): Promise<WordDetailResponse> {

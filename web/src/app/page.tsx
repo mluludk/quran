@@ -81,6 +81,20 @@ export default function HomePage() {
         >
           Semantic &amp; Context Explorer (/context) →
         </a>
+        <a
+          href="/sarf"
+          style={{
+            padding: "0.55rem 1rem",
+            borderRadius: 8,
+            border: "1px solid #d6cfc2",
+            background: "#fff",
+            color: "#292524",
+            textDecoration: "none",
+            fontWeight: 600,
+          }}
+        >
+          Sarf &amp; Linguistic Engine (/sarf) →
+        </a>
         <a href="/m0-proof" style={{ padding: "0.55rem 0.5rem", fontWeight: 600, color: "#7c5c32" }}>
           M0 Renderer Proof (Halaman 1–3)
         </a>

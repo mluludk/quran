@@ -124,6 +124,14 @@ Backlog ini diturunkan dari [PRD.md](../PRD.md) dan [development-roadmap.md](./d
     - Bangun antarmuka `/context` dengan preset (`تقوى`, `إيمان`, `صبر`, `رحمة`, `هدى`), filter pasangan kata, dan perbandingan ayat.
 48. **[M4] Schema & Kurasi Editorial Semantic Concepts (Tahap 2)** (`area:data`, `area:legal`, `P2`) — *Dep: #47*
     - Rancang tabel konsep tematik terkurasi beserta `source_id` dan review editorial ahli tafsir/bahasa Arab.
+49. **[M4] Schema, Migrasi & Audit Validasi I'rab (`007_irab_validation.sql`)** (`area:data`, `area:etl`, `P1`) — *Dep: #24*
+    - Tambah kolom `validation_status`, `confidence_score`, `validation_notes`, `validated_at` pada `irab_analyses`, jalankan audit seluruh 6.236 ayat, serta tambahkan contoh alternatif analisis i'rab (`opinion_label = 'alternative'`).
+50. **[M2] API Linguistic Engine: Validasi I'rab, Multi-Opini & Sarf Explorer** (`area:api`, `P1`) — *Dep: #49*
+    - Ekspos `validation_status`, `confidence_score`, `parent_phrase_id`, dan multi-opini pada endpoint i'rab, serta tambah `GET /irab/validation-summary` dan `GET /sarf/explore`.
+51. **[M3-Web] Syntax Tree, Badge Validasi & Switcher Alternatif I'rab** (`area:web`, `P1`) — *Dep: #50*
+    - Perbarui `AyahIrabDiagramModal.tsx` dengan tab **Grammar / Syntax Tree**, badge **Source, Confidence & Validation Status**, serta switcher **Alternatif Analisis I'rab**.
+52. **[M3-Web] Halaman `/sarf` (Sarf Explorer)** (`area:web`, `P1`) — *Dep: #50*
+    - Bangun antarmuka `/sarf` untuk menelusuri bentuk kata/wazan (`VF:1..12`), POS, fitur morfologi, akar kata, dan contoh penggunaannya dalam Al-Qur'an.
 
 ### M5: QA & Release
 20. **[M5] Visual QA, offline QA, dan verifikasi atribusi lisensi final** (`area:data`, `area:legal`, `P0`) — *Dep: #15, #18*

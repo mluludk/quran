@@ -61,6 +61,8 @@ Base path: `/api/v1`. JSON. Authentication requirements for user-state endpoints
 | GET | `/words/{id}/frequency` | Word frequency, variations, Makkiyah/Madaniyah & ayah context |
 | GET | `/words/{id}/context` | Co-occurring roots, contextual translation nuances & filtered ayahs |
 | GET | `/frequency/top` | Top most-frequent words and roots across the Quran |
+| GET | `/irab/validation-summary` | I'rab validation status, confidence & completeness summary |
+| GET | `/sarf/explore` | Sarf/morphological pattern breakdown & filtered Quranic words |
 
 ## 5. Example page response
 

@@ -212,4 +212,36 @@ func TestCoreAndIrabEndpoints(t *testing.T) {
 	if rec.Code != 200 {
 		t.Fatalf("/words/44/context status = %d: %s", rec.Code, rec.Body.String())
 	}
+
+	// 14. /api/v1/irab/validation-summary & multi-opinion /ayahs/1/1/irab
+	rec = httptest.NewRecorder()
+	h.ServeHTTP(rec, httptest.NewRequest("GET", "/api/v1/irab/validation-summary", nil))
+	if rec.Code != 200 {
+		t.Fatalf("/irab/validation-summary status = %d: %s", rec.Code, rec.Body.String())
+	}
+	rec = httptest.NewRecorder()
+	h.ServeHTTP(rec, httptest.NewRequest("GET", "/api/v1/ayahs/1/1/irab", nil))
+	if rec.Code != 200 {
+		t.Fatalf("/ayahs/1/1/irab status = %d: %s", rec.Code, rec.Body.String())
+	}
+	var irab11 struct {
+		Analyses []struct {
+			OpinionLabel     string  `json:"opinion_label"`
+			ValidationStatus string  `json:"validation_status"`
+			ConfidenceScore  float64 `json:"confidence_score"`
+		} `json:"analyses"`
+	}
+	if err := json.Unmarshal(rec.Body.Bytes(), &irab11); err != nil {
+		t.Fatal(err)
+	}
+	if len(irab11.Analyses) < 2 || irab11.Analyses[0].ValidationStatus == "" || irab11.Analyses[0].ConfidenceScore <= 0 {
+		t.Fatalf("expected >=2 opinions & validation metadata for 1:1, got %+v", irab11.Analyses)
+	}
+
+	// 15. /api/v1/sarf/explore
+	rec = httptest.NewRecorder()
+	h.ServeHTTP(rec, httptest.NewRequest("GET", "/api/v1/sarf/explore?pos=V&limit=10", nil))
+	if rec.Code != 200 {
+		t.Fatalf("/sarf/explore status = %d: %s", rec.Code, rec.Body.String())
+	}
 }

@@ -50,6 +50,7 @@ func NewApp(pool *pgxpool.Pool, manifestPath string, corsOrigins string) *fiber.
 	lh := &handlers.LearnHandler{Pool: pool}
 	fh := &handlers.FrequencyHandler{Pool: pool}
 	ch := &handlers.ContextHandler{Pool: pool}
+	ling := &handlers.LinguisticHandler{Pool: pool}
 
 	v1 := app.Group("/api/v1")
 
@@ -102,6 +103,10 @@ func NewApp(pool *pgxpool.Pool, manifestPath string, corsOrigins string) *fiber.
 	v1.Get("/words/:id/frequency", fh.GetWordFrequency)
 	v1.Get("/words/:id/context", ch.GetWordContext)
 	v1.Get("/frequency/top", fh.GetTopFrequency)
+
+	// Quran Linguistic Engine (Validation & Sarf Explorer)
+	v1.Get("/irab/validation-summary", ling.GetIrabValidationSummary)
+	v1.Get("/sarf/explore", ling.ExploreSarf)
 
 	return app
 }

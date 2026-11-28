@@ -281,7 +281,9 @@ func (h *QuranHandler) GetAyahIrab(c *fiber.Ctx) error {
 	wRows.Close()
 
 	rows, err := h.Pool.Query(c.Context(), `
-		SELECT ia.id, ia.opinion_label, COALESCE(ia.summary,''), s.name, COALESCE(s.author,'')
+		SELECT ia.id, ia.opinion_label, COALESCE(ia.summary,''), s.name, COALESCE(s.author,''),
+		       COALESCE(s.version,''), COALESCE(s.source_url,''),
+		       ia.validation_status, ia.confidence_score::float8, COALESCE(ia.validation_notes,'')
 		FROM irab_analyses ia
 		JOIN irab_sources s ON s.id = ia.source_id
 		WHERE ia.ayah_id = $1
@@ -295,8 +297,9 @@ func (h *QuranHandler) GetAyahIrab(c *fiber.Ctx) error {
 	var analyses []fiber.Map
 	for rows.Next() {
 		var aid int64
-		var label, summary, srcName, author string
-		if err := rows.Scan(&aid, &label, &summary, &srcName, &author); err != nil {
+		var label, summary, srcName, author, srcVersion, srcURL, valStatus, valNotes string
+		var confScore float64
+		if err := rows.Scan(&aid, &label, &summary, &srcName, &author, &srcVersion, &srcURL, &valStatus, &confScore, &valNotes); err != nil {
 			return err
 		}
 
@@ -372,7 +375,7 @@ func (h *QuranHandler) GetAyahIrab(c *fiber.Ctx) error {
 
 		pRows, err := h.Pool.Query(c.Context(), `
 			SELECT id, phrase_type, phrase_arabic, phrase_latin, start_word_id, end_word_id,
-			       COALESCE(mahal_irab,''), COALESCE(explanation,'')
+			       COALESCE(mahal_irab,''), COALESCE(explanation,''), parent_phrase_id
 			FROM irab_phrases
 			WHERE analysis_id = $1
 			ORDER BY start_word_id, end_word_id, id
@@ -383,32 +386,42 @@ func (h *QuranHandler) GetAyahIrab(c *fiber.Ctx) error {
 		var phrases []fiber.Map
 		for pRows.Next() {
 			var pid, swid, ewid int64
+			var parentID *int64
 			var ptype, par, plat, mahal, expl string
-			if err := pRows.Scan(&pid, &ptype, &par, &plat, &swid, &ewid, &mahal, &expl); err != nil {
+			if err := pRows.Scan(&pid, &ptype, &par, &plat, &swid, &ewid, &mahal, &expl, &parentID); err != nil {
 				pRows.Close()
 				return err
 			}
 			phrases = append(phrases, fiber.Map{
-				"id":            pid,
-				"phrase_type":   ptype,
-				"phrase_arabic": par,
-				"phrase_latin":  plat,
-				"start_word_id": swid,
-				"end_word_id":   ewid,
-				"mahal_irab":    mahal,
-				"explanation":   expl,
+				"id":               pid,
+				"phrase_type":      ptype,
+				"phrase_arabic":    par,
+				"phrase_latin":     plat,
+				"start_word_id":    swid,
+				"end_word_id":      ewid,
+				"mahal_irab":       mahal,
+				"explanation":      expl,
+				"parent_phrase_id": parentID,
 			})
 		}
 		pRows.Close()
 
 		analyses = append(analyses, fiber.Map{
-			"analysis_id":   aid,
-			"opinion_label": label,
-			"summary":       summary,
-			"source":        fiber.Map{"name": srcName, "author": author},
-			"nodes":         nodes,
-			"relations":     relations,
-			"phrases":       phrases,
+			"analysis_id":       aid,
+			"opinion_label":     label,
+			"summary":           summary,
+			"validation_status": valStatus,
+			"confidence_score":  confScore,
+			"validation_notes":  valNotes,
+			"source": fiber.Map{
+				"name":       srcName,
+				"author":     author,
+				"version":    srcVersion,
+				"source_url": srcURL,
+			},
+			"nodes":     nodes,
+			"relations": relations,
+			"phrases":   phrases,
 		})
 	}
 

@@ -100,6 +100,11 @@ Build an offline-first digital Mushaf for Mushaf Madinah, riwayah Hafs, with a 6
 ### Semantic & Context Explorer (`/context`)
 - Objective data-driven exploration of co-occurring roots/words (*collocations*), contextual Indonesian translation nuances, and filtered ayah comparisons (with quick presets such as `تقوى`, `إيمان`, `صبر`, `رحمة`, `هدى`). Curated editorial semantic concepts remain a separate, source-attributed phase.
 
+### Quran Linguistic Engine (`/mushaf` I'rab & `/sarf`)
+- **I'rab Validation & Provenance:** Tracks `validation_status` (`verified`, `auto_validated`, `needs_review`), `confidence_score`, source metadata, and automated integrity audit across all 6,236 ayahs (`GET /api/v1/irab/validation-summary`).
+- **Grammar / Syntax Tree & Alternative Opinions:** Visualizes hierarchical phrase/clause trees (`parent_phrase_id`) alongside arc relations in the Ayah I'rab modal, with multi-opinion switching (`opinion_label`).
+- **Sarf Explorer (`/sarf`):** Interactive morphological explorer grouping Quranic words by POS, verb form/wazan (`VF:1..12`), grammatical mood/case/gender/number tags, lemma, and root.
+
 ## 8. Data and architecture principles
 
 - Preserve original source records and identifiers.
