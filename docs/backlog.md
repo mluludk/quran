@@ -140,6 +140,14 @@ Backlog ini diturunkan dari [PRD.md](../PRD.md) dan [development-roadmap.md](./d
     - Sajikan soal pilihan ganda interaktif untuk kedudukan nahwu/amil dan wazan/akar kata sharaf dari data tervalidasi.
 56. **[M3-Web] UI Learning Engine di `/learn` (SRS, Goals, Path & Quiz Nahwu/Sharaf)** (`area:web`, `P1`) — *Dep: #54, #55*
     - Lengkapi halaman `/learn` dengan target harian & streak, mode Due/Adaptive, kartu Learning Path bertahap, serta tab Kuis Nahwu dan Kuis Sharaf.
+57. **[M4] Schema & Seed Quran Knowledge Engine (`009_knowledge_engine.sql`)** (`area:data`, `area:legal`, `P1`) — *Dep: #48*
+    - Tambah tabel `knowledge_concepts`, `knowledge_concept_links`, `knowledge_themes`, `knowledge_theme_ayahs`, `ayah_cross_references`, `tafsir_sources`, `ayah_tafsirs`, dan `knowledge_notes` beserta data awal terkurasi.
+58. **[M2] API Knowledge Engine (Semantic Network, Tafsir, Cross-Ref & Notes)** (`area:api`, `P1`) — *Dep: #57*
+    - Implementasi `/knowledge/overview`, `/knowledge/concepts/{slug}`, `/knowledge/themes/{slug}`, `/ayahs/{surah}/{ayah}/knowledge`, serta CRUD `/knowledge/notes`.
+59. **[M3-Web] Halaman `/knowledge` (Semantic Network, Concept & Thematic Explorer)** (`area:web`, `P1`) — *Dep: #58*
+    - Bangun visualisasi SVG Semantic Network, Concept Explorer, dan Thematic Quran Explorer di `/knowledge`.
+60. **[M3-Web] Tafsir Reference Layer, Cross-Ref Ayat & Personal Knowledge Library** (`area:web`, `P1`) — *Dep: #58, #59*
+    - Bangun penjelajah rujukan tafsir, relasi ayat-ke-ayat, dan catatan pengetahuan bertag di `/knowledge`.
 
 ### M5: QA & Release
 20. **[M5] Visual QA, offline QA, dan verifikasi atribusi lisensi final** (`area:data`, `area:legal`, `P0`) — *Dep: #15, #18*

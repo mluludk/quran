@@ -661,3 +661,151 @@ export async function fetchWordContext(
   });
   return apiFetch<WordContextResponse>(`/words/${wordId}/context?${sp.toString()}`);
 }
+
+export interface KnowledgeConcept {
+  id: number;
+  slug: string;
+  name_arabic: string;
+  name_latin: string;
+  category: string;
+  summary: string;
+  source_attribution: string;
+  root_text: string;
+}
+
+export interface KnowledgeConceptLink {
+  id: number;
+  source_slug: string;
+  target_slug: string;
+  source_arabic: string;
+  target_arabic: string;
+  relation_type: string;
+  description: string;
+}
+
+export interface KnowledgeTheme {
+  id: number;
+  slug: string;
+  title: string;
+  description: string;
+  ayah_count: number;
+}
+
+export interface KnowledgeOverviewResponse {
+  concepts: KnowledgeConcept[] | null;
+  links: KnowledgeConceptLink[] | null;
+  themes: KnowledgeTheme[] | null;
+}
+
+export interface KnowledgeConceptDetailResponse {
+  concept: KnowledgeConcept;
+  related_concepts: {
+    slug: string;
+    name_arabic: string;
+    name_latin: string;
+    relation_type: string;
+    description: string;
+    direction: string;
+  }[] | null;
+  ayahs: {
+    ayah_id: number;
+    surah_id: number;
+    surah_name: string;
+    surah_arabic: string;
+    ayah_number: number;
+    arabic_text: string;
+    translation_id: string;
+  }[] | null;
+}
+
+export interface AyahKnowledgeResponse {
+  ayah_id: number;
+  surah_id: number;
+  surah_name: string;
+  surah_arabic: string;
+  ayah_number: number;
+  arabic_text: string;
+  translation_id: string;
+  tafsirs: {
+    source_name: string;
+    author: string;
+    license_note: string;
+    summary_text: string;
+    key_points: string;
+  }[] | null;
+  cross_references: {
+    surah_id: number;
+    surah_name: string;
+    ayah_number: number;
+    relation_type: string;
+    explanation: string;
+    source_attribution: string;
+    arabic_text: string;
+  }[] | null;
+  themes: { slug: string; title: string; note: string }[] | null;
+}
+
+export interface KnowledgeNote {
+  id: number;
+  title: string;
+  content: string;
+  tags: string;
+  surah_id: number | null;
+  surah_name: string;
+  ayah_number: number | null;
+  concept_slug: string;
+  concept_latin: string;
+  created_at: string;
+}
+
+export async function fetchKnowledgeOverview(): Promise<KnowledgeOverviewResponse> {
+  return apiFetch<KnowledgeOverviewResponse>("/knowledge/overview");
+}
+
+export async function fetchKnowledgeConcept(slug: string): Promise<KnowledgeConceptDetailResponse> {
+  return apiFetch<KnowledgeConceptDetailResponse>(`/knowledge/concepts/${encodeURIComponent(slug)}`);
+}
+
+export async function fetchKnowledgeTheme(slug: string): Promise<{
+  theme: KnowledgeTheme;
+  ayahs: {
+    ayah_id: number;
+    surah_id: number;
+    surah_name: string;
+    surah_arabic: string;
+    ayah_number: number;
+    note: string;
+    concept_slug: string;
+    concept_arabic: string;
+    arabic_text: string;
+  }[] | null;
+}> {
+  return apiFetch(`/knowledge/themes/${encodeURIComponent(slug)}`);
+}
+
+export async function fetchAyahKnowledge(surah: number, ayah: number): Promise<AyahKnowledgeResponse> {
+  return apiFetch<AyahKnowledgeResponse>(`/ayahs/${surah}/${ayah}/knowledge`);
+}
+
+export async function fetchKnowledgeNotes(): Promise<KnowledgeNote[]> {
+  const res = await apiFetch<{ notes: KnowledgeNote[] | null }>("/knowledge/notes");
+  return res.notes ?? [];
+}
+
+export async function createKnowledgeNote(body: {
+  title: string;
+  content: string;
+  tags?: string;
+  surah_id?: number;
+  ayah_number?: number;
+  concept_slug?: string;
+}): Promise<{ id: number }> {
+  return apiFetch<{ id: number }>("/knowledge/notes", {
+    method: "POST",
+    body: JSON.stringify(body),
+  });
+}
+
+export async function deleteKnowledgeNote(id: number): Promise<void> {
+  await apiFetch<void>(`/knowledge/notes/${id}`, { method: "DELETE" });
+}

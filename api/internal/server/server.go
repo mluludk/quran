@@ -51,6 +51,7 @@ func NewApp(pool *pgxpool.Pool, manifestPath string, corsOrigins string) *fiber.
 	fh := &handlers.FrequencyHandler{Pool: pool}
 	ch := &handlers.ContextHandler{Pool: pool}
 	ling := &handlers.LinguisticHandler{Pool: pool}
+	kh := &handlers.KnowledgeHandler{Pool: pool}
 
 	v1 := app.Group("/api/v1")
 
@@ -111,6 +112,15 @@ func NewApp(pool *pgxpool.Pool, manifestPath string, corsOrigins string) *fiber.
 	// Quran Linguistic Engine (Validation & Sarf Explorer)
 	v1.Get("/irab/validation-summary", ling.GetIrabValidationSummary)
 	v1.Get("/sarf/explore", ling.ExploreSarf)
+
+	// Quran Knowledge Engine
+	v1.Get("/knowledge/overview", kh.GetOverview)
+	v1.Get("/knowledge/concepts/:slug", kh.GetConceptDetail)
+	v1.Get("/knowledge/themes/:slug", kh.GetThemeDetail)
+	v1.Get("/ayahs/:surah/:ayah/knowledge", kh.GetAyahKnowledge)
+	v1.Get("/knowledge/notes", kh.ListNotes)
+	v1.Post("/knowledge/notes", kh.CreateNote)
+	v1.Delete("/knowledge/notes/:id", kh.DeleteNote)
 
 	return app
 }

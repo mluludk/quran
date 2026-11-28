@@ -266,4 +266,26 @@ func TestCoreAndIrabEndpoints(t *testing.T) {
 	if rec.Code != 200 {
 		t.Fatalf("/learn/grammar-quiz?topic=sarf status = %d: %s", rec.Code, rec.Body.String())
 	}
+
+	// 17. Knowledge Engine: /knowledge/overview, /knowledge/concepts/taqwa, /ayahs/1/6/knowledge, /knowledge/notes
+	rec = httptest.NewRecorder()
+	h.ServeHTTP(rec, httptest.NewRequest("GET", "/api/v1/knowledge/overview", nil))
+	if rec.Code != 200 {
+		t.Fatalf("/knowledge/overview status = %d: %s", rec.Code, rec.Body.String())
+	}
+	rec = httptest.NewRecorder()
+	h.ServeHTTP(rec, httptest.NewRequest("GET", "/api/v1/knowledge/concepts/taqwa", nil))
+	if rec.Code != 200 {
+		t.Fatalf("/knowledge/concepts/taqwa status = %d: %s", rec.Code, rec.Body.String())
+	}
+	rec = httptest.NewRecorder()
+	h.ServeHTTP(rec, httptest.NewRequest("GET", "/api/v1/ayahs/1/6/knowledge", nil))
+	if rec.Code != 200 {
+		t.Fatalf("/ayahs/1/6/knowledge status = %d: %s", rec.Code, rec.Body.String())
+	}
+	rec = httptest.NewRecorder()
+	h.ServeHTTP(rec, httptest.NewRequest("GET", "/api/v1/knowledge/notes", nil))
+	if rec.Code != 200 {
+		t.Fatalf("/knowledge/notes status = %d: %s", rec.Code, rec.Body.String())
+	}
 }

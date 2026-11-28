@@ -110,6 +110,12 @@ Build an offline-first digital Mushaf for Mushaf Madinah, riwayah Hafs, with a 6
 - **Learning Path & Daily Goals:** Structured Tadrij-aligned 6-stage learning path with mastery gates, configurable daily word targets, daily logs, and streak tracking (`GET/PUT /api/v1/learn/goals`).
 - **Nahwu & Sarf Quizzes:** Interactive grammar & morphology quizzes testing grammatical roles/amil (*Nahwu*) and roots/verb forms/POS (*Sarf*) via `GET /api/v1/learn/grammar-quiz`.
 
+### Quran Knowledge Engine (`/knowledge`)
+- **Semantic Network & Concept Explorer:** Curated concepts (`تقوى`, `إيمان`, `هدى`, `صبر`, `رحمة`, `شكر`, `توكل`, `إخلاص`) with typed semantic graph edges (`nodes` & `edges`).
+- **Thematic Quran Explorer:** Multi-category thematic index mapping ayahs to Akidah, Ibadah, Akhlak, Kisah, Hukum, and Hari Akhir.
+- **Tafsir Reference Layer & Cross-Reference Ayat:** Source-attributed tafsir summaries per ayah (`tafsir_sources`, `ayah_tafsirs`) and explicit ayah-to-ayah cross-references (`ayah_cross_references`).
+- **Personal Knowledge Library:** Tagged personal study notes linked to ayahs, concepts, or themes (`GET/POST/DELETE /api/v1/knowledge/notes`).
+
 ## 8. Data and architecture principles
 
 - Preserve original source records and identifiers.

@@ -61,6 +61,13 @@ Base path: `/api/v1`. JSON. Authentication requirements for user-state endpoints
 | GET | `/learn/goals` | Daily learning target, today's progress & streak |
 | PUT | `/learn/goals` | Update daily learning target |
 | GET | `/learn/grammar-quiz` | Interactive Nahwu & Sharaf quiz (`topic=nahwu\|sarf`) |
+| GET | `/knowledge/overview` | Semantic network graph, curated concepts & thematic index |
+| GET | `/knowledge/concepts/{slug}` | Concept detail, related concepts & mapped ayahs |
+| GET | `/knowledge/themes/{slug}` | Thematic ayah list |
+| GET | `/ayahs/{surah}/{ayah}/knowledge` | Tafsir reference layer, cross-references & themes for an ayah |
+| GET | `/knowledge/notes` | List personal knowledge library notes & tags |
+| POST | `/knowledge/notes` | Create tagged personal knowledge note |
+| DELETE | `/knowledge/notes/{id}` | Delete personal knowledge note |
 | GET | `/words/{id}/frequency` | Word frequency, variations, Makkiyah/Madaniyah & ayah context |
 | GET | `/words/{id}/context` | Co-occurring roots, contextual translation nuances & filtered ayahs |
 | GET | `/frequency/top` | Top most-frequent words and roots across the Quran |
